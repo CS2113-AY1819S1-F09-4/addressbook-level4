@@ -3,6 +3,8 @@ package seedu.recruit.model.candidate;
 import static java.util.Objects.requireNonNull;
 import static seedu.recruit.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -75,6 +77,18 @@ public class UniqueCandidateList implements Iterable<Candidate> {
         if (!internalList.remove(toRemove)) {
             throw new PersonNotFoundException();
         }
+    }
+
+    /**
+     * Sorts candidates in CandidateBook by name
+     */
+    public void sortPersons() {
+        Collections.sort(internalList, new Comparator<Candidate>() {
+            @Override
+            public int compare(Candidate o1, Candidate o2) {
+                return (o1.getName().toString()).compareTo(o2.getName().toString());
+            }
+        });
     }
 
     public void setPersons(UniqueCandidateList replacement) {

@@ -87,6 +87,13 @@ public class CandidateBook implements ReadOnlyCandidateBook {
     }
 
     /**
+     * Sorts the candidate list
+     */
+    public void sortCandidateByName() {
+        persons.sortPersons();
+    }
+
+    /**
      * Removes {@code key} from this {@code CandidateBook}.
      * {@code key} must exist in the recruit book.
      */
@@ -103,7 +110,7 @@ public class CandidateBook implements ReadOnlyCandidateBook {
     }
 
     @Override
-    public ObservableList<Candidate> getCandidatelist() {
+    public ObservableList<Candidate>    getCandidatelist() {
         return persons.asUnmodifiableObservableList();
     }
 
