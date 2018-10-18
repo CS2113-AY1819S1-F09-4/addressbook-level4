@@ -18,15 +18,16 @@
 <li><a href="#adding-a-candidate-company-job-code-add-code">3.3. Adding a candidate / company / job  : <code>add</code></a></li>
 <li><a href="#exits-from-any-intermediate-command">3.4. Exits from any intermediate command</a></li>
 <li><a href="#listing-details-of-candidates-jobs-code-list-code">3.5. Listing details of candidates / jobs : <code>list</code></a></li>
-<li><a href="#editing-a-candidate-job-code-editc-code">3.6. Editing a candidate / job : <code>editc</code></a></li>
+<li><a href="#editing-a-candidate-company-job-code-edit-code">3.6. Editing a candidate / company / job : <code>edit</code></a></li>
 <li><a href="#locating-candidates-by-search-parameter-code-find-code">3.7. Locating candidates by search parameter : <code>find</code></a></li>
 <li><a href="#filtering-by-a-specific-tag-code-filter-code">3.8. Filtering by a specific tag : <code>filter</code></a></li>
-<li><a href="#deleting-a-candidate-job-code-delete-code">3.9. Deleting a candidate / job : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.10. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>exit</code></a></li>
-<li><a href="#sending-emails-code-email-code">3.12. Sending emails : <code>email</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#sorting-candidates-company-job-code-sort-code">3.9. Sorting candidates / company / job : <code>sort</code></a></li>
+<li><a href="#deleting-a-candidate-job-code-delete-code">3.10. Deleting a candidate / job : <code>delete</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
+<li><a href="#sending-emails-code-email-code">3.13. Sending emails : <code>email</code></a></li>
+<li><a href="#saving-the-data">3.14. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -294,9 +295,9 @@ The index must be an index number shown in the displayed company list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-candidate-job-code-editc-code"><a class="link" href="#editing-a-candidate-job-code-editc-code">3.6. Editing a candidate / job : <code>editc</code></a></h3>
+<h3 id="editing-a-candidate-company-job-code-edit-code"><a class="link" href="#editing-a-candidate-company-job-code-edit-code">3.6. Editing a candidate / company / job : <code>edit</code></a></h3>
 <div class="sect3">
-<h4 id="edits-attributes-of-the-candidate-at-the-specified-index-code-index-code"><a class="link" href="#edits-attributes-of-the-candidate-at-the-specified-index-code-index-code">3.6.1. Edits attributes of the candidate at the specified index <code>&lt;INDEX&gt;</code></a></h4>
+<h4 id="edits-attributes-of-the-candidate-at-the-specified-index-code-index-code"><a class="link" href="#edits-attributes-of-the-candidate-at-the-specified-index-code-index-code">3.6.1. Edits attributes of the candidate at the specified index <code>INDEX</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>editc &lt;INDEX&gt;</code></p>
 </div>
@@ -321,7 +322,28 @@ The index must be an index number shown in the displayed candidates list.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edits-details-of-a-job-offer"><a class="link" href="#edits-details-of-a-job-offer">3.6.2. Edits details of a job offer</a></h4>
+<h4 id="edits-details-of-a-company-at-the-specified-index-code-index-code"><a class="link" href="#edits-details-of-a-company-at-the-specified-index-code-index-code">3.6.2. Edits details of a company at the specified index <code>INDEX</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editC &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the company with the specified <code>INDEX</code>.
+The index must be an index number shown in the displayed company list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editC 1 n/KFC p/62226111</code><br>
+(Edits the name and phone number of the company with index 1 to be KFC and 62226111</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edits-details-of-a-job-offer"><a class="link" href="#edits-details-of-a-job-offer">3.6.3. Edits details of a job offer</a></h4>
 <div class="paragraph">
 <p>Format: <code>editj &lt;INDEX&gt;</code></p>
 </div>
@@ -400,7 +422,7 @@ Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>,
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insentitive. e.g. <code>kfc</code> will match <code>KFC</code></p>
+<p>The search is case insensitive. e.g. <code>kfc</code> will match <code>KFC</code></p>
 </li>
 <li>
 <p>The order of the keywords does not matter. e.g. <code>Pte Ltd Hanbaobao</code> will match <code>Hanbaobao Pte Ltd</code></p>
@@ -471,9 +493,44 @@ Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-candidate-job-code-delete-code"><a class="link" href="#deleting-a-candidate-job-code-delete-code">3.9. Deleting a candidate / job : <code>delete</code></a></h3>
+<h3 id="sorting-candidates-company-job-code-sort-code"><a class="link" href="#sorting-candidates-company-job-code-sort-code">3.9. Sorting candidates / company / job : <code>sort</code></a></h3>
 <div class="sect3">
-<h4 id="deleting-a-specific-candidate"><a class="link" href="#deleting-a-specific-candidate">3.9.1. Deleting a specific candidate</a></h4>
+<h4 id="sorting-candidates-based-on-different-fields"><a class="link" href="#sorting-candidates-based-on-different-fields">3.9.1. Sorting candidates based on different fields</a></h4>
+<div class="paragraph">
+<p>Format: <code>sortc &lt;tag&gt;</code><br>
+Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</code>, <code>h/</code>, <code>s/</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only one tag/field is included when using the sort command</p>
+</li>
+<li>
+<p>There must be one tag/field included</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sortc n/</code><br>
+(Sorts all candidates lexicographically by their name)</p>
+</li>
+<li>
+<p><code>sortc s/</code><br>
+(Sorts all candidates by their salary)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-candidate-job-code-delete-code"><a class="link" href="#deleting-a-candidate-job-code-delete-code">3.10. Deleting a candidate / job : <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-a-specific-candidate"><a class="link" href="#deleting-a-specific-candidate">3.10.1. Deleting a specific candidate</a></h4>
 <div class="paragraph">
 <p>Format: <code>deletec &lt;INDEX&gt;</code></p>
 </div>
@@ -503,7 +560,7 @@ Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</cod
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-specific-job-offer"><a class="link" href="#deleting-a-specific-job-offer">3.9.2. Deleting a specific job offer</a></h4>
+<h4 id="deleting-a-specific-job-offer"><a class="link" href="#deleting-a-specific-job-offer">3.10.2. Deleting a specific job offer</a></h4>
 <div class="paragraph">
 <p>Format: <code>deletej &lt;INDEX&gt;</code></p>
 </div>
@@ -531,7 +588,7 @@ Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.10. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the Candidate Book.<br>
 Format: <code>clearc</code></p>
@@ -542,14 +599,14 @@ Format: <code>clearC</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-emails-code-email-code"><a class="link" href="#sending-emails-code-email-code">3.12. Sending emails : <code>email</code></a></h3>
+<h3 id="sending-emails-code-email-code"><a class="link" href="#sending-emails-code-email-code">3.13. Sending emails : <code>email</code></a></h3>
 <div class="paragraph">
 <p>Sends an email to specified candidates about specified job offers OR
 to specified companies about specified candidates that are suitable for specified job offers.<br></p>
@@ -645,14 +702,14 @@ This step is a confirmation step before you actually send the email.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.14. Saving the data</a></h3>
 <div class="paragraph">
 <p>RecruitBook data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -681,15 +738,30 @@ There is no need to save manually.</p>
 e.g. <code>addc n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 …</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list [jobs /candidates]</code></p>
+<p><strong>List</strong> : <code>list [jobs /candidates]</code>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 </li>
+<li>
+<p><strong>Edit</strong> : <code>editc &lt;INDEX&gt; [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]</code> or <code>editC &lt;INDEX&gt;</code><br>
+e.g. <code>editc 2 e/jameslee@example.com</code>, <code>editC 5</code></p>
+</li>
+<li>
+<p><strong>Find</strong> : <code>find &lt;tag&gt;/KEYWORD [MORE_KEYWORDS]</code><br></p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Edit</strong> : <code>editc &lt;INDEX&gt; [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]</code> or <code>edit &lt;INDEX&gt;</code><br>
 e.g. <code>editc 2 e/jameslee@example.com</code>, <code>editj 5</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find &lt;tag&gt;/KEYWORD</code><br>
-e.g. <code>find n/James n/Jake</code></p>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 0501a5066406d24aa24af3ff64c6011bf4ad554b
+            e.g. <code>find n/James n/Jake</code></p>
 </li>
 <li>
 <p><strong>Filter</strong> : <code>filter &lt;tag&gt; [h/highest education level] [j/job] [s/expected salary] [x/age]</code><br>
@@ -711,4 +783,6 @@ e.g. <code>deletec 1 `, `deletej 5</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 16:46:21 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 20:01:13 UTC</div></div></div></body></html>
