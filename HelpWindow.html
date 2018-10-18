@@ -16,7 +16,7 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#adding-a-candidate-company-job-code-add-code">3.2. Adding a candidate / company / job  : <code>add</code></a></li>
 <li><a href="#exits-from-any-intermediate-command">3.3. Exits from any intermediate command</a></li>
-<li><a href="#listing-all-code-list-code">3.4. Listing all : <code>list</code></a></li>
+<li><a href="#listing-details-of-candidates-jobs-code-list-code">3.4. Listing details of candidates / jobs : <code>list</code></a></li>
 <li><a href="#editing-a-candidate-job-code-editc-code">3.5. Editing a candidate / job : <code>editc</code></a></li>
 <li><a href="#locating-candidates-by-search-parameter-code-find-code">3.6. Locating candidates by search parameter : <code>find</code></a></li>
 <li><a href="#filtering-by-a-specific-tag-code-filter-code">3.7. Filtering by a specific tag : <code>filter</code></a></li>
@@ -36,7 +36,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>RecruitBook is a tool to help manage job candidates and available job offers for job agents and HR(Human Resources) department. RecruitBook is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). RecruitBook can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>RecruitBook is a tool to help manage job candidates and available job offers for job agents and HR (Human Resources) department. RecruitBook is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). RecruitBook can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -106,7 +106,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the fields to be specified by you! e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the fields to be specified by you! e.g. in <code>addc n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>addc n/John Doe</code>.</p>
 </li>
 <li>
 <p>Details labelled with “if any” must be filled in at least with <code>NA</code> if you find it not applicable.</p>
@@ -199,17 +199,8 @@ Supported tags: <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>a/</cod
 <strong><code>Enter the following details of the job in the format:</code></strong><br>
 <code>c/COMPANY j/JOB_TITLE g/GENDER xr/AGE_RANGE h/EDUCATION s/SALARY</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-COMPANY specified has to be added to RecruitBook first!
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Note: COMPANY specified has to be added to RecruitBook first!</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -233,9 +224,9 @@ COMPANY specified has to be added to RecruitBook first!
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-code-list-code"><a class="link" href="#listing-all-code-list-code">3.4. Listing all : <code>list</code></a></h3>
+<h3 id="listing-details-of-candidates-jobs-code-list-code"><a class="link" href="#listing-details-of-candidates-jobs-code-list-code">3.4. Listing details of candidates / jobs : <code>list</code></a></h3>
 <div class="sect3">
-<h4 id="shows-a-list-of-all-candidates-interviewed-by-job-agent-br"><a class="link" href="#shows-a-list-of-all-candidates-interviewed-by-job-agent-br">3.4.1. Shows a list of all candidates interviewed by job agent<br></a></h4>
+<h4 id="shows-a-list-of-all-candidates-present-in-the-recruitbook-br"><a class="link" href="#shows-a-list-of-all-candidates-present-in-the-recruitbook-br">3.4.1. Shows a list of all candidates present in the RecruitBook<br></a></h4>
 <div class="paragraph">
 <p>Format: <code>list candidates</code></p>
 </div>
@@ -313,7 +304,7 @@ The index must be an index number shown in the displayed candidates list.</p>
 </div>
 <div class="paragraph">
 <p>Edits the job with the specified <code>INDEX</code>.
-The index must be an index number shown in the displayed job list.</p>
+This index must be an index number shown in the displayed job list.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -321,8 +312,8 @@ The index must be an index number shown in the displayed job list.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>editj 1 x/20-30</code>
-(Edits the MIN_AGE-MAX_AGE attribute to be from 20 to 30 years of age for the 1st job offer)</p>
+<p><code>editj 1 x/20-30</code><br>
+(Edits the <code>MIN_AGE-MAX_AGE</code> attribute of the 1st job offer to be of 20 to 30 years of age)</p>
 </li>
 </ul>
 </div>
@@ -417,13 +408,13 @@ Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>,
 <div class="sect2">
 <h3 id="filtering-by-a-specific-tag-code-filter-code"><a class="link" href="#filtering-by-a-specific-tag-code-filter-code">3.7. Filtering by a specific tag : <code>filter</code></a></h3>
 <div class="sect3">
-<h4 id="filters-and-lists-out-the-names-of-the-people-that-falls-within-the-category-of-the-searched-field"><a class="link" href="#filters-and-lists-out-the-names-of-the-people-that-falls-within-the-category-of-the-searched-field">3.7.1. Filters and lists out the names of the people that falls within the category of the searched field</a></h4>
+<h4 id="filters-out-the-names-of-the-people-that-falls-under-the-searched-category"><a class="link" href="#filters-out-the-names-of-the-people-that-falls-under-the-searched-category">3.7.1. Filters out the names of the people that falls under the searched category</a></h4>
 <div class="paragraph">
 <p>Format: <code>filter &lt;tag&gt;/KEYWORD</code><br>
 Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</code></p>
 </div>
 <div class="paragraph">
-<p>Searched field <strong>must be of the full length</strong> that is being recorded in the system</p>
+<p>Searched field <strong>must be of the full length</strong> that is recorded in the RecruitBook</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -469,7 +460,7 @@ Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</cod
 <p>Deletes the candidate with the specified <code>INDEX</code></p>
 </li>
 <li>
-<p>The index must be an index number shown in the displayed candidate list.</p>
+<p>This index must be an index number shown in the displayed candidate list.</p>
 </li>
 <li>
 <p>The full name can be found using the find function when a partial keyword is entered</p>
@@ -480,12 +471,12 @@ Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</cod
 <p>Example to delete a candidate:</p>
 </div>
 <div class="paragraph">
-<p>Step 1.	<code>find Betsy</code><br>
+<p>Step 1. <code>find Betsy</code><br>
 (Shows all saved candidates named Betsy)</p>
 </div>
 <div class="paragraph">
 <p>Step 2. <code>deletec 1</code><br>
-(Deletes the candidate with index 1 from the RecruitBook(based on most recent list))</p>
+(Deletes the 1st candidate on most recent list)</p>
 </div>
 </div>
 <div class="sect3">
@@ -507,7 +498,7 @@ Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</cod
 <p>Example to delete a job:</p>
 </div>
 <div class="paragraph">
-<p>Step 1.	<code>list jobs</code><br>
+<p>Step 1. <code>list jobs</code><br>
 (Shows all available jobs)</p>
 </div>
 <div class="paragraph">
@@ -574,7 +565,7 @@ e.g. <code>addc n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 
 e.g. <code>editc 2 e/jameslee@example.com</code>, <code>editj 5</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find &lt;tag&gt;/KEYWORD [MORE_KEYWORDS]</code><br>
+<p><strong>Find</strong> : <code>find &lt;tag&gt;/KEYWORD</code><br>
 e.g. <code>find n/James n/Jake</code></p>
 </li>
 <li>
@@ -594,4 +585,4 @@ e.g. <code>deletec 1 `, `deletej 5</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 14:54:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 15:08:59 UTC</div></div></div></body></html>
