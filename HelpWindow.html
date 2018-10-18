@@ -23,8 +23,9 @@
 <li><a href="#deleting-a-candidate-job-code-delete-code">3.8. Deleting a candidate / job : <code>delete</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.9. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.11. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.12. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#sending-emails-code-email-code">3.11. Sending emails : <code>email</code></a></li>
+<li><a href="#saving-the-data">3.12. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.13. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -522,14 +523,110 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.11. Saving the data</a></h3>
+<h3 id="sending-emails-code-email-code"><a class="link" href="#sending-emails-code-email-code">3.11. Sending emails : <code>email</code></a></h3>
+<div class="paragraph">
+<p>Sends an email to specified candidates about specified job offers OR
+to specified companies about specified candidates that are suitable for specified job offers.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only Gmail is supported at this point in time.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If it is your first time running RecruitBook, a Gmail log in page will open on your browser.
+The gmail account that you log in with will be the email account used to send emails.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>email</code></p>
+</div>
+<div class="olist arabic">
+<div class="title"><em>Email command is a 4-step command</em></div>
+<ol class="arabic">
+<li>
+<p><strong>Initialisation.</strong> Type <code>email</code> to initialise the email command.</p>
+</li>
+<li>
+<p><strong>Choose your recipients.</strong> On the RecruitBook application, what&#8217;s shown on the main window
+will be taken in as the recipients. You can use commands such as <code>list</code>, <code>filter</code>, <code>find</code>
+to change the candidate/job offer shown.<br>
+Type <code>next</code> to move on to the next step.</p>
+</li>
+<li>
+<p><strong>Choose your contents.</strong> Same as before, what is shown on the main window will be taken in as
+the contents.<br>
+Type <code>next</code> to move on to the next step.</p>
+<div class="literalblock">
+<div class="content">
+<pre>WARNING: Recipients and contents must be contrasting - If recipients are candidates, then
+the content must be job offers and vice versa.</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Sending your email.</strong> Once both recipients and contents have been picked, type <code>send</code> to send your email.<br>
+This step is a confirmation step before you actually send the email.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="olist arabic">
+<div class="title"><em>You wish to send an email to candidates whose asking salary is $1,000 about being a cashier</em></div>
+<ol class="arabic">
+<li>
+<p><code>email</code><br>
+(Initialise email command)</p>
+</li>
+<li>
+<p><code>filter /s$1000</code><br>
+(On CandidateBook)</p>
+</li>
+<li>
+<p><code>next</code><br>
+(To select recipients)</p>
+</li>
+<li>
+<p><code>find /jCashier</code><br>
+(On CompanyBook)</p>
+</li>
+<li>
+<p><code>next</code><br>
+(To select contents)</p>
+</li>
+<li>
+<p><code>send</code><br>
+(To send email)</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.12. Saving the data</a></h3>
 <div class="paragraph">
 <p>RecruitBook data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.12. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.13. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -582,7 +679,10 @@ e.g. <code>deletec 1 `, `deletej 5</code></p>
 <li>
 <p><strong>Exit</strong> : <code>exit</code></p>
 </li>
+<li>
+<p><strong>Email</strong> : <code>email</code></p>
+</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 15:08:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 15:19:00 UTC</div></div></div></body></html>
