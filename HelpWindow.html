@@ -22,7 +22,7 @@
 <li><a href="#locating-candidates-by-search-parameter-code-find-code">3.7. Locating candidates by search parameter : <code>find</code></a></li>
 <li><a href="#filtering-by-a-specific-tag-code-filter-code">3.8. Filtering by a specific tag : <code>filter</code></a></li>
 <li><a href="#sorting-candidates-company-job-code-sort-code">3.9. Sorting candidates / company / job : <code>sort</code></a></li>
-<li><a href="#deleting-a-candidate-job-code-delete-code">3.10. Deleting a candidate / job : <code>delete</code></a></li>
+<li><a href="#deleting-candidates-companies-job-offers-code-delete-code">3.10. Deleting candidates / companies / job offers : <code>delete</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
 <li><a href="#sending-emails-code-email-code">3.13. Sending emails : <code>email</code></a></li>
@@ -83,7 +83,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>addj</code></strong> : adds an available job to RecruitBook</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd job shown in the current list</p>
+<p><strong><code>deleteC</code></strong><code>3</code> : deletes the 3rd company shown in the list of companies</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -223,7 +223,9 @@ Supported tags: <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>a/</cod
 <div class="paragraph">
 <p>Entering this command will prompt you the following:<br>
 <strong><code>Enter the following details of the job in the format:</code></strong><br>
-<code>c/COMPANY j/JOB_TITLE g/GENDER xr/AGE_RANGE h/EDUCATION s/SALARY</code></p>
+<code>c/COMPANY j/JOB_TITLE g/GENDER xr/AGE_RANGE h/EDUCATION s/SALARY</code><br>
+<code>(Enter 'cancel' to stop adding jobs)</code><br>
+<code>Example: c/McDonalds j/cashier g/M xr/20-30 h/O levels s/1200</code></p>
 </div>
 <div class="paragraph">
 <p>Note: COMPANY specified has to be added to RecruitBook first!</p>
@@ -234,7 +236,7 @@ Supported tags: <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>a/</cod
 <div class="ulist">
 <ul>
 <li>
-<p><code>c/McDonalds j/Cashier g/M xr/20-30 h/O levels s/1200</code></p>
+<p><code>c/Subway j/Cashier g/M xr/20-30 h/O levels s/1200</code></p>
 </li>
 <li>
 <p><code>c/KFC j/Cook g/F xr/20-30 h/O levels s/1400</code></p>
@@ -528,16 +530,16 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-candidate-job-code-delete-code"><a class="link" href="#deleting-a-candidate-job-code-delete-code">3.10. Deleting a candidate / job : <code>delete</code></a></h3>
+<h3 id="deleting-candidates-companies-job-offers-code-delete-code"><a class="link" href="#deleting-candidates-companies-job-offers-code-delete-code">3.10. Deleting candidates / companies / job offers : <code>delete</code></a></h3>
 <div class="sect3">
-<h4 id="deleting-a-specific-candidate"><a class="link" href="#deleting-a-specific-candidate">3.10.1. Deleting a specific candidate</a></h4>
+<h4 id="deleting-candidate-s"><a class="link" href="#deleting-candidate-s">3.10.1. Deleting candidate(s)</a></h4>
 <div class="paragraph">
-<p>Format: <code>deletec &lt;INDEX&gt;</code></p>
+<p>Format: <code>deletec &lt;INDEX&gt;,&lt;INDEX&gt; &#8230;&#8203;</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the candidate with the specified <code>INDEX</code></p>
+<p>Deletes the candidate(s) with the specified <code>INDEX</code>(s)</p>
 </li>
 <li>
 <p>This index must be an index number shown in the displayed candidate list.</p>
@@ -548,7 +550,7 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 </ul>
 </div>
 <div class="paragraph">
-<p>Example to delete a candidate:</p>
+<p>Example to delete candidate(s):</p>
 </div>
 <div class="paragraph">
 <p>Step 1. <code>find Betsy</code><br>
@@ -560,14 +562,41 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-specific-job-offer"><a class="link" href="#deleting-a-specific-job-offer">3.10.2. Deleting a specific job offer</a></h4>
+<h4 id="deleting-company-s"><a class="link" href="#deleting-company-s">3.10.2. Deleting company(s)</a></h4>
 <div class="paragraph">
-<p>Format: <code>deletej &lt;INDEX&gt;</code></p>
+<p>Format: <code>deleteC &lt;INDEX&gt;,&lt;INDEX&gt; &#8230;&#8203;</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the job with the specified <code>INDEX</code></p>
+<p>Deletes the company(s) with the specified <code>INDEX</code>(s)</p>
+</li>
+<li>
+<p>The index must be an index number shown in the displayed company list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example to delete company(s):</p>
+</div>
+<div class="paragraph">
+<p>Step 1. <code>listC</code><br>
+(Shows all available companies)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>deleteC 1,6,2</code><br>
+(Deletes the 1st, 2nd and 6th job in the job list)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-job-offer-s"><a class="link" href="#deleting-job-offer-s">3.10.3. Deleting job offer(s)</a></h4>
+<div class="paragraph">
+<p>Format: <code>deletej &lt;INDEX&gt;,&lt;INDEX&gt; &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the job(s) with the specified <code>INDEX</code>(s)</p>
 </li>
 <li>
 <p>The index must be an index number shown in the displayed job list.</p>
@@ -575,15 +604,15 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 </ul>
 </div>
 <div class="paragraph">
-<p>Example to delete a job:</p>
+<p>Example to delete job(s):</p>
 </div>
 <div class="paragraph">
-<p>Step 1. <code>list jobs</code><br>
+<p>Step 1. <code>listj</code><br>
 (Shows all available jobs)</p>
 </div>
 <div class="paragraph">
-<p>Step 2. <code>deletej 5</code><br>
-(Deletes the 5th job in the job list)</p>
+<p>Step 2. <code>deletej 5,4</code><br>
+(Deletes the 4th and 5th job in the job list)</p>
 </div>
 </div>
 </div>
@@ -774,4 +803,4 @@ e.g. <code>deletec 1 `, `deletej 5</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-19 13:38:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-22 02:15:28 UTC</div></div></div></body></html>
