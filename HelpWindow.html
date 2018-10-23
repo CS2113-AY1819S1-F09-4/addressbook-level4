@@ -534,7 +534,7 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 <div class="sect3">
 <h4 id="deleting-candidate-s"><a class="link" href="#deleting-candidate-s">3.10.1. Deleting candidate(s)</a></h4>
 <div class="paragraph">
-<p>Format: <code>deletec &lt;INDEX&gt;,&lt;INDEX&gt; &#8230;&#8203;</code></p>
+<p>Format: <code>deletec &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -557,14 +557,14 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 (Shows all saved candidates named Betsy)</p>
 </div>
 <div class="paragraph">
-<p>Step 2. <code>deletec 1</code><br>
-(Deletes the 1st candidate on most recent list)</p>
+<p>Step 2. <code>deletec 1,2-3</code><br>
+(Deletes the 1st, 2nd and 3rd candidate on most recent list)</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="deleting-company-s"><a class="link" href="#deleting-company-s">3.10.2. Deleting company(s)</a></h4>
 <div class="paragraph">
-<p>Format: <code>deleteC &lt;INDEX&gt;,&lt;INDEX&gt; &#8230;&#8203;</code></p>
+<p>Format: <code>deleteC &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -584,14 +584,14 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 (Shows all available companies)</p>
 </div>
 <div class="paragraph">
-<p>Step 2. <code>deleteC 1,6,2</code><br>
-(Deletes the 1st, 2nd and 6th job in the job list)</p>
+<p>Step 2. <code>deleteC 1,6,2-3</code><br>
+(Deletes the 1st, 2nd, 3rd and 6th job in the job list)</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="deleting-job-offer-s"><a class="link" href="#deleting-job-offer-s">3.10.3. Deleting job offer(s)</a></h4>
 <div class="paragraph">
-<p>Format: <code>deletej &lt;INDEX&gt;,&lt;INDEX&gt; &#8230;&#8203;</code></p>
+<p>Format: <code>deletej &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -611,8 +611,8 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 (Shows all available jobs)</p>
 </div>
 <div class="paragraph">
-<p>Step 2. <code>deletej 5,4</code><br>
-(Deletes the 4th and 5th job in the job list)</p>
+<p>Step 2. <code>deletej 5-4,6</code><br>
+(Deletes the 4th, 5th and 6th job in the job list)</p>
 </div>
 </div>
 </div>
@@ -803,4 +803,4 @@ e.g. <code>deletec 1 `, `deletej 5</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-23 07:10:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-23 08:49:09 UTC</div></div></div></body></html>
