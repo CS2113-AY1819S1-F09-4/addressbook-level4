@@ -17,19 +17,19 @@
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
 <li><a href="#switching-books-code-switch-code">4.2. Switching Books : <code>switch</code></a></li>
 <li><a href="#adding-a-candidate-company-job-code-addc-code-code-addc-code">4.3. Adding a candidate / company / job  : <code>addc</code> <code>addC</code></a></li>
-<li><a href="#listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code">4.4. Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code></a></li>
-<li><a href="#editing-a-candidate-company-job-code-edit-code">4.5. Editing a candidate / company / job : <code>edit</code></a></li>
-<li><a href="#selecting-a-candidate-code-select-code">4.6. Selecting a candidate : <code>select</code></a></li>
-<li><a href="#selecting-a-company-code-selectcompany-code">4.7. Selecting a company : <code>selectCompany</code></a></li>
-<li><a href="#selecting-a-job-offer-code-selectjob-code">4.8. Selecting a job offer : <code>selectJob</code></a></li>
-<li><a href="#locating-candidates-by-search-parameter-code-find-code">4.9. Locating candidates by search parameter : <code>find</code></a></li>
-<li><a href="#filtering-by-a-specific-tag-code-filter-code">4.10. Filtering by a specific tag : <code>filter</code></a></li>
-<li><a href="#sorting-candidates-company-job-code-sort-code">4.11. Sorting candidates / company / job : <code>sort</code></a></li>
-<li><a href="#deleting-candidates-companies-job-offers-code-delete-code">4.12. Deleting candidates / companies / job offers : <code>delete</code></a></li>
+<li><a href="#editing-a-candidate-company-job-code-edit-code">4.4. Editing a candidate / company / job : <code>edit</code></a></li>
+<li><a href="#deleting-candidates-companies-job-offers-code-delete-code">4.5. Deleting candidates / companies / job offers : <code>delete</code></a></li>
+<li><a href="#listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code">4.6. Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code></a></li>
+<li><a href="#selecting-a-candidate-code-select-code">4.7. Selecting a candidate : <code>select</code></a></li>
+<li><a href="#selecting-a-company-code-selectcompany-code">4.8. Selecting a company : <code>selectCompany</code></a></li>
+<li><a href="#selecting-a-job-offer-code-selectjob-code">4.9. Selecting a job offer : <code>selectJob</code></a></li>
+<li><a href="#locating-candidates-by-search-parameter-code-find-code">4.10. Locating candidates by search parameter : <code>find</code></a></li>
+<li><a href="#filtering-by-a-specific-tag-code-filter-code">4.11. Filtering by a specific tag : <code>filter</code></a></li>
+<li><a href="#sorting-candidates-company-job-code-sort-code">4.12. Sorting candidates / company / job : <code>sort</code></a></li>
 <li><a href="#shortlisting-candidates-for-a-job-offer-code-shortlist-code">4.13. Shortlisting candidates for a job offer : <code>shortlist</code></a></li>
 <li><a href="#sending-emails-code-email-code">4.14. Sending emails : <code>email</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">4.15. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exits-from-any-intermediate-command-code-cancel-code">4.16. Exits from any intermediate command: <code>cancel</code></a></li>
+<li><a href="#exits-from-any-intermediate-command-code-cancel-code">4.15. Exits from any intermediate command: <code>cancel</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">4.16. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">4.17. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">4.18. Saving the data</a></li>
 <li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
@@ -368,9 +368,166 @@ Supported tags: <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>a/</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code"><a class="link" href="#listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code">4.4. Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code></a></h3>
+<h3 id="editing-a-candidate-company-job-code-edit-code"><a class="link" href="#editing-a-candidate-company-job-code-edit-code">4.4. Editing a candidate / company / job : <code>edit</code></a></h3>
 <div class="sect3">
-<h4 id="shows-a-list-of-all-candidates"><a class="link" href="#shows-a-list-of-all-candidates">4.4.1. Shows a list of all candidates</a></h4>
+<h4 id="edits-attributes-of-the-candidate-at-the-specified-index-code-index-code"><a class="link" href="#edits-attributes-of-the-candidate-at-the-specified-index-code-index-code">4.4.1. Edits attributes of the candidate at the specified index <code>INDEX</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editc &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the candidate with the specified <code>INDEX</code>.
+The index must be an index number shown in the displayed candidates list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editc 1 n/John Doe p/91234567 e/johndoe@example.com</code><br>
+(Edits the name, phone number and email address of the candidate with index 1 to be John Doe, 91234567 and <a href="mailto:johndoe@example.com">johndoe@example.com</a> respectively)</p>
+</li>
+<li>
+<p><code>editc 3 t/</code><br>
+(Edits and clears all existing tags belonging to the candidate at index 3)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edits-details-of-a-company-at-the-specified-index-code-index-code"><a class="link" href="#edits-details-of-a-company-at-the-specified-index-code-index-code">4.4.2. Edits details of a company at the specified index <code>INDEX</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editC &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the company with the specified <code>INDEX</code>.
+The index must be an index number shown in the displayed company list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editC 1 n/KFC p/62226111</code><br>
+(Edits the name and phone number of the company with index 1 to be KFC and 62226111</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edits-details-of-a-job-offer"><a class="link" href="#edits-details-of-a-job-offer">4.4.3. Edits details of a job offer</a></h4>
+<div class="paragraph">
+<p>Format: <code>editj &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the job with the specified <code>INDEX</code>.
+This index must be an index number shown in the displayed job list.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editj 1 x/20-30</code><br>
+(Edits the <code>MIN_AGE-MAX_AGE</code> attribute of the 1st job offer to be of 20 to 30 years of age)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-candidates-companies-job-offers-code-delete-code"><a class="link" href="#deleting-candidates-companies-job-offers-code-delete-code">4.5. Deleting candidates / companies / job offers : <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-candidate-s"><a class="link" href="#deleting-candidate-s">4.5.1. Deleting candidate(s)</a></h4>
+<div class="paragraph">
+<p>Format: <code>deletec &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the candidate(s) with the specified <code>INDEX</code>(s)</p>
+</li>
+<li>
+<p>This index must be an index number shown in the displayed candidate list.</p>
+</li>
+<li>
+<p>The full name can be found using the find function when a partial keyword is entered</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example to delete candidate(s):</p>
+</div>
+<div class="paragraph">
+<p>Step 1. <code>find Betsy</code><br>
+(Shows all saved candidates named Betsy)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>deletec 1,2-3</code><br>
+(Deletes the 1st, 2nd and 3rd candidate on most recent list)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-company-s"><a class="link" href="#deleting-company-s">4.5.2. Deleting company(s)</a></h4>
+<div class="paragraph">
+<p>Format: <code>deleteC &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the company(s) with the specified <code>INDEX</code>(s)</p>
+</li>
+<li>
+<p>The index must be an index number shown in the displayed company list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example to delete company(s):</p>
+</div>
+<div class="paragraph">
+<p>Step 1. <code>listC</code><br>
+(Shows all available companies)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>deleteC 1,6,2-3</code><br>
+(Deletes the 1st, 2nd, 3rd and 6th job in the job list)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-job-offer-s"><a class="link" href="#deleting-job-offer-s">4.5.3. Deleting job offer(s)</a></h4>
+<div class="paragraph">
+<p>Format: <code>deletej &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the job(s) with the specified <code>INDEX</code>(s)</p>
+</li>
+<li>
+<p>The index must be an index number shown in the displayed job list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example to delete job(s):</p>
+</div>
+<div class="paragraph">
+<p>Step 1. <code>listj</code><br>
+(Shows all available jobs)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>deletej 5-4,6</code><br>
+(Deletes the 4th, 5th and 6th job in the job list)</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code"><a class="link" href="#listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code">4.6. Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code></a></h3>
+<div class="sect3">
+<h4 id="shows-a-list-of-all-candidates"><a class="link" href="#shows-a-list-of-all-candidates">4.6.1. Shows a list of all candidates</a></h4>
 <div class="paragraph">
 <p>Format: <code>listc</code></p>
 </div>
@@ -394,7 +551,7 @@ If you are viewing the Company Book, this command will automatically bring you t
 </div>
 </div>
 <div class="sect3">
-<h4 id="shows-a-list-of-all-companies-and-all-job-offers"><a class="link" href="#shows-a-list-of-all-companies-and-all-job-offers">4.4.2. Shows a list of all companies and all job offers</a></h4>
+<h4 id="shows-a-list-of-all-companies-and-all-job-offers"><a class="link" href="#shows-a-list-of-all-companies-and-all-job-offers">4.6.2. Shows a list of all companies and all job offers</a></h4>
 <div class="paragraph">
 <p>Format: <code>listC</code></p>
 </div>
@@ -418,7 +575,7 @@ If you are viewing the Candidate Book, this command will automatically bring you
 </div>
 </div>
 <div class="sect3">
-<h4 id="shows-a-list-of-job-offers-based-on-a-selected-company"><a class="link" href="#shows-a-list-of-job-offers-based-on-a-selected-company">4.4.3. Shows a list of job offers based on a selected company</a></h4>
+<h4 id="shows-a-list-of-job-offers-based-on-a-selected-company"><a class="link" href="#shows-a-list-of-job-offers-based-on-a-selected-company">4.6.3. Shows a list of job offers based on a selected company</a></h4>
 <div class="paragraph">
 <p>Company Book allows you to easily see the list of job offers based on the company you selected.</p>
 </div>
@@ -446,91 +603,27 @@ If you are viewing the Candidate Book, this command will automatically bring you
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-candidate-company-job-code-edit-code"><a class="link" href="#editing-a-candidate-company-job-code-edit-code">4.5. Editing a candidate / company / job : <code>edit</code></a></h3>
-<div class="sect3">
-<h4 id="edits-attributes-of-the-candidate-at-the-specified-index-code-index-code"><a class="link" href="#edits-attributes-of-the-candidate-at-the-specified-index-code-index-code">4.5.1. Edits attributes of the candidate at the specified index <code>INDEX</code></a></h4>
+<h3 id="selecting-a-candidate-code-select-code"><a class="link" href="#selecting-a-candidate-code-select-code">4.7. Selecting a candidate : <code>select</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>editc &lt;INDEX&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Edits the candidate with the specified <code>INDEX</code>.
-The index must be an index number shown in the displayed candidates list.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editc 1 n/John Doe p/91234567 e/johndoe@example.com</code><br>
-(Edits the name, phone number and email address of the candidate with index 1 to be John Doe, 91234567 and <a href="mailto:johndoe@example.com">johndoe@example.com</a> respectively)</p>
-</li>
-<li>
-<p><code>editc 3 t/</code><br>
-(Edits and clears all existing tags belonging to the candidate at index 3)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edits-details-of-a-company-at-the-specified-index-code-index-code"><a class="link" href="#edits-details-of-a-company-at-the-specified-index-code-index-code">4.5.2. Edits details of a company at the specified index <code>INDEX</code></a></h4>
-<div class="paragraph">
-<p>Format: <code>editC &lt;INDEX&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Edits the company with the specified <code>INDEX</code>.
-The index must be an index number shown in the displayed company list.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editC 1 n/KFC p/62226111</code><br>
-(Edits the name and phone number of the company with index 1 to be KFC and 62226111</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edits-details-of-a-job-offer"><a class="link" href="#edits-details-of-a-job-offer">4.5.3. Edits details of a job offer</a></h4>
-<div class="paragraph">
-<p>Format: <code>editj &lt;INDEX&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Edits the job with the specified <code>INDEX</code>.
-This index must be an index number shown in the displayed job list.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editj 1 x/20-30</code><br>
-(Edits the <code>MIN_AGE-MAX_AGE</code> attribute of the 1st job offer to be of 20 to 30 years of age)</p>
-</li>
-</ul>
-</div>
+<p>Format: <code>select</code> <code>&lt;INDEX&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-candidate-code-select-code"><a class="link" href="#selecting-a-candidate-code-select-code">4.6. Selecting a candidate : <code>select</code></a></h3>
-
+<h3 id="selecting-a-company-code-selectcompany-code"><a class="link" href="#selecting-a-company-code-selectcompany-code">4.8. Selecting a company : <code>selectCompany</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>selectCompany</code> <code>&lt;INDEX&gt;</code></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-company-code-selectcompany-code"><a class="link" href="#selecting-a-company-code-selectcompany-code">4.7. Selecting a company : <code>selectCompany</code></a></h3>
-
+<h3 id="selecting-a-job-offer-code-selectjob-code"><a class="link" href="#selecting-a-job-offer-code-selectjob-code">4.9. Selecting a job offer : <code>selectJob</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>selectJob</code> <code>&lt;INDEX&gt;</code></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-job-offer-code-selectjob-code"><a class="link" href="#selecting-a-job-offer-code-selectjob-code">4.8. Selecting a job offer : <code>selectJob</code></a></h3>
-
-</div>
-<div class="sect2">
-<h3 id="locating-candidates-by-search-parameter-code-find-code"><a class="link" href="#locating-candidates-by-search-parameter-code-find-code">4.9. Locating candidates by search parameter : <code>find</code></a></h3>
+<h3 id="locating-candidates-by-search-parameter-code-find-code"><a class="link" href="#locating-candidates-by-search-parameter-code-find-code">4.10. Locating candidates by search parameter : <code>find</code></a></h3>
 <div class="sect3">
-<h4 id="finds-names-of-candidates-from-recruitbook-based-on-the-search-parameter"><a class="link" href="#finds-names-of-candidates-from-recruitbook-based-on-the-search-parameter">4.9.1. Finds names of candidates from RecruitBook based on the search parameter.</a></h4>
+<h4 id="finds-names-of-candidates-from-recruitbook-based-on-the-search-parameter"><a class="link" href="#finds-names-of-candidates-from-recruitbook-based-on-the-search-parameter">4.10.1. Finds names of candidates from RecruitBook based on the search parameter.</a></h4>
 <div class="paragraph">
 <p>Format: <code>findc &lt;tag&gt;/KEYWORD</code><br>
 Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>, <code>a/ADDRESS</code></p>
@@ -576,7 +669,7 @@ Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>,
 </div>
 </div>
 <div class="sect3">
-<h4 id="finds-names-of-companies-from-recruitbook-based-on-the-searched-name"><a class="link" href="#finds-names-of-companies-from-recruitbook-based-on-the-searched-name">4.9.2. Finds names of companies from RecruitBook based on the searched name.</a></h4>
+<h4 id="finds-names-of-companies-from-recruitbook-based-on-the-searched-name"><a class="link" href="#finds-names-of-companies-from-recruitbook-based-on-the-searched-name">4.10.2. Finds names of companies from RecruitBook based on the searched name.</a></h4>
 <div class="paragraph">
 <p>Format: <code>findC NAME</code><br></p>
 </div>
@@ -614,9 +707,9 @@ Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>,
 </div>
 </div>
 <div class="sect2">
-<h3 id="filtering-by-a-specific-tag-code-filter-code"><a class="link" href="#filtering-by-a-specific-tag-code-filter-code">4.10. Filtering by a specific tag : <code>filter</code></a></h3>
+<h3 id="filtering-by-a-specific-tag-code-filter-code"><a class="link" href="#filtering-by-a-specific-tag-code-filter-code">4.11. Filtering by a specific tag : <code>filter</code></a></h3>
 <div class="sect3">
-<h4 id="filters-out-the-names-of-the-people-that-falls-under-the-searched-category"><a class="link" href="#filters-out-the-names-of-the-people-that-falls-under-the-searched-category">4.10.1. Filters out the names of the people that falls under the searched category</a></h4>
+<h4 id="filters-out-the-names-of-the-people-that-falls-under-the-searched-category"><a class="link" href="#filters-out-the-names-of-the-people-that-falls-under-the-searched-category">4.11.1. Filters out the names of the people that falls under the searched category</a></h4>
 <div class="paragraph">
 <p>Format: <code>filter &lt;tag&gt;/KEYWORD</code><br>
 Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</code></p>
@@ -649,16 +742,16 @@ Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</cod
 </div>
 </div>
 <div class="sect3">
-<h4 id="exits-from-the-filter-interface-and-system-proceeds-to-ask-for-next-command"><a class="link" href="#exits-from-the-filter-interface-and-system-proceeds-to-ask-for-next-command">4.10.2. Exits from the filter interface and system proceeds to ask for next command</a></h4>
+<h4 id="exits-from-the-filter-interface-and-system-proceeds-to-ask-for-next-command"><a class="link" href="#exits-from-the-filter-interface-and-system-proceeds-to-ask-for-next-command">4.11.2. Exits from the filter interface and system proceeds to ask for next command</a></h4>
 <div class="paragraph">
 <p>Format: <code>cancel</code></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-candidates-company-job-code-sort-code"><a class="link" href="#sorting-candidates-company-job-code-sort-code">4.11. Sorting candidates / company / job : <code>sort</code></a></h3>
+<h3 id="sorting-candidates-company-job-code-sort-code"><a class="link" href="#sorting-candidates-company-job-code-sort-code">4.12. Sorting candidates / company / job : <code>sort</code></a></h3>
 <div class="sect3">
-<h4 id="sorting-candidates-based-on-different-fields"><a class="link" href="#sorting-candidates-based-on-different-fields">4.11.1. Sorting candidates based on different fields</a></h4>
+<h4 id="sorting-candidates-based-on-different-fields"><a class="link" href="#sorting-candidates-based-on-different-fields">4.12.1. Sorting candidates based on different fields</a></h4>
 <div class="paragraph">
 <p>Format: <code>sortc &lt;tag&gt;</code><br>
 Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</code>, <code>h/</code>, <code>s/</code></p>
@@ -691,93 +784,6 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-candidates-companies-job-offers-code-delete-code"><a class="link" href="#deleting-candidates-companies-job-offers-code-delete-code">4.12. Deleting candidates / companies / job offers : <code>delete</code></a></h3>
-<div class="sect3">
-<h4 id="deleting-candidate-s"><a class="link" href="#deleting-candidate-s">4.12.1. Deleting candidate(s)</a></h4>
-<div class="paragraph">
-<p>Format: <code>deletec &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the candidate(s) with the specified <code>INDEX</code>(s)</p>
-</li>
-<li>
-<p>This index must be an index number shown in the displayed candidate list.</p>
-</li>
-<li>
-<p>The full name can be found using the find function when a partial keyword is entered</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example to delete candidate(s):</p>
-</div>
-<div class="paragraph">
-<p>Step 1. <code>find Betsy</code><br>
-(Shows all saved candidates named Betsy)</p>
-</div>
-<div class="paragraph">
-<p>Step 2. <code>deletec 1,2-3</code><br>
-(Deletes the 1st, 2nd and 3rd candidate on most recent list)</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-company-s"><a class="link" href="#deleting-company-s">4.12.2. Deleting company(s)</a></h4>
-<div class="paragraph">
-<p>Format: <code>deleteC &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the company(s) with the specified <code>INDEX</code>(s)</p>
-</li>
-<li>
-<p>The index must be an index number shown in the displayed company list.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example to delete company(s):</p>
-</div>
-<div class="paragraph">
-<p>Step 1. <code>listC</code><br>
-(Shows all available companies)</p>
-</div>
-<div class="paragraph">
-<p>Step 2. <code>deleteC 1,6,2-3</code><br>
-(Deletes the 1st, 2nd, 3rd and 6th job in the job list)</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-job-offer-s"><a class="link" href="#deleting-job-offer-s">4.12.3. Deleting job offer(s)</a></h4>
-<div class="paragraph">
-<p>Format: <code>deletej &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the job(s) with the specified <code>INDEX</code>(s)</p>
-</li>
-<li>
-<p>The index must be an index number shown in the displayed job list.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example to delete job(s):</p>
-</div>
-<div class="paragraph">
-<p>Step 1. <code>listj</code><br>
-(Shows all available jobs)</p>
-</div>
-<div class="paragraph">
-<p>Step 2. <code>deletej 5-4,6</code><br>
-(Deletes the 4th, 5th and 6th job in the job list)</p>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="shortlisting-candidates-for-a-job-offer-code-shortlist-code"><a class="link" href="#shortlisting-candidates-for-a-job-offer-code-shortlist-code">4.13. Shortlisting candidates for a job offer : <code>shortlist</code></a></h3>
 <div class="admonitionblock important">
 <table>
@@ -786,7 +792,7 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Shortlisting process is a 5-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#exits-from-any-intermediate-command-code-cancel-code">Section 4.16, &#8220;Exits from any intermediate command: <code>cancel</code>&#8221;</a>.
+Shortlisting process is a 5-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#exits-from-any-intermediate-command-code-cancel-code">Section 4.15, &#8220;Exits from any intermediate command: <code>cancel</code>&#8221;</a>.
 </td>
 </tr>
 </table>
@@ -999,7 +1005,13 @@ eg. If recipients were candidates, only job offers can be the contents and vice 
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.15. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="exits-from-any-intermediate-command-code-cancel-code"><a class="link" href="#exits-from-any-intermediate-command-code-cancel-code">4.15. Exits from any intermediate command: <code>cancel</code></a></h3>
+<div class="paragraph">
+<p>Format : <code>cancel</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.16. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the Candidate Book.<br>
 Format: <code>clearc</code></p>
@@ -1007,12 +1019,6 @@ Format: <code>clearc</code></p>
 <div class="paragraph">
 <p>Clears all entries from the Company Book.<br>
 Format: <code>clearC</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exits-from-any-intermediate-command-code-cancel-code"><a class="link" href="#exits-from-any-intermediate-command-code-cancel-code">4.16. Exits from any intermediate command: <code>cancel</code></a></h3>
-<div class="paragraph">
-<p>Format : <code>cancel</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -1103,4 +1109,4 @@ e.g. <code>deletec 1 `, `deletej 5</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-29 10:16:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-29 10:22:41 UTC</div></div></div></body></html>
