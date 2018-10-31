@@ -539,6 +539,8 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Recruit Book<
 <h3 id="add-delete-feature"><a class="link" href="#add-delete-feature">3.1. Add/Delete Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="candidates"><a class="link" href="#candidates">Candidates</a></h5>
 <div class="paragraph">
 <p>The add/delete mechanism of candidates is facilitated in <code>UniqueCandidateList</code> which stores the added candidates internally as an <code>internalList</code> which is a list of Candidate objects.</p>
 </div>
@@ -562,6 +564,9 @@ Additionally, it implements the following operations to support adding/deletion 
 <div class="paragraph">
 <p>These operations are exposed in the Model interface as Model#addCandidate(Candidate) and Model#deleteCandidate(Candidate candidate) respectively.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="companies"><a class="link" href="#companies">Companies</a></h5>
 <div class="paragraph">
 <p>The add/delete mechanism of companies is facilitated in <code>UniqueCompanyList</code> which stores the added companies internally as an <code>internalList</code> which is a list of Company objects.</p>
 </div>
@@ -585,6 +590,9 @@ Additionally, it implements the following operations to support adding/deletion 
 <div class="paragraph">
 <p>These operations are exposed in the Model interface as Model#addCompany(Company) and Model#deleteCompany(Company company) respectively.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="job-offers"><a class="link" href="#job-offers">Job Offers</a></h5>
 <div class="paragraph">
 <p>The add/delete mechanism of job offer is facilitated in <code>UniqueJobList</code> which stores the added job offer internally as an <code>internalList</code> which is a list of JobOffer objects.</p>
 </div>
@@ -608,8 +616,17 @@ Additionally, it implements the following operations to support adding/deletion 
 <div class="paragraph">
 <p>These operations are exposed in the Model interface as Model#addJobOffer(JobOffer) and Model#deleteJobOffer(JobOffer jobOffer) respectively.</p>
 </div>
-<div class="paragraph">
-<p>All addition/deletion of the 3 entities (Candidates, Companies, Job Offers) follow the same mechanism.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All addition/deletion of the 3 entities (Candidates, Companies, Job Offers) follow the same mechanism.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario for adding/deleting of these entities and how the adding/deleting mechanism behaves at each step.</p>
@@ -663,6 +680,7 @@ Additionally, it implements the following operations to support adding/deletion 
 </ol>
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
 <div class="sect4">
@@ -679,6 +697,8 @@ Additionally, it implements the following operations to support adding/deletion 
 <h3 id="edit-feature"><a class="link" href="#edit-feature">3.2. Edit Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="candidates-2"><a class="link" href="#candidates-2">Candidates</a></h5>
 <div class="paragraph">
 <p>The edit mechanism for candidates is facilitated by <code>EditPersonDescriptor</code> in <code>EditCandidateCommand</code> which creates a new Candidate object with edited attributes
 and <code>UniqueCandidateList</code> which stores the added candidates internally as an <code>internalList</code> which is a list of Candidate objects.
@@ -697,6 +717,9 @@ Additionally, it implements the following operations to support the editing of c
 <div class="paragraph">
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasCandidate(Candidate candidate)</code> and <code>Model#updateCandidate(Candidate target, Candidate editedCandidate)</code> respectively.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="companies-2"><a class="link" href="#companies-2">Companies</a></h5>
 <div class="paragraph">
 <p>The edit mechanism for companies is facilitated by <code>EditCompanyDescriptor</code> in <code>EditCompanyCommand</code> which creates a new Company object with edited attributes
 and <code>UniqueCompanyList</code> which stores the added companies internally as an <code>internalList</code> which is a list of Company objects.
@@ -715,6 +738,9 @@ Additionally, it implements the following operations to support the editing of c
 <div class="paragraph">
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasCompany(Company company)</code> and <code>Model#updateCompany(Company target, Company editedCompany)</code> respectively.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="job-offers-2"><a class="link" href="#job-offers-2">Job Offers</a></h5>
 <div class="paragraph">
 <p>The edit mechanism for job offers is facilitated by <code>EditJobOfferDescriptor</code> in <code>EditJobDetailsCommand</code> which creates a new Job Offer object with edited attributes
 and <code>UniqueJobList</code> which stores the added job offer internally as an <code>internalList</code> which is a list of Job Offer objects.
@@ -733,8 +759,17 @@ Additionally, it implements the following operations to support the editing of j
 <div class="paragraph">
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasJobOffer(JobOffer jobOffer)</code> and <code>Model#updateJobOffer(JobOffer target, JobOffer editedJobOffer)</code> respectively.</p>
 </div>
-<div class="paragraph">
-<p>The editing of all three entities(Candidate, Company, JobOffer) follow the same mechanism.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The editing of all three entities(Candidate, Company, JobOffer) follow the same mechanism.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the edit mechanism behaves at each step.</p>
@@ -824,6 +859,7 @@ Any duplicates formed after editing will not replace the original object. It wil
 </div>
 </li>
 </ol>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -2676,4 +2712,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 19:59:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 20:09:15 UTC</div></div></div></body></html>
