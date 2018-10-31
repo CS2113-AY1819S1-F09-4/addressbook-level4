@@ -50,14 +50,15 @@ a better understanding of data handling and code implementation if you are inter
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#add-delete-feature">3.1. Add/Delete Feature</a></li>
-<li><a href="#find-feature">3.2. Find Feature</a></li>
-<li><a href="#shortlist-feature">3.3. Shortlist Feature</a></li>
-<li><a href="#switch-book-feature">3.4. Switch Book Feature</a></li>
-<li><a href="#email-command">3.5. Email command</a></li>
-<li><a href="#undo-redo-feature">3.6. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
+<li><a href="#edit-feature">3.2. Edit Feature</a></li>
+<li><a href="#find-feature">3.3. Find Feature</a></li>
+<li><a href="#shortlist-feature">3.4. Shortlist Feature</a></li>
+<li><a href="#switch-book-feature">3.5. Switch Book Feature</a></li>
+<li><a href="#email-command">3.6. Email command</a></li>
+<li><a href="#undo-redo-feature">3.7. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#Testing">4. Testing</a>
@@ -675,16 +676,237 @@ Additionally, it implements the following operations to support adding/deletion 
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-feature"><a class="link" href="#find-feature">3.2. Find Feature</a></h3>
+<h3 id="edit-feature"><a class="link" href="#edit-feature">3.2. Edit Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The edit mechanism for candidates is facilitated by <code>EditPersonDescriptor</code> in <code>EditCandidateCommand</code> which creates a new Candidate object with edited attributes
+and <code>UniqueCandidateList</code> which stores the added candidates internally as an <code>internalList</code> which is a list of Candidate objects.
+Additionally, it implements the following operations to support the editing of candidates.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCandidateList#contains(Candidate candidate)</code> — Checks whether a candidate exists inside <code>internalList</code> using <code>Candidate#isSameCandidate</code> to define equality.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#setCandidate(Candidate target, Candidate editedCandidate)</code> — Sets the Candidate object(target) in the <code>internalList</code> to the newly edited Candidate object(editedCandidate) through <code>List#set(int index, E element)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasCandidate(Candidate candidate)</code> and <code>Model#updateCandidate(Candidate target, Candidate editedCandidate)</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>The edit mechanism for companies is facilitated by <code>EditCompanyDescriptor</code> in <code>EditCompanyCommand</code> which creates a new Company object with edited attributes
+and <code>UniqueCompanyList</code> which stores the added companies internally as an <code>internalList</code> which is a list of Company objects.
+Additionally, it implements the following operations to support the editing of companies.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCompanyList#contains(Company company)</code> — Checks whether a company exists inside <code>internalList</code> using <code>Company#isSameCompany</code> to define equality.</p>
+</li>
+<li>
+<p><code>UniqueCompanyList#setCompany(Company target, Company editedCompany)</code> — Sets the Company object(target) in the <code>internalList</code> to the newly edited Company object(editedCompany) through <code>List#set(int index, E element)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasCompany(Company company)</code> and <code>Model#updateCompany(Company target, Company editedCompany)</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>The edit mechanism for job offers is facilitated by <code>EditJobOfferDescriptor</code> in <code>EditJobDetailsCommand</code> which creates a new Job Offer object with edited attributes
+and <code>UniqueJobList</code> which stores the added job offer internally as an <code>internalList</code> which is a list of Job Offer objects.
+Additionally, it implements the following operations to support the editing of job offers.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueJobList#contains(JobOffer jobOffer)</code> — Checks whether a job offer exists inside <code>internalList</code> using <code>JobOffer#isSameJobOffer</code> to define equality.</p>
+</li>
+<li>
+<p><code>UniqueJobList#setJobOffer(JobOffer target, JobOffer editedJobOffer)</code> — Sets the Job Offer object(target) in the <code>internalList</code> to the newly edited Job Offer object(editedJobOffer) through <code>List#set(int index, E element)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasJobOffer(JobOffer jobOffer)</code> and <code>Model#updateJobOffer(JobOffer target, JobOffer editedJobOffer)</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>The editing of all three entities(Candidate, Company, JobOffer) follow the same mechanism.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the edit mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>UniqueCandidateList</code> will be initialised with the list of saved candidates in RecruitBook</p>
+</li>
+<li>
+<p><code>UniqueCompanyList</code> will be initialised with the list of saved companies in RecruitBook</p>
+</li>
+<li>
+<p><code>UniqueJobList</code> will be initialised with the list of saved job offers.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Assume that upon initialisation, there are candidate, company and job offer entries in RecruitBook.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes &#8230;&#8203;</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>editc 1 n/John Doe</code> to edit the name of the 1st person in the RecruitBook.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The name attribute in <code>EditPersonDescriptor</code> in <code>EditCandidateCommand</code> has been set to "John Doe" and the descriptor is used to compare with the original Candidate object and a new Candidate object is created with the name being "John Doe".</p>
+</li>
+<li>
+<p><code>EditCandidateCommand</code> then calls <code>Model#hasCandidate(Candidate candidate)</code> to check if the edited candidate has a duplicate in the RecruitBook. If not, <code>Model#updateCandidate(Candidate target, Candidate editedCandidate)</code> is then called that replaces the original Candidate object with the newly edited one.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>editC 1 c/KFC</code> to edit the name of the 1st company in the RecruitBook.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The name attribute in <code>EditCompanyDescriptor</code> in <code>EditCompanyCommand</code> has been set to "KFC" and the descriptor is used to compare with the original Company object and a new Company object is created with the name being "KFC".</p>
+</li>
+<li>
+<p><code>EditCompanyCommand</code> then calls <code>Model#hasCompany(Company company)</code> to check if the edited company has a duplicate in the RecruitBook. If not, <code>Model#updateCompany(Company target, Company editedCompany)</code> is then called that replaces the original Company object with the newly edited one.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>editj 1 j/Cashier</code> to edit the job title of the 1st job offer in the RecruitBook.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The job title attribute in <code>EditJobOfferDescriptor</code> in <code>EditJobDetailsCommand</code> has been set to "Cashier" and the descriptor is used to compare with the original JobOffer object and a new JobOffer object is created with the job title being "Cashier".</p>
+</li>
+<li>
+<p><code>EditJobDetailsCommand</code> then calls <code>Model#hasJobOffer(JobOffer jobOffer)</code> to check if the edited job offer has a duplicate in the RecruitBook. If not, <code>Model#updateJobOffer(JobOffer target, JobOffer editedJobOffer)</code> is then called that replaces the original JobOffer object with the newly edited one.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Any duplicates formed after editing will not replace the original object. It will prompt an error message
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="how-edit-executes"><a class="link" href="#how-edit-executes">How edit executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Replaces the original object with an edited one.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: If the edited object were to result in errors, it can be prevented from replacing the original object.</p>
+</li>
+<li>
+<p>Cons: It is less efficient as compared to editing the original object straightaway.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Editing the original object instead of replacing it with an edited one.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is more intuitive and efficient.</p>
+</li>
+<li>
+<p>Cons: The edited object cannot be checked for duplicates without permanently changing the object first.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="data-structure-to-support-the-edit-command"><a class="link" href="#data-structure-to-support-the-edit-command">Data structure to support the edit command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Separating the editing feature into 3 commands for different entities.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Greater distinction between the entities.</p>
+</li>
+<li>
+<p>Cons: More commands to deal with (similar commands across all three entities).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have a central <code>EditManager</code> that handles all edits.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduction of command objects (less confusing).</p>
+</li>
+<li>
+<p>Cons: There is coupling between the manager and the individual commands. Changes to an entity has to be cascaded to the manager.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-feature"><a class="link" href="#find-feature">3.3. Find Feature</a></h3>
 <div class="paragraph">
 <p>The <code>find</code> command is used to find candidates or companies stored in the address book through either the <code>findc</code> (find Candidate) or <code>findC</code> (find company).
 It extends <code>Command</code> and overrides two of its methods namely <code>CommandResult</code> and <code>equals</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="shortlist-feature"><a class="link" href="#shortlist-feature">3.3. Shortlist Feature</a></h3>
+<h3 id="shortlist-feature"><a class="link" href="#shortlist-feature">3.4. Shortlist Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.4.1. Current Implementation</a></h4>
 <div class="sect4">
 <h5 id="shortlisting-a-candidate"><a class="link" href="#shortlisting-a-candidate">Shortlisting a Candidate</a></h5>
 <div class="paragraph">
@@ -836,7 +1058,7 @@ You can access this list by calling <code>selectedJob.getUniqueCandidateList()</
 <div class="sect4">
 <h5 id="deleting-a-shortlisted-candidate"><a class="link" href="#deleting-a-shortlisted-candidate">Deleting a Shortlisted Candidate</a></h5>
 <div class="paragraph">
-<p>Deletion of a shortlisted candidate uses similar implementation as <a href="#shortlisting-a-candidate">Section 3.3.1.1, &#8220;Shortlisting a Candidate&#8221;</a>.</p>
+<p>Deletion of a shortlisted candidate uses similar implementation as <a href="#shortlisting-a-candidate">Section 3.4.1.1, &#8220;Shortlisting a Candidate&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>The shortlist mechanism is facilitated by <code>selectCompany</code> and <code>selectJob</code> command.
@@ -963,7 +1185,7 @@ this command returns a message to be displayed to inform the user.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-shortlist-feature-executes"><a class="link" href="#aspect-how-shortlist-feature-executes">Aspect: How shortlist feature executes</a></h5>
 <div class="ulist">
@@ -1038,9 +1260,9 @@ to store multiple job offers under the same candidate <code>key</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="switch-book-feature"><a class="link" href="#switch-book-feature">3.4. Switch Book Feature</a></h3>
+<h3 id="switch-book-feature"><a class="link" href="#switch-book-feature">3.5. Switch Book Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The switching mechanism is facilitated by <code>MainWindow</code>, with the latter&#8217;s <code>switchToCandidateBook</code> and <code>switchToCompanyBook</code> methods.</p>
 </div>
@@ -1123,7 +1345,7 @@ inside <code>panelViewPlaceholder</code>. There will be a compilation error if t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-switch-feature-executes"><a class="link" href="#aspect-how-switch-feature-executes">Aspect: How switch feature executes</a></h5>
 <div class="ulist">
@@ -1196,9 +1418,9 @@ cases of the view of <code>panelViewPlaceholder</code>, which is not the case as
 </div>
 </div>
 <div class="sect2">
-<h3 id="email-command"><a class="link" href="#email-command">3.5. Email command</a></h3>
+<h3 id="email-command"><a class="link" href="#email-command">3.6. Email command</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The email command is facilitated by <code>EmailInitialiseCommand</code>, <code>EmailRecipientsCommand</code>, <code>EmailContentsCommand</code> and <code>EmailSendCommand</code>
 classes which extends the <code>Command</code> class, and <code>EmailUtil</code> attribute in <code>Model</code> which stores variables and methods pertaining to the email command
@@ -1342,7 +1564,7 @@ which is the Java format used for emails and is sent via <code>EmailUtil#sendMes
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-store-recipients-and-candidates"><a class="link" href="#aspect-data-structure-to-store-recipients-and-candidates">Aspect: Data structure to store recipients and candidates</a></h5>
 <div class="ulist">
@@ -1393,9 +1615,9 @@ and maintains order in which objects were added in.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.6. Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.7. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedCandidateBook</code>.
 It extends <code>CandidateBook</code> with an undo/redo history, stored internally as an <code>candidateBookStateList</code> and <code>currentStatePointer</code>.
@@ -1525,7 +1747,7 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1595,20 +1817,20 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1639,7 +1861,7 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2454,4 +2676,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 19:40:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 19:59:38 UTC</div></div></div></body></html>
