@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>RecruitBook - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">RecruitBook</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2113-AY1819S1-F09-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>RecruitBook - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>RecruitBook - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team F09-4</code>      Since: <code>Sept 2018</code>      Licence: <code>MIT</code></p>
@@ -45,12 +45,15 @@ a better understanding of data handling and code implementation if you are inter
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#shortlist-feature">3.1. Shortlist Feature</a></li>
-<li><a href="#switch-book-feature">3.2. Switch Book Feature</a></li>
-<li><a href="#undo-redo-feature">3.3. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#add-delete-feature">3.1. Add/Delete Feature</a></li>
+<li><a href="#find-feature">3.2. Find feature</a></li>
+<li><a href="#shortlist-feature">3.3. Shortlist Feature</a></li>
+<li><a href="#switch-book-feature">3.4. Switch Book Feature</a></li>
+<li><a href="#email-command">3.5. Email command</a></li>
+<li><a href="#undo-redo-feature">3.6. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#Testing">4. Testing</a>
@@ -528,9 +531,156 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Recruit Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="shortlist-feature"><a class="link" href="#shortlist-feature">3.1. Shortlist Feature</a></h3>
+<h3 id="add-delete-feature"><a class="link" href="#add-delete-feature">3.1. Add/Delete Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The add/delete mechanism of candidates is facilitated in <code>UniqueCandidateList</code> which stores the added candidates internally as an <code>internalList</code> which is a list of Candidate objects.</p>
+</div>
+<div class="paragraph">
+<p>It implements <code>Iterable&lt;Candidate&gt;</code>, where it overrides the <code>Iterator</code>, <code>equals</code> and <code>hashCode</code> of the <code>Iterable</code> interface.
+Additionally, it implements the following operations to support adding/deletion of candidates:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCandidateList#contains(Candidate candidate)</code> — Checks whether a candidate exists inside <code>internalList</code> using <code>Candidate#isSameCandidate</code> to define equality.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#add(Candidate candidate)</code> — Adds a unique candidate to <code>internalList</code>. Checks for uniqueness using <code>UniqueCandidateList#contains(Candidate candidate)</code>.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#remove(Candidate candidate)</code> — Removes the equivalent candidate from <code>internalList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the Model interface as Model#addCandidate(Candidate) and Model#deleteCandidate(Candidate candidate) respectively.</p>
+</div>
+<div class="paragraph">
+<p>The add/delete mechanism of companies is facilitated in <code>UniqueCompanyList</code> which stores the added companies internally as an <code>internalList</code> which is a list of Company objects.</p>
+</div>
+<div class="paragraph">
+<p>It implements <code>Iterable&lt;Company&gt;</code>, where it overrides the <code>Iterator</code>, <code>equals</code> and <code>hashCode</code> of the <code>Iterable</code> interface.
+Additionally, it implements the following operations to support adding/deletion of companies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCompanyList#contains(Company company)</code> — Checks whether a company exists inside <code>internalList</code> using <code>Company#isSameCompany</code> to define equality.</p>
+</li>
+<li>
+<p><code>UniqueCompanyList#add(Company company)</code> — Adds a unique company to <code>internalList</code>. Checks for uniqueness using <code>UniqueCompanyList#contains(Company company)</code>.</p>
+</li>
+<li>
+<p><code>UniqueCompanyList#remove(Company company)</code> — Removes the equivalent company from <code>internalList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the Model interface as Model#addCompany(Company) and Model#deleteCompany(Company company) respectively.</p>
+</div>
+<div class="paragraph">
+<p>The add/delete mechanism of job offer is facilitated in <code>UniqueJobList</code> which stores the added job offer internally as an <code>internalList</code> which is a list of JobOffer objects.</p>
+</div>
+<div class="paragraph">
+<p>It implements <code>Iterable&lt;JobOffer&gt;</code>, where it overrides the <code>Iterator</code>, <code>equals</code> and <code>hashCode</code> of the <code>Iterable</code> interface.
+Additionally, it implements the following operations to support adding/deletion of job offer:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueJobList#contains(JobOffer jobOffer)</code> — Checks whether a job offer exists inside <code>internalList</code> using <code>JobOffer#isSameJobOffer</code> to define equality.</p>
+</li>
+<li>
+<p><code>UniqueJobList#add(JobOffer jobOffer)</code> — Adds a unique job offer to <code>internalList</code>. Checks for uniqueness using <code>UniqueJobOfferList#contains(JobOffer jobOffer)</code>.</p>
+</li>
+<li>
+<p><code>UniqueJobList#remove(JobOffer jobOffer)</code> — Removes the equivalent job offer from <code>internalList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the Model interface as Model#addJobOffer(JobOffer) and Model#deleteJobOffer(JobOffer jobOffer) respectively.</p>
+</div>
+<div class="paragraph">
+<p>All addition/deletion of the 3 entities (Candidates, Companies, Job Offers) follow the same mechanism.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario for adding/deleting of these entities and how the adding/deleting mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>UniqueCandidateList</code> will be initialised with the list of saved candidates in RecruitBook</p>
+</li>
+<li>
+<p><code>UniqueCompanyList</code> will be initialised with the list of saved companies in RecruitBook</p>
+</li>
+<li>
+<p><code>UniqueJobList</code> will be initialised with the list of saved job offers.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes &#8230;&#8203;</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>addc n/John Doe &#8230;&#8203;</code> to add a new candidate. <code>AddCandidateCommand</code> calls <code>Model#hasCandidate(Candidate candidate)</code> to check if a duplicate entry exists. Then <code>Model#addCandidate(Candidate candidate)</code> and adds the candidate to the CandidateBook.</p>
+</li>
+<li>
+<p><code>addC c/McDonalds &#8230;&#8203;</code> to add a new company. <code>AddCompanyCommand</code> calls <code>Model#hasCompany(Company company)</code> to check if a duplicate entry exists. Then <code>Model#addCompany(Company company)</code> and adds the company to the CompanyBook.</p>
+</li>
+<li>
+<p><code>addj c/McDonalds &#8230;&#8203;</code> to add a new job offer. <code>AddJobDetailsCommand</code> calls <code>Model#hasJobOffer(JobOffer jobOffer)</code> to check if a duplicate entry exists. Then <code>Model#addJobOffer(JobOffer jobOffer)</code> and adds the job offer to the CompanyBook.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes &#8230;&#8203;</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>deletec 1,3-4</code> to delete multiple candidates. <code>DeleteCandidateCommand</code> calls <code>Model#removeCandidate(Candidate candidate)</code> for the candidates listed at index 1, and 4.</p>
+</li>
+<li>
+<p><code>deleteC 1,3-4</code> to delete multiple companies. <code>DeleteCompanyCommand</code> calls <code>Model#removeCompany(Company company)</code> for the companies listed at index 1, and 4.</p>
+</li>
+<li>
+<p><code>deletej 1,3-4</code> to delete multiple job offers. <code>DeleteJobOfferCommand</code> calls <code>Model#deleteJobOffer(JobOffer jobOffer)</code> for the job offers listed at index 1, and 4.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-add-delete-feature-executes"><a class="link" href="#aspect-how-add-delete-feature-executes">Aspect: How add/delete feature executes</a></h5>
+
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-add-delete-feature"><a class="link" href="#aspect-data-structure-to-support-the-add-delete-feature">Aspect: Data structure to support the add/delete feature</a></h5>
+
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-feature"><a class="link" href="#find-feature">3.2. Find feature</a></h3>
+<div class="paragraph">
+<p>The <code>find</code> command is used to find candidates or companies stored in the address book through either the <code>findc</code> (find Candidate) or <code>findC</code> (find company).
+It extends <code>Command</code> and overrides two of its methods namely <code>CommandResult</code> and <code>equals</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="shortlist-feature"><a class="link" href="#shortlist-feature">3.3. Shortlist Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The shortlist mechanism is facilitated by <code>select</code>, <code>selectCompany</code> and <code>selectJob</code> command.
 It extends <code>CompanyBook</code> with a list of shortlisted candidate(s) for each job offer, stored internally as a <code>shortlistedCandidateList</code>.</p>
@@ -591,6 +741,18 @@ Assume that there are candidates and companies present in the data of RecruitBoo
 </li>
 <li>
 <p>User adds a new job offer <code>Cashier</code> under the existing company <code>KFC</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since RecruitBook opens up Candidate Book by default, adding a job offer will automatically switch the view to Company Book.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>RecruitBook creates a new object <code>Cashier</code> with <code>JobOffer</code> class. Hence, <code>Cashier</code> has <code>shortlistedCandidateList</code> as one of its attributes.</p>
@@ -653,7 +815,7 @@ You can access this list by calling <code>selectedJob.getShortlistedCandidateLis
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-shortlist-feature-executes"><a class="link" href="#aspect-how-shortlist-feature-executes">Aspect: How shortlist feature executes</a></h5>
 <div class="ulist">
@@ -728,9 +890,9 @@ to store multiple job offers under the same candidate <code>key</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="switch-book-feature"><a class="link" href="#switch-book-feature">3.2. Switch Book Feature</a></h3>
+<h3 id="switch-book-feature"><a class="link" href="#switch-book-feature">3.4. Switch Book Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The switching mechanism is facilitated by <code>MainWindow</code>, with the latter&#8217;s <code>switchToCandidateBook</code> and <code>switchToCompanyBook</code> methods.</p>
 </div>
@@ -759,12 +921,12 @@ For example, <code>SwitchBookRequestEvent</code> will match with the <code>handl
 <p>The methods <code>switchToCandidateBook</code> and <code>switchToCompanyBook</code> work by placing the desired panel in panelViewPlaceholder, to be shown on the MainWindow.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario for switching from <code>Company Book</code> to <code>Candidate Book</code> and how the switching mechanism behaves at each step.</p>
+<p>Given below is an example usage scenario for switching from <code>Candidate Book</code> to <code>Company Book</code> and how the switching mechanism behaves at each step.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User launches the application. <code>MainWindow</code> initialises the panelViewPlaceholder with <code>CompanyJobDetailsPanel</code>.</p>
+<p>User launches the application. <code>MainWindow</code> initialises the panelViewPlaceholder with <code>CandidateDetailsPanel</code>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -772,7 +934,7 @@ For example, <code>SwitchBookRequestEvent</code> will match with the <code>handl
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This means the default view of RecruitBook is the <code>Company Book</code>.
+This means the default view of RecruitBook is the <code>Candidate Book</code>.
 </td>
 </tr>
 </table>
@@ -788,13 +950,13 @@ This means the default view of RecruitBook is the <code>Company Book</code>.
 <p>Inside this method, it checks which book is currently displayed by calling the method <code>getDisplayedBook</code>.</p>
 </li>
 <li>
-<p><code>getDisplayedBook</code> returns <code>companyBook</code> as a string.</p>
+<p><code>getDisplayedBook</code> returns <code>candidateBook</code> as a string.</p>
 </li>
 <li>
-<p>Using a switch statement, case <code>companyBook</code> will execute and call for <code>switchToCandidateBook</code> method.</p>
+<p>Using a switch statement, case <code>candidateBook</code> will execute and call for <code>switchToCompanyBook</code> method.</p>
 </li>
 <li>
-<p><code>switchToCandidateBook</code> method places the <code>CandidateDetailsPanel</code> into panelViewPlaceholder to switch the view</p>
+<p><code>switchToCompanyBook</code> method places the <code>CompanyJobDetailsPanel</code> into panelViewPlaceholder to switch the view</p>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -813,7 +975,7 @@ inside <code>panelViewPlaceholder</code>. There will be a compilation error if t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-switch-feature-executes"><a class="link" href="#aspect-how-switch-feature-executes">Aspect: How switch feature executes</a></h5>
 <div class="ulist">
@@ -886,9 +1048,206 @@ cases of the view of <code>panelViewPlaceholder</code>, which is not the case as
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.3. Undo/Redo feature</a></h3>
+<h3 id="email-command"><a class="link" href="#email-command">3.5. Email command</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The email command is facilitated by <code>EmailInitialiseCommand</code>, <code>EmailRecipientsCommand</code>, <code>EmailContentsCommand</code> and <code>EmailSendCommand</code>
+classes which extends the <code>Command</code> class, and <code>EmailUtil</code> attribute in <code>Model</code> which stores variables and methods pertaining to the email command
+and the <code>EmailSettings</code> class which stores email subject and email body text settings.</p>
+</div>
+<div class="olist arabic">
+<div class="title"><em>Some of these classes also contain children classes which act as sub-commands:</em></div>
+<ol class="arabic">
+<li>
+<p><code>EmailRecipientsAddCommand</code>, <code>EmailRecipientsNextCommand</code> extends <code>EmailRecipientsSelectCommand</code>.</p>
+</li>
+<li>
+<p><code>EmailContentsAddCommand</code>, <code>EmailContentsBackCommand</code> and <code>EmailContentsNextCommand</code> extends <code>EmailContentsSelectCommand</code>.</p>
+</li>
+<li>
+<p><code>EmailSendBackCommand</code>, <code>EmailSendPreviewCommand</code> and <code>EmailSendSendCommand</code> extends <code>EmailSendCommand</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The email command is a 4-stage process supported by <code>LogicManager</code> by keeping track of the <code>LogicState</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>EmailInitialiseCommand</code></p>
+</li>
+<li>
+<p><code>EmailRecipientsCommand</code></p>
+</li>
+<li>
+<p><code>EmailContentsCommand</code></p>
+</li>
+<li>
+<p><code>EmailSendCommand</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the email command behaves at each step.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user launches the application. The application loads email settings from <code>preferences.json</code> which is stored in <code>Model#EmailUtil</code>.</p>
+</li>
+<li>
+<p>The user executes the <code>email</code> command. A new <code>EmailUtil</code> object is constructed and replaces the <code>EmailUtil</code> object in <code>Model</code>.
+<code>LogicState</code> is changed to reflect initialisation of the email command and to move it into recipients selection stage</p>
+</li>
+<li>
+<p>The user executes the <code>add</code> command for the first time. This calls <code>EmailRecipientsAddCommand</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In <code>EmailRecipientsAddCommand</code>, <code>EmailUtil#hasRecipientsAdded</code> boolean value will be changed to true.</p>
+</li>
+<li>
+<p><code>MainWindow#getCurrentBook()</code> is called to determine the current book that the user is on and
+<code>EmailUtil#areRecipientsCandidates</code> boolean value will be changed accordingly</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>If recipients are candidates, <code>EmailUtil#areRecipientsCandidates</code> will be true.</p>
+</li>
+<li>
+<p>If recipients are companies, <code>EmailUtil#areRecipientsCandidates</code> will be false.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Depending on <code>EmailUtil#areRecipientsCandidates</code>, the recipient objects are called with <code>Model#getFilteredCandidateList</code>
+or <code>Model#getFilteredJobList</code> and are stored in a linked hash set within <code>EmailUtil</code>.<br>
+Using <code>LinkedHashSet#add()</code> boolean return value, it is possible to determine if object added is a duplicate.
+Duplicates are not added and are noted down inside an <code>ArrayList</code> within <code>EmailRecipientsAddCommand</code> which will be
+reflected back to the user.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The user executes another <code>add</code> command to add more recipients. This calls <code>EmailRecipientsAddCommand</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If <code>MainWindow#getCurrentBook()</code> and <code>EmailUtil#areRecipientsCandidates</code> do not match, user will be notified and nothing will be done.
+This is to prevent adding different objects into the recipients linked hash set.</p>
+</li>
+<li>
+<p>If <code>MainWindow#getCurrentBook()</code> and <code>EmailUtil#areRecipientsCandidates</code> match, then adds recipients as seen above.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The user executes <code>next</code> command. This calls <code>EmailRecipientsNextCommand</code> which based on
+<code>EmailUtil#areRecipientsCandidates</code>, switches the current book and changes <code>LogicState</code> to select contents phase.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In <code>EmailContentSelectionCommand</code> phase, depending on <code>EmailUtil#areRecipientsCandidates</code>, the current book will be locked and only
+  commands pertaining to the current book can be used. This is to enforce that recipients and contents must be contrasting.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>The user executes <code>add</code> command. This calls <code>EmailContentsAddCommand</code> which adds contents similarly to <code>EmailRecipientsAddCommand</code> as seen above.</p>
+</li>
+<li>
+<p>The user executes <code>back</code> command. This calls <code>EmailContentsBackCommand</code> which switches the current book and changes <code>LogicState</code> back to select recipients phase.</p>
+</li>
+<li>
+<p>The user executes <code>next</code> command. This calls <code>EmailRecipientsNextCommand</code> which switches the current book and changes <code>LogicState</code> to select contents phase.</p>
+</li>
+<li>
+<p>The user executes <code>next</code> command. This calls <code>EmailContentsNextCommand</code> which changes <code>LogicState</code> to the send phase.</p>
+</li>
+<li>
+<p>The user executes <code>preview</code> command. This calls <code>EmailSendPreviewCommand</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>This generates a string of the email based on recipients and contents in <code>EmailUtil</code> which calls <code>EventCenter</code> to post <code>ShowEmailPreviewEvent</code>
+with the email String and shows the string in a new window, <code>EmailPreview</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The user is satisfied with the preview and executes the <code>send</code> command. This generates the email as a <code>MimeMessage</code>
+which is the Java format used for emails and is sent via <code>EmailUtil#sendMessage</code>. <code>LogicState</code> is reset back to orignal and this marks the end of the email command.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-store-recipients-and-candidates"><a class="link" href="#aspect-data-structure-to-store-recipients-and-candidates">Aspect: Data structure to store recipients and candidates</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Array List</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: General purpose data structure that will work for this use case</p>
+</li>
+<li>
+<p>Cons: Checking for duplicates is not efficient. Each insertion requires a comparison across all elements in the array.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Hash Set</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not allow duplicates and indicates if an object being added is successful or not.</p>
+</li>
+<li>
+<p>Cons: Does not maintain the order in which objects were added in.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3 (current choice):</strong> Linked Hash Set</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not allow duplicates, indicates if an object being added is successful or not,
+and maintains order in which objects were added in.</p>
+</li>
+<li>
+<p>Cons: -</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.6. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedCandidateBook</code>.
 It extends <code>CandidateBook</code> with an undo/redo history, stored internally as an <code>candidateBookStateList</code> and <code>currentStatePointer</code>.
@@ -1018,7 +1377,7 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1088,20 +1447,20 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1132,7 +1491,7 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1947,4 +2306,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 03:15:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 16:04:35 UTC</div></div></div></body></html>

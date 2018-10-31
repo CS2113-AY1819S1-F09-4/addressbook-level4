@@ -1,0 +1,596 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Andrew Ong - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Andrew Ong - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-recruitbook"><a class="link" href="#project-recruitbook">PROJECT: RecruitBook</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>RecruitBook is a desktop application created for job agent. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added an email feature</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows the user to send mass emails about one or more job offers to specified candidates or one or more candidates to specified companies.</p>
+</li>
+<li>
+<p>Justification: It is imperative for a job agent to be able to inform candidates about job offers or inform companies about candidates. This feature allows emails to be done automatically without any hassle.</p>
+</li>
+<li>
+<p>Highlights: The email will be automatically generated, all the user needs to do is select the recipients and contents of the email. There is a preview feature built into the command to allow the user to double check the recipients and contents of the email. Subject text and body text of the email is also customisable.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2113-AY1819S1-F09-4/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+author%3Aandrewome+is%3Amerged">Functional code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.1</code> - <code>v1.3</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/CS2113-AY1819S1-F09-4/main/pull/76">Updated project website</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed(non trivial) <a href="https://github.com/CS2113-AY1819S1-F09-4/main/pull/79">#79</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Below is my contribution to the User Guide. This demonstrates my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="sending-emails-code-email-code"><a class="link" href="#sending-emails-code-email-code">Sending emails : <code>email</code></a></h3>
+<div class="paragraph">
+<p>Sends an email to specified candidates about specified job offers OR
+to specified companies about specified candidates that are suitable for specified job offers.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only Gmail is supported at this point in time.<br>
+If it is your first time running RecruitBook, a Gmail log in page will open on your browser.
+The Gmail account that you log in with will be the email account used to send emails.<br>
+To use another Gmail account, delete <code>tokens</code> folder which is in the same directory of the
+program.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>email</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Email process is a 4-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Initialisation.</strong> Type <code>email</code> and press <kbd>Enter</kbd> to initialise the email command.</p>
+</li>
+<li>
+<p><strong>Choose your recipients.</strong> On the RecruitBook application, what&#8217;s shown on the main window
+will be taken in as the recipients.<br></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>You can use commands such as <code>listc</code>, <code>filterc</code>, <code>findc</code> to change the candidate shown.</p>
+</li>
+<li>
+<p>You can also use commands such as <code>listj</code>, <code>filterj</code>, <code>findj</code> to change the job offer shown.</p>
+</li>
+<li>
+<p>Type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p><strong>Choose your contents.</strong> On the RecruitBook application, what&#8217;s shown on the main window
+will be taken in as contents.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Depending on what what were the recipients, contents can only be the contrasting<br>
+eg. If recipients were candidates, only job offers can be the contents and vice versa.</p>
+</li>
+<li>
+<p>This is enforced by the program by limiting commands available in contents selection.</p>
+</li>
+<li>
+<p>Type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p><strong>Sending your email.</strong>  This step is a confirmation step before you actually send the email.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>preview</code> and press <kbd>Enter</kbd> to preview your email.</p>
+</li>
+<li>
+<p>Type <code>send</code> and press <kbd>Enter</kbd> to send the email.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Other notes</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>back</code> can be used to go back to the previous step.</p>
+</li>
+<li>
+<p><code>cancel</code> can be used to cancel the email command entirely.</p>
+</li>
+<li>
+<p>Adding duplicate candidate/job offers will be caught and will not be double counted.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can also change the email subject and email body text in <code>preference.json</code>.<br>
+Restart RecruitBook for changes to take effect.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>subjectCandidateAsRecipient</code> &#8594; Email subject if recipients of the email are candidates and contents of the email are job offers</p>
+</li>
+<li>
+<p><code>subjectCompanyAsRecipient</code> &#8594; Email subject if recipients of the email are companies and contents of the email are candidates.</p>
+</li>
+<li>
+<p><code>bodyTextCandidateAsRecipient</code> &#8594; Body text of email if recipients of the email are candidates and contents of the email are job offers</p>
+</li>
+<li>
+<p><code>bodyTextCompanyAsRecipient</code> &#8594; Body text of email if recipients of the email are companies and contents of the email are candidates.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="olist arabic">
+<div class="title"><em>You wish to send an email to candidates whose asking salary is $1,000 about being a cashier</em></div>
+<ol class="arabic">
+<li>
+<p><code>email</code><br>
+(Initialise email command)</p>
+</li>
+<li>
+<p><code>filterc /s$1000</code><br>
+(On CandidateBook)</p>
+</li>
+<li>
+<p><code>next</code><br>
+(To select recipients)</p>
+</li>
+<li>
+<p><code>findj /jCashier</code><br>
+(On CompanyBook)</p>
+</li>
+<li>
+<p><code>next</code><br>
+(To select contents)</p>
+</li>
+<li>
+<p><code>preview</code><br>
+(To preview email)</p>
+</li>
+<li>
+<p><code>send</code><br>
+(To send the email)</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Below is my contribution to the Developer Guide. This demonstrates my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="email-command"><a class="link" href="#email-command">Email command</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The email command is facilitated by <code>EmailInitialiseCommand</code>, <code>EmailRecipientsCommand</code>, <code>EmailContentsCommand</code> and <code>EmailSendCommand</code>
+classes which extends the <code>Command</code> class, and <code>EmailUtil</code> attribute in <code>Model</code> which stores variables and methods pertaining to the email command
+and the <code>EmailSettings</code> class which stores email subject and email body text settings.</p>
+</div>
+<div class="olist arabic">
+<div class="title"><em>Some of these classes also contain children classes which act as sub-commands:</em></div>
+<ol class="arabic">
+<li>
+<p><code>EmailRecipientsAddCommand</code>, <code>EmailRecipientsNextCommand</code> extends <code>EmailRecipientsSelectCommand</code>.</p>
+</li>
+<li>
+<p><code>EmailContentsAddCommand</code>, <code>EmailContentsBackCommand</code> and <code>EmailContentsNextCommand</code> extends <code>EmailContentsSelectCommand</code>.</p>
+</li>
+<li>
+<p><code>EmailSendBackCommand</code>, <code>EmailSendPreviewCommand</code> and <code>EmailSendSendCommand</code> extends <code>EmailSendCommand</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The email command is a 4-stage process supported by <code>LogicManager</code> by keeping track of the <code>LogicState</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>EmailInitialiseCommand</code></p>
+</li>
+<li>
+<p><code>EmailRecipientsCommand</code></p>
+</li>
+<li>
+<p><code>EmailContentsCommand</code></p>
+</li>
+<li>
+<p><code>EmailSendCommand</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the email command behaves at each step.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user launches the application. The application loads email settings from <code>preferences.json</code> which is stored in <code>Model#EmailUtil</code>.</p>
+</li>
+<li>
+<p>The user executes the <code>email</code> command. A new <code>EmailUtil</code> object is constructed and replaces the <code>EmailUtil</code> object in <code>Model</code>.
+<code>LogicState</code> is changed to reflect initialisation of the email command and to move it into recipients selection stage</p>
+</li>
+<li>
+<p>The user executes the <code>add</code> command for the first time. This calls <code>EmailRecipientsAddCommand</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In <code>EmailRecipientsAddCommand</code>, <code>EmailUtil#hasRecipientsAdded</code> boolean value will be changed to true.</p>
+</li>
+<li>
+<p><code>MainWindow#getCurrentBook()</code> is called to determine the current book that the user is on and
+<code>EmailUtil#areRecipientsCandidates</code> boolean value will be changed accordingly</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>If recipients are candidates, <code>EmailUtil#areRecipientsCandidates</code> will be true.</p>
+</li>
+<li>
+<p>If recipients are companies, <code>EmailUtil#areRecipientsCandidates</code> will be false.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Depending on <code>EmailUtil#areRecipientsCandidates</code>, the recipient objects are called with <code>Model#getFilteredCandidateList</code>
+or <code>Model#getFilteredJobList</code> and are stored in a linked hash set within <code>EmailUtil</code>.<br>
+Using <code>LinkedHashSet#add()</code> boolean return value, it is possible to determine if object added is a duplicate.
+Duplicates are not added and are noted down inside an <code>ArrayList</code> within <code>EmailRecipientsAddCommand</code> which will be
+reflected back to the user.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The user executes another <code>add</code> command to add more recipients. This calls <code>EmailRecipientsAddCommand</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If <code>MainWindow#getCurrentBook()</code> and <code>EmailUtil#areRecipientsCandidates</code> do not match, user will be notified and nothing will be done.
+This is to prevent adding different objects into the recipients linked hash set.</p>
+</li>
+<li>
+<p>If <code>MainWindow#getCurrentBook()</code> and <code>EmailUtil#areRecipientsCandidates</code> match, then adds recipients as seen above.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The user executes <code>next</code> command. This calls <code>EmailRecipientsNextCommand</code> which based on
+<code>EmailUtil#areRecipientsCandidates</code>, switches the current book and changes <code>LogicState</code> to select contents phase.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In <code>EmailContentSelectionCommand</code> phase, depending on <code>EmailUtil#areRecipientsCandidates</code>, the current book will be locked and only
+  commands pertaining to the current book can be used. This is to enforce that recipients and contents must be contrasting.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>The user executes <code>add</code> command. This calls <code>EmailContentsAddCommand</code> which adds contents similarly to <code>EmailRecipientsAddCommand</code> as seen above.</p>
+</li>
+<li>
+<p>The user executes <code>back</code> command. This calls <code>EmailContentsBackCommand</code> which switches the current book and changes <code>LogicState</code> back to select recipients phase.</p>
+</li>
+<li>
+<p>The user executes <code>next</code> command. This calls <code>EmailRecipientsNextCommand</code> which switches the current book and changes <code>LogicState</code> to select contents phase.</p>
+</li>
+<li>
+<p>The user executes <code>next</code> command. This calls <code>EmailContentsNextCommand</code> which changes <code>LogicState</code> to the send phase.</p>
+</li>
+<li>
+<p>The user executes <code>preview</code> command. This calls <code>EmailSendPreviewCommand</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>This generates a string of the email based on recipients and contents in <code>EmailUtil</code> which calls <code>EventCenter</code> to post <code>ShowEmailPreviewEvent</code>
+with the email String and shows the string in a new window, <code>EmailPreview</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The user is satisfied with the preview and executes the <code>send</code> command. This generates the email as a <code>MimeMessage</code>
+which is the Java format used for emails and is sent via <code>EmailUtil#sendMessage</code>. <code>LogicState</code> is reset back to orignal and this marks the end of the email command.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-store-recipients-and-candidates"><a class="link" href="#aspect-data-structure-to-store-recipients-and-candidates">Aspect: Data structure to store recipients and candidates</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Array List</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: General purpose data structure that will work for this use case</p>
+</li>
+<li>
+<p>Cons: Checking for duplicates is not efficient. Each insertion requires a comparison across all elements in the array.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Hash Set</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not allow duplicates and indicates if an object being added is successful or not.</p>
+</li>
+<li>
+<p>Cons: Does not maintain the order in which objects were added in.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3 (current choice):</strong> Linked Hash Set</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not allow duplicates, indicates if an object being added is successful or not,
+and maintains order in which objects were added in.</p>
+</li>
+<li>
+<p>Cons: -</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-partycards"><a class="link" href="#project-partycards">PROJECT: PartyCards</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview-2"><a class="link" href="#overview-2">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PartyCards is a web-application that allows up to 4 users play card games. Card games include: Cheat, Taiti, Bridge and Hearts. PartyCards was written with ReactJS frontend and Node.js backend.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions-2"><a class="link" href="#summary-of-contributions-2">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Added game: Cheat</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows up to 4 users to connect and play the game: Cheat.</p>
+</li>
+<li>
+<p>Highlights: I wrote the logic of the game, from how the front end checks if a card being played is valid to how the back end handles if somebody is being accused as cheating.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: Added game: Taiti</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows up to 4 users to connect and play the game: Taiti.</p>
+</li>
+<li>
+<p>Highlights: I wrote the logic of the game, from how the front end checks if a card combination being played is valid to how back end handles each turn and updates the current deck.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: Reconnection feature</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows users to disconnect from the game instance and rejoin the game instance,</p>
+</li>
+<li>
+<p>Justification: Users should be allowed to reconnect to a game should they disconnect due to bad internet connection.</p>
+</li>
+<li>
+<p>Highlight: When the user reconnects, all cards the user had will be reinstated, allowing the user to pick up where he/she left off.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: Added mobile support to PartyCards</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows users to play PartyCards comfortably on a mobile screen.</p>
+</li>
+<li>
+<p>Justification: Websites should always support mobile(portrait) and desktop(landscape) orientations. This will make the web-application playable on all platforms.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>Milestone 1</code> - <code>Milestone 3</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated README.md with documentation on PartyCards</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated Socket.io into the project to handle game instances.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 16:04:35 UTC</div></div></div></body></html>

@@ -16,7 +16,7 @@
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
 <li><a href="#switching-books-code-switch-code">4.2. Switching Books : <code>switch</code></a></li>
-<li><a href="#adding-a-candidate-company-job-code-addc-code-code-addc-code">4.3. Adding a candidate / company / job  : <code>addc</code> <code>addC</code></a></li>
+<li><a href="#adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code">4.3. Adding a candidate / company / job  : <code>addc</code> <code>addC</code> <code>addj</code></a></li>
 <li><a href="#editing-a-candidate-company-job-code-edit-code">4.4. Editing a candidate / company / job : <code>edit</code></a></li>
 <li><a href="#deleting-candidates-companies-job-offers-code-delete-code">4.5. Deleting candidates / companies / job offers : <code>delete</code></a></li>
 <li><a href="#listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code">4.6. Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code></a></li>
@@ -28,7 +28,7 @@
 <li><a href="#sorting-candidates-company-job-code-sort-code">4.12. Sorting candidates / company / job : <code>sort</code></a></li>
 <li><a href="#shortlisting-candidates-for-a-job-offer-code-shortlist-code">4.13. Shortlisting candidates for a job offer : <code>shortlist</code></a></li>
 <li><a href="#sending-emails-code-email-code">4.14. Sending emails : <code>email</code></a></li>
-<li><a href="#exits-from-any-intermediate-command-code-cancel-code">4.15. Exits from any intermediate command: <code>cancel</code></a></li>
+<li><a href="#exiting-from-any-intermediate-command-code-cancel-code">4.15. Exiting from any intermediate command: <code>cancel</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">4.16. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">4.17. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">4.18. Saving the data</a></li>
@@ -113,7 +113,7 @@ Graphical User Interface (GUI).</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-RecruitBook opens Company Book by default.
+RecruitBook opens Candidate Book by default.
 </td>
 </tr>
 </table>
@@ -274,7 +274,7 @@ and does the switch to the other book for you when you enter the <code>switch</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-candidate-company-job-code-addc-code-code-addc-code"><a class="link" href="#adding-a-candidate-company-job-code-addc-code-code-addc-code">4.3. Adding a candidate / company / job  : <code>addc</code> <code>addC</code></a></h3>
+<h3 id="adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code"><a class="link" href="#adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code">4.3. Adding a candidate / company / job  : <code>addc</code> <code>addC</code> <code>addj</code></a></h3>
 <div class="sect3">
 <h4 id="adds-a-candidate-to-the-recruitbook"><a class="link" href="#adds-a-candidate-to-the-recruitbook">4.3.1. Adds a candidate to the RecruitBook</a></h4>
 <div class="paragraph">
@@ -295,25 +295,7 @@ Supported tags: <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>a/</cod
 <p><code>n/John Doe g/M x/18 p/91238123 e/johndoe@gmail.com a/123, Central Boulevard, #01-111, 600123 j/WAITER h/A LEVEL s/1200</code></p>
 </li>
 <li>
-<p><code>n/Mary Loe g/M x/18 p/82238123 e/maryloe@gmail.com a/113, South Boulevard, #01-111, 600123 j/WAITER h/O LEVEL s/NA</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>After keying in the details, you will be further prompted for details of job experience:<br>
-<strong><code>Enter job experience (if any) of the candidate in the following format:</code></strong><br>
-<code>j/JOB y/YEARS_OF_EXPERIENCE c/COMPANY</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>j/Store Manager y/1 c/Mcdonalds</code></p>
-</li>
-<li>
-<p><code>j/Cashier y/2 c/KFC</code></p>
+<p><code>n/Mary Loe g/M x/18 p/82238123 e/maryloe@gmail.com a/113, South Boulevard, #01-111, 600123 j/WAITER h/O LEVEL s/1000</code></p>
 </li>
 </ul>
 </div>
@@ -349,8 +331,17 @@ Supported tags: <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>a/</cod
 <code>(Enter 'cancel' to stop adding jobs)</code><br>
 <code>Example: c/McDonalds j/cashier g/M xr/20-30 h/O levels s/1200</code></p>
 </div>
-<div class="paragraph">
-<p>Note: COMPANY specified has to be added to RecruitBook first!</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+COMPANY specified has to be added to RecruitBook first!
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -792,7 +783,7 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Shortlisting process is a 5-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#exits-from-any-intermediate-command-code-cancel-code">Section 4.15, &#8220;Exits from any intermediate command: <code>cancel</code>&#8221;</a>.
+Shortlisting process is a 5-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.
 </td>
 </tr>
 </table>
@@ -868,10 +859,17 @@ to specified companies about specified candidates that are suitable for specifie
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only Gmail is supported at this point in time.
+Only Gmail is supported at this point in time.<br>
+If it is your first time running RecruitBook, a Gmail log in page will open on your browser.
+The Gmail account that you log in with will be the email account used to send emails.<br>
+To use another Gmail account, delete <code>tokens</code> folder which is in the same directory of the
+program.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Format: <code>email</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -880,20 +878,15 @@ Only Gmail is supported at this point in time.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If it is your first time running RecruitBook, a Gmail log in page will open on your browser.
-The Gmail account that you log in with will be the email account used to send emails.
+Email process is a 4-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Format: <code>email</code></p>
-</div>
 <div class="olist arabic">
-<div class="title"><em>Email command is a 4-step command</em></div>
 <ol class="arabic">
 <li>
-<p><strong>Initialisation.</strong> Type <code>email</code> to initialise the email command.</p>
+<p><strong>Initialisation.</strong> Type <code>email</code> and press <kbd>Enter</kbd> to initialise the email command.</p>
 </li>
 <li>
 <p><strong>Choose your recipients.</strong> On the RecruitBook application, what&#8217;s shown on the main window
@@ -907,7 +900,7 @@ will be taken in as the recipients.<br></p>
 <p>You can also use commands such as <code>listj</code>, <code>filterj</code>, <code>findj</code> to change the job offer shown.</p>
 </li>
 <li>
-<p>Type <code>next</code> to move on to the next step.</p>
+<p>Type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
 </li>
 </ol>
 </div>
@@ -918,18 +911,18 @@ will be taken in as the recipients.<br></p>
 <ol class="arabic" start="3">
 <li>
 <p><strong>Choose your contents.</strong> On the RecruitBook application, what&#8217;s shown on the main window
-will be taken in as contents.<br></p>
+will be taken in as contents.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Depending on what what were the recipients, contents can only be the contrasting<br>
-eg. If recipients were candidates, only job offers can be the contents and vice versa.<br></p>
+eg. If recipients were candidates, only job offers can be the contents and vice versa.</p>
 </li>
 <li>
 <p>This is enforced by the program by limiting commands available in contents selection.</p>
 </li>
 <li>
-<p>Type <code>next</code> to move on to the next step.</p>
+<p>Type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
 </li>
 </ol>
 </div>
@@ -939,22 +932,24 @@ eg. If recipients were candidates, only job offers can be the contents and vice 
 <div class="olist arabic">
 <ol class="arabic" start="4">
 <li>
-<p><strong>Sending your email.</strong>  This step is a confirmation step before you actually send the email.<br></p>
+<p><strong>Sending your email.</strong>  This step is a confirmation step before you actually send the email.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Type <code>preview</code> to preview your email.<br></p>
+<p>Type <code>preview</code> and press <kbd>Enter</kbd> to preview your email.</p>
 </li>
 <li>
-<p>Type <code>send</code> to send the email.<br></p>
+<p>Type <code>send</code> and press <kbd>Enter</kbd> to send the email.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Other notes</p>
 </div>
 <div class="olist arabic">
-<div class="title"><em>Other notes</em></div>
 <ol class="arabic">
 <li>
 <p><code>back</code> can be used to go back to the previous step.</p>
@@ -964,6 +959,26 @@ eg. If recipients were candidates, only job offers can be the contents and vice 
 </li>
 <li>
 <p>Adding duplicate candidate/job offers will be caught and will not be double counted.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can also change the email subject and email body text in <code>preference.json</code>.<br>
+Restart RecruitBook for changes to take effect.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>subjectCandidateAsRecipient</code> &#8594; Email subject if recipients of the email are candidates and contents of the email are job offers</p>
+</li>
+<li>
+<p><code>subjectCompanyAsRecipient</code> &#8594; Email subject if recipients of the email are companies and contents of the email are candidates.</p>
+</li>
+<li>
+<p><code>bodyTextCandidateAsRecipient</code> &#8594; Body text of email if recipients of the email are candidates and contents of the email are job offers</p>
+</li>
+<li>
+<p><code>bodyTextCompanyAsRecipient</code> &#8594; Body text of email if recipients of the email are companies and contents of the email are candidates.</p>
 </li>
 </ol>
 </div>
@@ -1005,7 +1020,7 @@ eg. If recipients were candidates, only job offers can be the contents and vice 
 </div>
 </div>
 <div class="sect2">
-<h3 id="exits-from-any-intermediate-command-code-cancel-code"><a class="link" href="#exits-from-any-intermediate-command-code-cancel-code">4.15. Exits from any intermediate command: <code>cancel</code></a></h3>
+<h3 id="exiting-from-any-intermediate-command-code-cancel-code"><a class="link" href="#exiting-from-any-intermediate-command-code-cancel-code">4.15. Exiting from any intermediate command: <code>cancel</code></a></h3>
 <div class="paragraph">
 <p>Format : <code>cancel</code></p>
 </div>
@@ -1032,7 +1047,7 @@ Format: <code>clearC</code></p>
 <p>Format in CLI : <code>exit</code></p>
 </li>
 <li>
-<p>GUI (refer to Figure 4) : At the top of the application, locate the menu bar and click <code>File</code> &gt; <code>exit</code>.</p>
+<p>GUI (refer to Figure 9) : At the top of the application, locate the menu bar and click <code>File</code> &gt; <code>exit</code>.</p>
 </li>
 </ul>
 </div>
@@ -1070,43 +1085,85 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Add</strong> : <code>addc n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS …</code><br>
-e.g. <code>addc n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 …</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list [jobs /candidates]</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>editc &lt;INDEX&gt; [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]</code> or <code>editC &lt;INDEX&gt;</code><br>
-e.g. <code>editc 2 e/jameslee@example.com</code>, <code>editC 5</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find &lt;tag&gt;/KEYWORD [MORE_KEYWORDS]</code><br></p>
-</li>
-<li>
-<p><strong>Filter</strong> : <code>filter &lt;tag&gt; [h/highest education level] [j/job] [s/expected salary] [x/age]</code><br>
-e.g. <code>filter h/O LEVEL</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>deletec &lt;INDEX&gt;</code> or <code>deletej &lt;INDEX&gt;</code><br>
-e.g. <code>deletec 1 `, `deletej 5</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <code>exit</code></p>
-</li>
-<li>
-<p><strong>Email</strong> : <code>email</code></p>
-</li>
-</ul>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Switch</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switch</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addc n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS …</code></p>
+<p class="tableblock">            e.g. <code>addc n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 …</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editc &lt;INDEX&gt; [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]</code> or <code>editC &lt;INDEX&gt;</code><br></p>
+<p class="tableblock">            e.g. <code>editc 2 e/jameslee@example.com</code>, <code>editC 5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletec &lt;INDEX&gt;</code> or <code>deletej &lt;INDEX&gt;</code><br></p>
+<p class="tableblock">            e.g. <code>deletec 1 `, `deletej 5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list [jobs /candidates]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select Candidate</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code> <code>&lt;INDEX&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select Company</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>selectCompany</code> <code>&lt;INDEX&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select Job Offer</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>selectJob</code> <code>&lt;INDEX&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find &lt;tag&gt;/KEYWORD [MORE_KEYWORDS]</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Filter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter &lt;tag&gt; [h/highest education level] [j/job] [s/expected salary] [x/age]</code><br></p>
+<p class="tableblock">            e.g. <code>filter h/O LEVEL</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Shortlist Candidate</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>shortlist</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Email</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>email</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cancel</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cancel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 03:15:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 16:04:35 UTC</div></div></div></body></html>
