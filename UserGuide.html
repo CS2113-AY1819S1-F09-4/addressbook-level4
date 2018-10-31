@@ -517,7 +517,77 @@ This index must be an index number shown in the displayed job list.</p>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-shortlisted-candidate-code-deleteshortlist-code"><a class="link" href="#deleting-a-shortlisted-candidate-code-deleteshortlist-code">4.6. Deleting a shortlisted candidate: <code>deleteShortlist</code></a></h3>
-
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Deleting a shortlisted candidate is a 4-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteShortlist</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Initialization</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>deleteShortlist</code> and press <kbd>Enter</kbd> to initialize the delete process.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the company</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>selectCompany</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the company.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the job offer</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>selectJob</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the job offer.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the candidate to delete</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>delete</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the shortlisted candidate to delete.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Index must be an index number shown in the displayed list.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code"><a class="link" href="#listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code">4.7. Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code></a></h3>
@@ -607,8 +677,10 @@ If you are viewing the Candidate Book, this command will automatically bring you
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Selects the candidate(s) with the specified INDEX(s)
-This index must be an index number shown in the displayed candidate list.</p>
+<p>Selects the candidate with the specified INDEX</p>
+</li>
+<li>
+<p>This index must be an index number shown in the displayed candidate list.</p>
 </li>
 </ol>
 </div>
@@ -618,11 +690,31 @@ This index must be an index number shown in the displayed candidate list.</p>
 <div class="paragraph">
 <p>Format: <code>selectCompany</code> <code>&lt;INDEX&gt;</code></p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selects the company with the specified INDEX</p>
+</li>
+<li>
+<p>This index must be an index number shown in the displayed company list.</p>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
 <h4 id="selecting-a-job-offer"><a class="link" href="#selecting-a-job-offer">4.8.3. Selecting a job offer :</a></h4>
 <div class="paragraph">
 <p>Format: <code>selectJob</code> <code>&lt;INDEX&gt;</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selects the job offer with the specified INDEX</p>
+</li>
+<li>
+<p>This index must be an index number shown in the displayed job offer list.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -930,6 +1022,18 @@ Shortlisting process is a 5-stage process. To exit from this process, enter <cod
 </li>
 </ol>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Index must be an index number shown in the displayed list.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="sending-emails-code-email-code"><a class="link" href="#sending-emails-code-email-code">4.14. Sending emails : <code>email</code></a></h3>
@@ -1200,8 +1304,16 @@ There is no need to save manually.</p>
 <p class="tableblock">            e.g. <code>deletec 1 `, `deletej 5</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list [jobs /candidates]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Shortlisted Candidate</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteShortlist</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List all Candidates</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listc</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List all Companies and all Job Offers</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listC</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select Candidate</strong></p></td>
@@ -1255,4 +1367,4 @@ There is no need to save manually.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 17:47:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 19:40:39 UTC</div></div></div></body></html>
