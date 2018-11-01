@@ -563,7 +563,7 @@ Additionally, it implements the following operations to support adding/deletion 
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the Model interface as Model#addCandidate(Candidate) and Model#deleteCandidate(Candidate candidate) respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addCandidate(Candidate)</code> and <code>Model#deleteCandidate(Candidate candidate)</code> respectively.</p>
 </div>
 </div>
 <div class="sect4">
@@ -589,7 +589,7 @@ Additionally, it implements the following operations to support adding/deletion 
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the Model interface as Model#addCompany(Company) and Model#deleteCompany(Company company) respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addCompany(Company)</code> and <code>Model#deleteCompany(Company company)</code> respectively.</p>
 </div>
 </div>
 <div class="sect4">
@@ -615,7 +615,7 @@ Additionally, it implements the following operations to support adding/deletion 
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the Model interface as Model#addJobOffer(JobOffer) and Model#deleteJobOffer(JobOffer jobOffer) respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addJobOffer(JobOffer)</code> and <code>Model#deleteJobOffer(JobOffer jobOffer)</code> respectively.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -982,8 +982,9 @@ These prefixes <code>/n</code>, <code>/x</code>,<code>/e</code>, <code>/j</code>
 </tr>
 </table>
 </div>
-<div class="sect5">
-<h6 id="companies-3"><a class="link" href="#companies-3">Companies</a></h6>
+</div>
+<div class="sect4">
+<h5 id="companies-3"><a class="link" href="#companies-3">Companies</a></h5>
 <div class="paragraph">
 <p>The sort mechanism of companies is facilitated in <code>UniqueCompanyList</code> which stores companies in an <code>internalList</code>. It implements the sorting of companies using the following operations:</p>
 </div>
@@ -1088,7 +1089,6 @@ Assume that upon initialisation, there are candidate and company entries in Recr
 </div>
 </div>
 </div>
-</div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
@@ -1096,7 +1096,7 @@ Assume that upon initialisation, there are candidate and company entries in Recr
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1{current choice):</strong> Store the input prefix as a parameter to be passed in to the respective books which calls the respective method.</p>
+<p><strong>Alternative 1(current choice):</strong> Store the input prefix as a parameter to be passed in to the respective books which calls the respective method.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -2906,4 +2906,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 02:34:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 02:45:20 UTC</div></div></div></body></html>
