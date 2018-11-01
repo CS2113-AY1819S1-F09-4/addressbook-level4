@@ -113,10 +113,185 @@ Apart from the attributes, users can also do a reverse sort to list out the curr
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="editing-a-candidate-company-job-code-editc-code-code-editc-code-code-editj-code"><a class="link" href="#editing-a-candidate-company-job-code-editc-code-code-editc-code-code-editj-code">Editing a candidate / company / job : <code>editc</code> <code>editC</code> <code>editj</code></a></h3>
+<div class="sect3">
+<h4 id="edits-attributes-of-the-candidate-at-the-specified-index-code-index-code"><a class="link" href="#edits-attributes-of-the-candidate-at-the-specified-index-code-index-code">Edits attributes of the candidate at the specified index <code>INDEX</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editc &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the candidate with the specified <code>INDEX</code>.
+The index must be an index number shown in the displayed candidates list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editc 1 n/John Doe p/91234567</code><br>
+(Edits the name, phone number and email address of the candidate with index 1 to be John Doe and 91234567 respectively)</p>
+</li>
+<li>
+<p><code>editc 3 t/</code><br>
+(Edits and clears all existing tags belonging to the candidate at index 3)</p>
+</li>
+</ul>
 </div>
 </div>
-<div class="sect1 com/CS2113-AY1819S1-F09-4/main/blob/master/docs/UserGuide adoc">
-<h2 id="blacklisting-candidates-code-blacklist-code-code-blacklist-rm-code[Blacklist]"><a class="link" href="#blacklisting-candidates-code-blacklist-code-code-blacklist-rm-code[Blacklist]">Contributions to the Developer Guide</a></h2>
+<div class="sect3">
+<h4 id="edits-details-of-a-company-at-the-specified-index-code-index-code"><a class="link" href="#edits-details-of-a-company-at-the-specified-index-code-index-code">Edits details of a company at the specified index <code>INDEX</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editC &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the company with the specified <code>INDEX</code>.
+The index must be an index number shown in the displayed company list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editC 1 c/KFC p/62226111</code><br>
+(Edits the name and phone number of the company with index 1 to be KFC and 62226111</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edits-details-of-a-job-offer"><a class="link" href="#edits-details-of-a-job-offer">Edits details of a job offer</a></h4>
+<div class="paragraph">
+<p>Format: <code>editj &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the job with the specified <code>INDEX</code>.
+This index must be an index number shown in the displayed job list.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editj 1 xr/20-30</code><br>
+(Edits the <code>MIN_AGE-MAX_AGE</code> attribute of the 1st job offer to be of 20 to 30 years of age)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-candidates-company-job-code-sortc-code-code-sortc-code"><a class="link" href="#sorting-candidates-company-job-code-sortc-code-code-sortc-code">Sorting candidates / company / job : <code>sortc</code> <code>sortC</code></a></h3>
+<div class="sect3">
+<h4 id="sorting-candidates-based-on-different-fields"><a class="link" href="#sorting-candidates-based-on-different-fields">Sorting candidates based on different fields</a></h4>
+<div class="paragraph">
+<p>Format: <code>sortc &lt;tag&gt;</code><br>
+Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</code>, <code>h/</code>, <code>s/</code>, <code>r/</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only one tag/field is included when using the sort command</p>
+</li>
+<li>
+<p>There must be one tag/field included</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sortc n/</code><br>
+(Sorts all candidates lexicographically by their name)</p>
+</li>
+<li>
+<p><code>sortc r/</code><br>
+(Sorts all candidates in reverse)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-companies-based-on-different-fields"><a class="link" href="#sorting-companies-based-on-different-fields">Sorting companies based on different fields</a></h4>
+<div class="paragraph">
+<p>Format: <code>sortC &lt;tag&gt;</code><br>
+Supported tags: <code>c/</code>, <code>e/</code>, <code>r/</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only one tag/field is included when using the sort command</p>
+</li>
+<li>
+<p>There must be one tag/field included</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sortC c/</code><br>
+(Sorts all companies lexicographically by their company&#8217;s name)</p>
+</li>
+<li>
+<p><code>sortC r/</code><br>
+(Sort all companies in reverse)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="blacklisting-candidates-code-blacklist-code-code-blacklist-rm-code"><a class="link" href="#blacklisting-candidates-code-blacklist-code-code-blacklist-rm-code">Blacklisting candidates : <code>blacklist</code> <code>blacklist rm</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>blacklist</code> <code>&lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Blacklists the candidate with the specified <code>INDEX</code>.
+The index must be an index number shown in the displayed candidates list</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Blacklisting candidates will prevent them from being edited or shortlisted.
+Candidates can be unblacklisted by using <code>blacklist rm</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>blacklist 1</code><br>
+(Blacklists first candidate in the list)</p>
+</li>
+<li>
+<p><code>blacklist rm 1</code><br>
+(Unblacklists first candidate in the list)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -128,5 +303,602 @@ Apart from the attributes, users can also do a reverse sort to list out the curr
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="edit-feature"><a class="link" href="#edit-feature">Edit Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="candidates"><a class="link" href="#candidates">Candidates</a></h5>
+<div class="paragraph">
+<p>The edit mechanism for candidates is facilitated by <code>EditPersonDescriptor</code> in <code>EditCandidateCommand</code> which creates a new Candidate object with edited attributes
+and <code>UniqueCandidateList</code> which stores candidates internally as an <code>internalList</code> which is a list of Candidate objects.
+Additionally, it implements the following operations to support the editing of candidates.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 12:19:13 UTC</div></div></div></body></html>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCandidateList#contains(Candidate candidate)</code> — Checks whether a candidate exists inside <code>internalList</code> using <code>Candidate#isSameCandidate</code> to define equality.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#setCandidate(Candidate target, Candidate editedCandidate)</code> — Replaces the Candidate object(target) in the <code>internalList</code> to the newly edited Candidate object(editedCandidate) through <code>List#set(int index, E element)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasCandidate(Candidate candidate)</code> and <code>Model#updateCandidate(Candidate target, Candidate editedCandidate)</code> respectively.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="companies"><a class="link" href="#companies">Companies</a></h5>
+<div class="paragraph">
+<p>The edit mechanism for companies is facilitated by <code>EditCompanyDescriptor</code> in <code>EditCompanyCommand</code> which creates a new Company object with edited attributes
+and <code>UniqueCompanyList</code> which stores companies internally as an <code>internalList</code> which is a list of Company objects.
+Additionally, it implements the following operations to support the editing of companies.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCompanyList#contains(Company company)</code> — Checks whether a company exists inside <code>internalList</code> using <code>Company#isSameCompany</code> to define equality.</p>
+</li>
+<li>
+<p><code>UniqueCompanyList#setCompany(Company target, Company editedCompany)</code> — Replaces the Company object(target) in the <code>internalList</code> to the newly edited Company object(editedCompany) through <code>List#set(int index, E element)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasCompany(Company company)</code> and <code>Model#updateCompany(Company target, Company editedCompany)</code> respectively.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="job-offers"><a class="link" href="#job-offers">Job Offers</a></h5>
+<div class="paragraph">
+<p>The edit mechanism for job offers is facilitated by <code>EditJobOfferDescriptor</code> in <code>EditJobDetailsCommand</code> which creates a new Job Offer object with edited attributes
+and <code>UniqueJobList</code> which stores job offers internally as an <code>internalList</code> which is a list of Job Offer objects.
+Additionally, it implements the following operations to support the editing of job offers.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueJobList#contains(JobOffer jobOffer)</code> — Checks whether a job offer exists inside <code>internalList</code> using <code>JobOffer#isSameJobOffer</code> to define equality.</p>
+</li>
+<li>
+<p><code>UniqueJobList#setJobOffer(JobOffer target, JobOffer editedJobOffer)</code> — Replaces the Job Offer object(target) in the <code>internalList</code> to the newly edited Job Offer object(editedJobOffer) through <code>List#set(int index, E element)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasJobOffer(JobOffer jobOffer)</code> and <code>Model#updateJobOffer(JobOffer target, JobOffer editedJobOffer)</code> respectively.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The editing of all three entities(Candidate, Company, JobOffer) follow the same mechanism.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the edit mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches RecruitBook for the first time.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>UniqueCandidateList</code> will be initialised with the list of saved candidates in RecruitBook</p>
+</li>
+<li>
+<p><code>UniqueCompanyList</code> will be initialised with the list of saved companies in RecruitBook</p>
+</li>
+<li>
+<p><code>UniqueJobList</code> will be initialised with the list of saved job offers.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Assume that upon initialisation, there are candidate, company and job offer entries in RecruitBook.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes &#8230;&#8203;</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>editc 1 n/John Doe</code> to edit the name of the 1st person in the RecruitBook.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The name attribute in <code>EditPersonDescriptor</code> in <code>EditCandidateCommand</code> has been set to "John Doe" and the descriptor is used to compare with the original Candidate object and a new Candidate object is created with the name being "John Doe".</p>
+</li>
+<li>
+<p><code>EditCandidateCommand</code> then calls <code>Model#hasCandidate(Candidate candidate)</code> to check if the edited candidate has a duplicate in the RecruitBook. If not, <code>Model#updateCandidate(Candidate target, Candidate editedCandidate)</code> is then called that replaces the original Candidate object with the newly edited one.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>editC 1 c/KFC</code> to edit the name of the 1st company in the RecruitBook.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The name attribute in <code>EditCompanyDescriptor</code> in <code>EditCompanyCommand</code> has been set to "KFC" and the descriptor is used to compare with the original Company object and a new Company object is created with the name being "KFC".</p>
+</li>
+<li>
+<p><code>EditCompanyCommand</code> then calls <code>Model#hasCompany(Company company)</code> to check if the edited company has a duplicate in the RecruitBook. If not, <code>Model#updateCompany(Company target, Company editedCompany)</code> is then called that replaces the original Company object with the newly edited one.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>editj 1 j/Cashier</code> to edit the job title of the 1st job offer in the RecruitBook.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>The job title attribute in <code>EditJobOfferDescriptor</code> in <code>EditJobDetailsCommand</code> has been set to "Cashier" and the descriptor is used to compare with the original JobOffer object and a new JobOffer object is created with the job title being "Cashier".</p>
+</li>
+<li>
+<p><code>EditJobDetailsCommand</code> then calls <code>Model#hasJobOffer(JobOffer jobOffer)</code> to check if the edited job offer has a duplicate in the RecruitBook. If not, <code>Model#updateJobOffer(JobOffer target, JobOffer editedJobOffer)</code> is then called that replaces the original JobOffer object with the newly edited one.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Any duplicates formed after editing will not replace the original object. It will prompt an error message
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="how-edit-executes"><a class="link" href="#how-edit-executes">How edit executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Replaces the original object with an edited one.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: If the edited object were to result in errors, it can be prevented from replacing the original object.</p>
+</li>
+<li>
+<p>Cons: It is less efficient as compared to editing the original object straightaway.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Editing the original object instead of replacing it with an edited one.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is more intuitive and efficient.</p>
+</li>
+<li>
+<p>Cons: The edited object cannot be checked for duplicates without permanently changing the object first.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="data-structure-to-support-the-edit-command"><a class="link" href="#data-structure-to-support-the-edit-command">Data structure to support the edit command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Separating the editing feature into 3 commands for different entities.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Greater distinction between the entities.</p>
+</li>
+<li>
+<p>Cons: More commands to deal with (similar commands across all three entities).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have a central <code>EditManager</code> that handles all edits.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduction of command objects (less confusing).</p>
+</li>
+<li>
+<p>Cons: There is coupling between the manager and the individual commands. Changes to an entity has to be cascaded to the manager.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sort-feature"><a class="link" href="#sort-feature">Sort Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="candidates-2"><a class="link" href="#candidates-2">Candidates</a></h5>
+<div class="paragraph">
+<p>The sort mechanism of candidates is facilitated in <code>UniqueCandidateList</code> which stores candidates in an <code>internalList</code>. It implements the sorting of candidates using the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCandidateList#sortByName()</code> — Sorts the <code>internalList</code> of Candidates by their names.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#sortByAge()</code> — Sorts the <code>internalList</code> of Candidates by their age.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#sortByEmail()</code> — Sorts the <code>internalList</code> of Candidates by their emails.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#sortByJob()</code> — Sorts the <code>internalList</code> of Candidates by their job titles.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#sortByEducation()</code> — Sorts the <code>internalList</code> of Candidates by their education levels.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#sortBySalary()</code> — Sorts the <code>internalList</code> of Candidates by their salaries.</p>
+</li>
+<li>
+<p><code>UniqueCandidateList#sortInReverse()</code> — Sorts the <code>internalList</code> of Candidates in reverse order of their current order.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are accessed through the <code>Model</code> interface as <code>Model#sortCandidates(Prefix prefix)</code> which then calls the respective sorting method by determining the prefix type in <code>CandidateBook</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These prefixes <code>/n</code>, <code>/x</code>,<code>/e</code>, <code>/j</code>, <code>/h</code>, <code>/s</code>, <code>/r</code> are used respectively to the methods shown above.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="companies-2"><a class="link" href="#companies-2">Companies</a></h5>
+<div class="paragraph">
+<p>The sort mechanism of companies is facilitated in <code>UniqueCompanyList</code> which stores companies in an <code>internalList</code>. It implements the sorting of companies using the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCompanyList#sortByCompanyName()</code> — Sorts the <code>internalList</code> of Companies by their names.</p>
+</li>
+<li>
+<p><code>UniqueCompanyList#sortByEmail()</code> — Sorts the <code>internalList</code> of Companies by their emails.</p>
+</li>
+<li>
+<p><code>UniqueCompanyList#sortInReverse()</code> — Sorts the <code>internalList</code> of Companies in reverse order of their current order.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are accessed through the <code>Model</code> interface as <code>Model#sortCompanies(Prefix prefix)</code> which then calls the respective sorting method by determining the prefix type in <code>CompanyBook</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These prefixes <code>/c</code>, <code>/e</code>, <code>/r</code> are used respectively to the methods shown above.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the sort command behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches RecruitBook for the first time.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>UniqueCandidateList</code> will be initialised with the list of saved candidates in <code>CandidateBook</code>.</p>
+</li>
+<li>
+<p><code>UniqueCompanyList</code> will be initialised with the list of saved companies in <code>CompanyBook</code>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Assume that upon initialisation, there are candidate and company entries in RecruitBook.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes&#8230;&#8203;</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>sortc s/</code> to sort the list of candidates based on their salaries.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>s/</code> prefix is used which calls the <code>UniqueCandidateList#sortBySalary()</code> from <code>CandidateBook</code>.</p>
+</li>
+<li>
+<p>The <code>internalList</code> within <code>CandidateBook</code> is then sorted numerically based on salary and the newly sorted list will be reflected in the <code>MainWindow</code> of RecruitBook.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>sortC c/</code> to sort the list of companies based on their names.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>c/</code> prefix is used which calls the <code>UniqueCompanyList</code>#sortByCompanyName()` from <code>CompanyBook</code>.</p>
+</li>
+<li>
+<p>The <code>internalList</code> within <code>CompanyBook</code> is then sorted lexicographically based on their names and the newly sorted list will be reflected in the <code>MainWindow</code> of RecruitBook.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 3. The user does not want the candidates to be sorted in increasing order but decreasing order. So, the user executes</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>sortc /r</code> to sort the list of candidates in the reverse order of the current order.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-sort-executes"><a class="link" href="#aspect-how-sort-executes">Aspect: How sort executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Store the input prefix as a parameter to be passed in to the respective books which calls the respective method.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The variations of sort methods are stored under <code>UniqueCandidateList</code> instead of having more command objects.</p>
+</li>
+<li>
+<p>Cons: Implementation of switch case statements in both books which could lead to poorer performance.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create multiple sort commands for the various attributes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The implementation would give a better performance.</p>
+</li>
+<li>
+<p>Cons: There will be about 10 more newly added command objects which makes it confusing when dealing with many similar commands.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="blacklist-feature"><a class="link" href="#blacklist-feature">Blacklist Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The blacklist mechanism is facilitated by <code>UniqueCandidateList</code> that is stored in the CandidateBook (as <code>internalList</code>). This feature is also supported by <code>Model#getFilteredCandidateList</code> where the input index is used to obtain the Candidate object from the observable list.
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCandidateList#setCandidate(Candidate target, Candidate editedCandidate)</code> — Replaces the original Candidate object in the <code>internalList</code> with the newly edited Candidate object.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#updateCandidate(Candidate target, Candidate editedCandidate)</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There is <strong>no</strong> duplicate check as no two candidate objects share the same name and changing the tags (blacklist) does not violate the uniqueness of their names.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the blacklist command behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches RecruitBook for the first time.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>UniqueCandidateList</code> is initialised with the saved data of Candidates in RecuitBook.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Assume that upon initialisation, there are candidate entries in RecruitBook.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>blacklist 1</code> command to blacklist the 1st candidate in the candidate book. If there are no errors, the 1st candidate will be blacklisted and a "BLACKLISTED" tag will appear in its entry.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>It achieves this by generating a new Candidate object with a blacklist tag then replaces the original Candidate object in the <code>internalList</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>editc 1 n/James</code>. This command will fail to execute as blacklisted candidates cannot be edited or shortlisted. An error message will appear.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The user decides that blacklisting the candidate was a mistake and proceeds to <strong>remove</strong> the blacklist.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>blacklist rm 1</code> is executed. The 1st candidate will no longer be blacklisted and the "BLACKLISTED" tag will be removed from its entry.</p>
+</li>
+<li>
+<p>It achieves this by generating a new Candidate object without a blacklist tag which replaces the original blacklisted Candidate in the <code>internalList</code>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Trying to blacklist an already blacklisted candidate will prompt an error message.<br>
+Unblacklisting a candidate who is not blacklisted will do likewise.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-blacklist-executes"><a class="link" href="#aspect-how-blacklist-executes">Aspect: How blacklist executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Creates a new  Candidate object for adding or removal of blacklist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less error prone as compared to editing candidates straight.</p>
+</li>
+<li>
+<p>Cons: It is less efficient to regenerate objects as compared to directing editing of candidates.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Editing the tags of the Candidate directly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive and efficient.</p>
+</li>
+<li>
+<p>Cons: Code becomes less defensive as any changes will be permanent reflected in that candidate.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-blacklist-command"><a class="link" href="#aspect-data-structure-to-support-the-blacklist-command">Aspect: Data structure to support the blacklist command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Add blacklist tags into the candidates.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Blacklisting can be immediately displayed on entries.</p>
+</li>
+<li>
+<p>Cons: There is no organised data structure that accommodates all blacklisted candidates, so if there is a need for all blacklisted candidates, every candidate has to be checked.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store blacklisted candidates in a list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: There is a one-stop collection of blacklisted candidates.</p>
+</li>
+<li>
+<p>Cons: To check if a candidate if blacklisted, a loop has to be used to check the list. (slows the execution of edit and shortlist).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 12:24:52 UTC</div></div></div></body></html>
