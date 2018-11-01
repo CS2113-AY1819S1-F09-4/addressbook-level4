@@ -978,7 +978,7 @@ Any duplicates formed after editing will not replace the original object. It wil
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-These prefixes <code>/n</code>, <code>/x</code>,<code>/e</code>, <code>/j</code>, <code>/h</code>, <code>/s</code>, <code>/r</code> are used respectively to the methods shown above.
+These prefixes <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</code>, <code>h/</code>, <code>s/</code>, <code>r/</code> are used respectively to the methods shown above.
 </td>
 </tr>
 </table>
@@ -1012,7 +1012,50 @@ These prefixes <code>/n</code>, <code>/x</code>,<code>/e</code>, <code>/j</code>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-These prefixes <code>/c</code>, <code>/e</code>, <code>/r</code> are used respectively to the methods shown above.
+These prefixes <code>c/</code>, <code>e/</code>, <code>r/</code> are used respectively to the methods shown above.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="job-offers-3"><a class="link" href="#job-offers-3">Job Offers</a></h5>
+<div class="paragraph">
+<p>The sort mechanism of job offers is facilitated in <code>UniqueCompanyJobList</code> which stores job offers in an <code>internalList</code>. It implements the sorting of job offers using the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCompanyJobList#sortByCompanyName()</code> — Sorts the <code>internalList</code> of Job Offers by the company names they are attached to.</p>
+</li>
+<li>
+<p><code>UniqueCompanyJobList#sortByJob()</code> — Sorts the <code>internalList</code> of Job Offers by their job titles.</p>
+</li>
+<li>
+<p><code>UniqueCompanyJobList#sortByAgeRange()</code> — Sorts the <code>internalList</code> of Job Offers by the minimum age of their required age ranges.</p>
+</li>
+<li>
+<p><code>UniqueCompanyJobList#sortByEducation()</code> — Sorts the <code>internalList</code> of Job Offers by their required education levels.</p>
+</li>
+<li>
+<p><code>UniqueCompanyJobList#sortBySalary()</code> — Sorts the <code>internalList</code> of Job Offers by their salaries.</p>
+</li>
+<li>
+<p><code>UniqueCompanyJobList#sortInReverse()</code> — Sorts the <code>internalList</code> of Job Offers in reverse order of their current order.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are accessed through the <code>Model</code> interface as <code>Model#sortJobOffers(Prefix prefix)</code> which then calls the respective sorting method by determining the prefix type in <code>CompanyBook</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These prefixes <code>c/</code>, <code>j/</code>, <code>xr/</code>, <code>h/</code>, <code>s/</code>, <code>r/</code> are used respectively to the methods shown above.
 </td>
 </tr>
 </table>
@@ -1031,6 +1074,9 @@ These prefixes <code>/c</code>, <code>/e</code>, <code>/r</code> are used respec
 <li>
 <p><code>UniqueCompanyList</code> will be initialised with the list of saved companies in <code>CompanyBook</code>.</p>
 </li>
+<li>
+<p><code>UniqueCompanyJobList</code> will be initialised with the list of saved job offers in <code>CompanyBook</code>.</p>
+</li>
 </ol>
 </div>
 <div class="admonitionblock note">
@@ -1040,7 +1086,7 @@ These prefixes <code>/c</code>, <code>/e</code>, <code>/r</code> are used respec
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Assume that upon initialisation, there are candidate and company entries in RecruitBook.
+Assume that upon initialisation, there are candidate, company and job entries in RecruitBook.
 </td>
 </tr>
 </table>
@@ -1076,15 +1122,28 @@ Assume that upon initialisation, there are candidate and company entries in Recr
 </ol>
 </div>
 </li>
+<li>
+<p><code>sortj j/</code> to sort the list of job offers based on their title.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>j/</code> prefix is used which calls the <code>UniqueCompanyJobList</code>#sortByJob()` from <code>CompanyBook</code>.</p>
+</li>
+<li>
+<p>The <code>internalList</code> within <code>UniqueCompanyJobList</code> is then sorted lexicographically based on their titles and the newly sorted list will be reflected in the <code>MainWindow</code> of RecruitBook.</p>
+</li>
+</ol>
+</div>
+</li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Step 3. The user does not want the candidates to be sorted in increasing order but decreasing order. So, the user executes</p>
+<p>Step 3. The user does not want the candidates to be sorted in increasing order of their salaries but decreasing order. So, the user executes</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><code>sortc /r</code> to sort the list of candidates in the reverse order of the current order.</p>
+<p><code>sortc r/</code> to sort the list of candidates in the reverse order of the current order.</p>
 </li>
 </ol>
 </div>
@@ -3072,4 +3131,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 12:24:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 14:37:30 UTC</div></div></div></body></html>

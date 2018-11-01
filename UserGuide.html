@@ -24,7 +24,7 @@
 <li><a href="#selecting-a-candidate-company-job-offer-code-select-code-code-selectcompany-code-code-selectjob-code">4.8. Selecting a candidate / company / job offer: <code>select</code> <code>selectCompany</code> <code>selectJob</code></a></li>
 <li><a href="#locating-candidates-by-search-parameter-code-find-code">4.9. Locating candidates by search parameter : <code>find</code></a></li>
 <li><a href="#filtering-by-a-specific-tag-code-filter-code">4.10. Filtering by a specific tag : <code>filter</code></a></li>
-<li><a href="#sorting-candidates-company-job-code-sortc-code-code-sortc-code">4.11. Sorting candidates / company / job : <code>sortc</code> <code>sortC</code></a></li>
+<li><a href="#sorting-candidates-company-job-code-sortc-code-code-sortc-code-code-sortj-code">4.11. Sorting candidates / company / job : <code>sortc</code> <code>sortC</code> <code>sortj</code></a></li>
 <li><a href="#blacklisting-candidates-code-blacklist-code-code-blacklist-rm-code">4.12. Blacklisting candidates : <code>blacklist</code> <code>blacklist rm</code></a></li>
 <li><a href="#shortlisting-candidates-for-a-job-offer-code-shortlist-code">4.13. Shortlisting candidates for a job offer : <code>shortlist</code></a></li>
 <li><a href="#sending-emails-code-email-code">4.14. Sending emails : <code>email</code></a></li>
@@ -847,7 +847,7 @@ Supported tags: <code>h/</code>, <code>j/</code>, <code>s/</code>, <code>x/</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-candidates-company-job-code-sortc-code-code-sortc-code"><a class="link" href="#sorting-candidates-company-job-code-sortc-code-code-sortc-code">4.11. Sorting candidates / company / job : <code>sortc</code> <code>sortC</code></a></h3>
+<h3 id="sorting-candidates-company-job-code-sortc-code-code-sortc-code-code-sortj-code"><a class="link" href="#sorting-candidates-company-job-code-sortc-code-code-sortc-code-code-sortj-code">4.11. Sorting candidates / company / job : <code>sortc</code> <code>sortC</code> <code>sortj</code></a></h3>
 <div class="sect3">
 <h4 id="sorting-candidates-based-on-different-fields"><a class="link" href="#sorting-candidates-based-on-different-fields">4.11.1. Sorting candidates based on different fields</a></h4>
 <div class="paragraph">
@@ -908,6 +908,38 @@ Supported tags: <code>c/</code>, <code>e/</code>, <code>r/</code></p>
 <li>
 <p><code>sortC r/</code><br>
 (Sort all companies in reverse)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-job-offers-based-on-different-fields"><a class="link" href="#sorting-job-offers-based-on-different-fields">4.11.3. Sorting job offers based on different fields</a></h4>
+<div class="paragraph">
+<p>Format: <code>sortj &lt;tag&gt;</code><br>
+Supported tags: <code>c/</code>, <code>j/</code>, <code>xr/</code>, <code>h/</code>, <code>s/</code>, <code>r/</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only one tag/field is included when using the sort command</p>
+</li>
+<li>
+<p>There must be one tag/field included</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sortj j/</code><br>
+(Sorts all job offers lexicographically by their titles)</p>
+</li>
+<li>
+<p><code>sortj r/</code><br>
+(Sorts all job offers in reverse)</p>
 </li>
 </ul>
 </div>
@@ -1367,4 +1399,4 @@ There is no need to save manually.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 12:24:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 14:37:30 UTC</div></div></div></body></html>
