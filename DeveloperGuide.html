@@ -52,14 +52,15 @@ a better understanding of data handling and code implementation if you are inter
 <li><a href="#add-delete-feature">3.1. Add/Delete Feature</a></li>
 <li><a href="#edit-feature">3.2. Edit Feature</a></li>
 <li><a href="#sort-feature">3.3. Sort Feature</a></li>
-<li><a href="#find-feature">3.4. Find Feature</a></li>
-<li><a href="#shortlist-feature">3.5. Shortlist Feature</a></li>
-<li><a href="#switch-book-feature">3.6. Switch Book Feature</a></li>
-<li><a href="#email-command">3.7. Email command</a></li>
-<li><a href="#undo-redo-feature">3.8. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.9. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.10. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.11. Configuration</a></li>
+<li><a href="#blacklist-feature">3.4. Blacklist Feature</a></li>
+<li><a href="#find-feature">3.5. Find Feature</a></li>
+<li><a href="#shortlist-feature">3.6. Shortlist Feature</a></li>
+<li><a href="#switch-book-feature">3.7. Switch Book Feature</a></li>
+<li><a href="#email-command">3.8. Email command</a></li>
+<li><a href="#undo-redo-feature">3.9. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#Testing">4. Testing</a>
@@ -711,7 +712,7 @@ Additionally, it implements the following operations to support the editing of c
 <p><code>UniqueCandidateList#contains(Candidate candidate)</code> — Checks whether a candidate exists inside <code>internalList</code> using <code>Candidate#isSameCandidate</code> to define equality.</p>
 </li>
 <li>
-<p><code>UniqueCandidateList#setCandidate(Candidate target, Candidate editedCandidate)</code> — Sets the Candidate object(target) in the <code>internalList</code> to the newly edited Candidate object(editedCandidate) through <code>List#set(int index, E element)</code>.</p>
+<p><code>UniqueCandidateList#setCandidate(Candidate target, Candidate editedCandidate)</code> — Replaces the Candidate object(target) in the <code>internalList</code> to the newly edited Candidate object(editedCandidate) through <code>List#set(int index, E element)</code>.</p>
 </li>
 </ul>
 </div>
@@ -732,7 +733,7 @@ Additionally, it implements the following operations to support the editing of c
 <p><code>UniqueCompanyList#contains(Company company)</code> — Checks whether a company exists inside <code>internalList</code> using <code>Company#isSameCompany</code> to define equality.</p>
 </li>
 <li>
-<p><code>UniqueCompanyList#setCompany(Company target, Company editedCompany)</code> — Sets the Company object(target) in the <code>internalList</code> to the newly edited Company object(editedCompany) through <code>List#set(int index, E element)</code>.</p>
+<p><code>UniqueCompanyList#setCompany(Company target, Company editedCompany)</code> — Replaces the Company object(target) in the <code>internalList</code> to the newly edited Company object(editedCompany) through <code>List#set(int index, E element)</code>.</p>
 </li>
 </ul>
 </div>
@@ -753,7 +754,7 @@ Additionally, it implements the following operations to support the editing of j
 <p><code>UniqueJobList#contains(JobOffer jobOffer)</code> — Checks whether a job offer exists inside <code>internalList</code> using <code>JobOffer#isSameJobOffer</code> to define equality.</p>
 </li>
 <li>
-<p><code>UniqueJobList#setJobOffer(JobOffer target, JobOffer editedJobOffer)</code> — Sets the Job Offer object(target) in the <code>internalList</code> to the newly edited Job Offer object(editedJobOffer) through <code>List#set(int index, E element)</code>.</p>
+<p><code>UniqueJobList#setJobOffer(JobOffer target, JobOffer editedJobOffer)</code> — Replaces the Job Offer object(target) in the <code>internalList</code> to the newly edited Job Offer object(editedJobOffer) through <code>List#set(int index, E element)</code>.</p>
 </li>
 </ul>
 </div>
@@ -776,7 +777,7 @@ The editing of all three entities(Candidate, Company, JobOffer) follow the same 
 <p>Given below is an example usage scenario and how the edit mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time.</p>
+<p>Step 1. The user launches RecruitBook for the first time.</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -1020,7 +1021,7 @@ These prefixes <code>/c</code>, <code>/e</code>, <code>/r</code> are used respec
 <p>Given below is an example usage scenario and how the sort command behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time</p>
+<p>Step 1. The user launches RecruitBook for the first time.</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -1127,16 +1128,181 @@ Assume that upon initialisation, there are candidate and company entries in Recr
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-feature"><a class="link" href="#find-feature">3.4. Find Feature</a></h3>
+<h3 id="blacklist-feature"><a class="link" href="#blacklist-feature">3.4. Blacklist Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The blacklist mechanism is facilitated by <code>UniqueCandidateList</code> that is stored in the CandidateBook (as <code>internalList</code>). This feature is also supported by <code>Model#getFilteredCandidateList</code> where the input index is used to obtain the Candidate object from the observable list.
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCandidateList#setCandidate(Candidate target, Candidate editedCandidate)</code> — Replaces the original Candidate object in the <code>internalList</code> with the newly edited Candidate object.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#updateCandidate(Candidate target, Candidate editedCandidate)</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There is <strong>no</strong> duplicate check as no two candidate objects share the same name and changing the tags (blacklist) does not violate the uniqueness of their names.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the blacklist command behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches RecruitBook for the first time.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>UniqueCandidateList</code> is initialised with the saved data of Candidates in RecuitBook.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Assume that upon initialisation, there are candidate entries in RecruitBook.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>blacklist 1</code> command to blacklist the 1st candidate in the candidate book. If there are no errors, the 1st candidate will be blacklisted and a "BLACKLISTED" tag will appear in its entry.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>It achieves this by generating a new Candidate object with a blacklist tag then replaces the original Candidate object in the <code>internalList</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>editc 1 n/James</code>. This command will fail to execute as blacklisted candidates cannot be edited or shortlisted. An error message will appear.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The user decides that blacklisting the candidate was a mistake and proceeds to <strong>remove</strong> the blacklist.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>blacklist rm 1</code> is executed. The 1st candidate will no longer be blacklisted and the "BLACKLISTED" tag will be removed from its entry.</p>
+</li>
+<li>
+<p>It achieves this by generating a new Candidate object without a blacklist tag which replaces the original blacklisted Candidate in the <code>internalList</code>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Trying to blacklist an already blacklisted candidate will prompt an error message.<br>
+Unblacklisting a candidate who is not blacklisted will do likewise.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-blacklist-executes"><a class="link" href="#aspect-how-blacklist-executes">Aspect: How blacklist executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Creates a new  Candidate object for adding or removal of blacklist.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less error prone as compared to editing candidates straight.</p>
+</li>
+<li>
+<p>Cons: It is less efficient to regenerate objects as compared to directing editing of candidates.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Editing the tags of the Candidate directly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More intuitive and efficient.</p>
+</li>
+<li>
+<p>Cons: Code becomes less defensive as any changes will be permanent reflected in that candidate.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-blacklist-command"><a class="link" href="#aspect-data-structure-to-support-the-blacklist-command">Aspect: Data structure to support the blacklist command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Add blacklist tags into the candidates.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Blacklisting can be immediately displayed on entries.</p>
+</li>
+<li>
+<p>Cons: There is no organised data structure that accommodates all blacklisted candidates, so if there is a need for all blacklisted candidates, every candidate has to be checked.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store blacklisted candidates in a list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: There is a one-stop collection of blacklisted candidates.</p>
+</li>
+<li>
+<p>Cons: To check if a candidate if blacklisted, a loop has to be used to check the list. (slows the execution of edit and shortlist).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-feature"><a class="link" href="#find-feature">3.5. Find Feature</a></h3>
 <div class="paragraph">
 <p>The <code>find</code> command is used to find candidates or companies stored in the address book through either the <code>findc</code> (find Candidate) or <code>findC</code> (find company).
 It extends <code>Command</code> and overrides two of its methods namely <code>CommandResult</code> and <code>equals</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="shortlist-feature"><a class="link" href="#shortlist-feature">3.5. Shortlist Feature</a></h3>
+<h3 id="shortlist-feature"><a class="link" href="#shortlist-feature">3.6. Shortlist Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
 <div class="sect4">
 <h5 id="shortlisting-a-candidate"><a class="link" href="#shortlisting-a-candidate">Shortlisting a Candidate</a></h5>
 <div class="paragraph">
@@ -1288,7 +1454,7 @@ You can access this list by calling <code>selectedJob.getUniqueCandidateList()</
 <div class="sect4">
 <h5 id="deleting-a-shortlisted-candidate"><a class="link" href="#deleting-a-shortlisted-candidate">Deleting a Shortlisted Candidate</a></h5>
 <div class="paragraph">
-<p>Deletion of a shortlisted candidate uses similar implementation as <a href="#shortlisting-a-candidate">Section 3.5.1.1, &#8220;Shortlisting a Candidate&#8221;</a>.</p>
+<p>Deletion of a shortlisted candidate uses similar implementation as <a href="#shortlisting-a-candidate">Section 3.6.1.1, &#8220;Shortlisting a Candidate&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>The shortlist mechanism is facilitated by <code>selectCompany</code> and <code>selectJob</code> command.
@@ -1415,7 +1581,7 @@ this command returns a message to be displayed to inform the user.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-shortlist-feature-executes"><a class="link" href="#aspect-how-shortlist-feature-executes">Aspect: How shortlist feature executes</a></h5>
 <div class="ulist">
@@ -1490,9 +1656,9 @@ to store multiple job offers under the same candidate <code>key</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="switch-book-feature"><a class="link" href="#switch-book-feature">3.6. Switch Book Feature</a></h3>
+<h3 id="switch-book-feature"><a class="link" href="#switch-book-feature">3.7. Switch Book Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The switching mechanism is facilitated by <code>MainWindow</code>, with the latter&#8217;s <code>switchToCandidateBook</code> and <code>switchToCompanyBook</code> methods.</p>
 </div>
@@ -1575,7 +1741,7 @@ inside <code>panelViewPlaceholder</code>. There will be a compilation error if t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-switch-feature-executes"><a class="link" href="#aspect-how-switch-feature-executes">Aspect: How switch feature executes</a></h5>
 <div class="ulist">
@@ -1648,9 +1814,9 @@ cases of the view of <code>panelViewPlaceholder</code>, which is not the case as
 </div>
 </div>
 <div class="sect2">
-<h3 id="email-command"><a class="link" href="#email-command">3.7. Email command</a></h3>
+<h3 id="email-command"><a class="link" href="#email-command">3.8. Email command</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The email command is facilitated by <code>EmailInitialiseCommand</code>, <code>EmailRecipientsCommand</code>, <code>EmailContentsCommand</code> and <code>EmailSendCommand</code>
 classes which extends the <code>Command</code> class, and <code>EmailUtil</code> attribute in <code>Model</code> which stores variables and methods pertaining to the email command
@@ -1794,7 +1960,7 @@ which is the Java format used for emails and is sent via <code>EmailUtil#sendMes
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-store-recipients-and-candidates"><a class="link" href="#aspect-data-structure-to-store-recipients-and-candidates">Aspect: Data structure to store recipients and candidates</a></h5>
 <div class="ulist">
@@ -1845,9 +2011,9 @@ and maintains order in which objects were added in.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.8. Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.9. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedCandidateBook</code>.
 It extends <code>CandidateBook</code> with an undo/redo history, stored internally as an <code>candidateBookStateList</code> and <code>currentStatePointer</code>.
@@ -1977,7 +2143,7 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -2047,20 +2213,20 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.9. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.10. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.11, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -2091,7 +2257,7 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.11. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2906,4 +3072,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 02:45:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 12:17:05 UTC</div></div></div></body></html>
