@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Seah Xi Qi, Nicholas - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Seah Xi Qi, Nicholas - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="what-is-recruitbook"><a class="link" href="#what-is-recruitbook">What is RecruitBook?</a></h3>
+<div class="paragraph">
+<p>RecruitBook is a useful Java desktop application for job agents to better organise the list of available job offers and prospective job candidates.
+RecruitBook mainly uses a Command Line Interface(CLI) that allows you to interact with specific commands.
+It also has a Graphical User Interface created with JavaFX and has a codebase of about 10000 lines of code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="recruitbook-features"><a class="link" href="#recruitbook-features">RecruitBook features:</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add Feature</p>
+</li>
+<li>
+<p>Edit Feature</p>
+</li>
+<li>
+<p>Find Feature</p>
+</li>
+<li>
+<p>List Feature</p>
+</li>
+<li>
+<p>Email Feature</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: enhanced <strong>the find command such that it becomes more extensive</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows user to find candidates s</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br"><a class="link" href="#finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br">Finding candidates/companies/job offers : <code>findc</code> <code>findC</code> <code>findj</code><br></a></h3>
+<div class="paragraph">
+<p>Each <code>find</code> command is differentiated by the letter that comes right after the <code>find</code> word.</p>
+</div>
+<div class="paragraph">
+<p>Our app’s GUI provides two different views where the Candidate Book view and the Company Book view shows the details of all the candidates and companies respectively.<br></p>
+</div>
+<div class="paragraph">
+<p>Entering commands in the other book will automatically switch your view to the correct book and still display the details of the results that you are searching for.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Each search field has to come with a preceding prefix e.g. <code>n/NAME</code>, <code>p/PHONE</code></p>
+</li>
+<li>
+<p>The search is case insensitive e.g <code>n/hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>n/Hans n/Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Candidates matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Hans n/Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finds-names-of-candidates-from-recruitbook-based-on-search-fields-that-you-have-entered"><a class="link" href="#finds-names-of-candidates-from-recruitbook-based-on-search-fields-that-you-have-entered">Finds names of candidates from RecruitBook based on search fields that you have entered.</a></h4>
+<div class="paragraph">
+<p>Format: <code>findc &lt;tag&gt;/KEYWORD</code><br>
+Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>, <code>a/ADDRESS</code>, <code>x/AGE</code>, <code>h/HIGHEST EDUCATION</code>, <code>g/GENDER</code>, <code>j/JOB INTERESTED</code>, <code>s/EXPECTED SALARY)</code>, <code>t/TAGS</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findc n/john</code><br>
+(Returns any candidate having the name John)</p>
+</li>
+<li>
+<p><code>findc n/alice p/91234567</code><br>
+(Returns any candidate with the name alice or any candidate that has phone number 91234567)</p>
+</li>
+<li>
+<p><code>findc e/helloworld@example.com</code><br>
+(Returns any candidates having email <a href="mailto:helloworld@example.com">helloworld@example.com</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finds-names-of-companies-from-recruitbook-based-on-searched-fields-that-you-have-entered"><a class="link" href="#finds-names-of-companies-from-recruitbook-based-on-searched-fields-that-you-have-entered">Finds names of companies from RecruitBook based on searched fields that you have entered.</a></h4>
+<div class="paragraph">
+<p>Format: <code>findC &lt;tag&gt;/KEYWORD</code><br>
+Supported tags: <code>c/COMPANY NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>, <code>a/ADDRESS</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findC c/KFC c/McDonalds</code><br>
+(Returns any company having either the name <code>KFC</code> or <code>McDonalds</code>)</p>
+</li>
+<li>
+<p><code>findC n/HanBaoBao Pte Ltd a/Yishun MRT</code><br>
+(Returns any company having the name <code>HanBaoBao Pte Ltd</code> or with address saved as <code>Yishun MRT</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finds-job-offers-from-a-selected-company-based-on-searched-fields-that-you-have-entered"><a class="link" href="#finds-job-offers-from-a-selected-company-based-on-searched-fields-that-you-have-entered">Finds job offers from a selected company based on searched fields that you have entered.</a></h4>
+<div class="paragraph">
+<p>Format: <code>findj &lt;tag&gt;/KEYWORD</code><br>
+Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/GENDER</code>, <code>s/SALARY</code>, <code>xr/AGE RANGE</code>, <code>h/HIGHEST EDUCATION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you wish to search for job offers from only one company, you should include the name of that particular company in the searched field together with the other search fields.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>To look for job offers listed by KFC only, include the name of company in the searched field.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findj c/KFC j/cashier</code><br>
+(Returns any cashier job offer listed by KFC)</p>
+</li>
+<li>
+<p><code>findj c/KFC s/1500 h/SECONDARY</code><br>
+(Returns any job offer listed by KFC that has a pay of $1500 and requires highest education level attained to be <code>SECONDARY</code> level)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="find-feature"><a class="link" href="#find-feature">Find Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The find mechanism is facilitated by <code>keywordsMap</code> which stores the searched keywords in a <code>Map</code>.
+It implements the following operations to support the checking of keywords with the data stored in the RecruitBook:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>keywordsMap#add(String arg)</code> - Adds a keyword into the <code>keywordMap</code> based on the preceding prefix</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="candidates"><a class="link" href="#candidates">Candidates</a></h5>
+<div class="paragraph">
+<p>The <code>findCandidateCommand</code> is facilitated by the <code>CandidateContainsKeywordsPredicate</code> which implements <code>Predicate&lt;Candidate&gt;</code>
+and overrides the <code>test</code> and <code>equal</code> methods so that more fields can be searched at the same time.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="companies"><a class="link" href="#companies">Companies</a></h5>
+<div class="paragraph">
+<p>The <code>findCompanyCommand</code> is facilitated by the <code>CompanyContainsKeywordsPredicate</code> which implements <code>Predicate&lt;Company&gt;</code>
+and overrides the <code>test</code> and <code>equal</code> methods so that more fields can be searched at the same time.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="job-offers"><a class="link" href="#job-offers">Job Offers</a></h5>
+<div class="paragraph">
+<p>The <code>findJobOfferCommand</code> is facilitated by the <code>JobOfferContainsKeywordsPredicate</code> which implements <code>Predicate&lt;JobOffer&gt;</code>
+and overrides the <code>test</code> and <code>equal</code> methods so that more fields can be searched at the same time.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The finding of all three entities (Candidate, Company, JobOffer) follow the same mechanism.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>An example usage scenario and how the find mechanism behaves at each step is shown below.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launched the application for the first time.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>UniqueCandidateList</code> will be initialised with the list of candidates in RecruitBook</p>
+</li>
+<li>
+<p><code>UniqueCompanyList</code> will be initialised with the list of saved companies in <code>CompanyBook</code>.</p>
+</li>
+<li>
+<p><code>UniqueCompanyJobList</code> will be initialised with the list of saved job offers in <code>CompanyBook</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>findc n/Alex p/91234567 e/michelleyeoh@gmail.com</code> command to find the candidates who either have the name <code>Alex</code>,
+with phone number <code>91234567</code>,  or with email address <code>michelleyeoh@gmail.com</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the find operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindSequenceDiagram.png" alt="FindSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 18:33:24 UTC</div></div></div></body></html>

@@ -50,10 +50,10 @@ a better understanding of data handling and code implementation if you are inter
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#add-delete-feature">3.1. Add/Delete Feature</a></li>
-<li><a href="#edit-feature">3.2. Edit Feature</a></li>
-<li><a href="#sort-feature">3.3. Sort Feature</a></li>
-<li><a href="#blacklist-feature">3.4. Blacklist Feature</a></li>
-<li><a href="#find-feature">3.5. Find Feature</a></li>
+<li><a href="#find-feature">3.2. Find Feature</a></li>
+<li><a href="#edit-feature">3.3. Edit Feature</a></li>
+<li><a href="#sort-feature">3.4. Sort Feature</a></li>
+<li><a href="#blacklist-feature">3.5. Blacklist Feature</a></li>
 <li><a href="#shortlist-feature">3.6. Shortlist Feature</a></li>
 <li><a href="#switch-book-feature">3.7. Switch Book Feature</a></li>
 <li><a href="#email-command">3.8. Email command</a></li>
@@ -696,11 +696,92 @@ All addition/deletion of the 3 entities (Candidates, Companies, Job Offers) foll
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-feature"><a class="link" href="#edit-feature">3.2. Edit Feature</a></h3>
+<h3 id="find-feature"><a class="link" href="#find-feature">3.2. Find Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The find mechanism is facilitated by <code>keywordsMap</code> which stores the searched keywords in a <code>Map</code>.
+It implements the following operations to support the checking of keywords with the data stored in the RecruitBook:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>keywordsMap#add(String arg)</code> - Adds a keyword into the <code>keywordMap</code> based on the preceding prefix</p>
+</li>
+</ul>
+</div>
 <div class="sect4">
 <h5 id="candidates-2"><a class="link" href="#candidates-2">Candidates</a></h5>
+<div class="paragraph">
+<p>The <code>findCandidateCommand</code> is facilitated by the <code>CandidateContainsKeywordsPredicate</code> which implements <code>Predicate&lt;Candidate&gt;</code>
+and overrides the <code>test</code> and <code>equal</code> methods so that more fields can be searched at the same time.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="companies-2"><a class="link" href="#companies-2">Companies</a></h5>
+<div class="paragraph">
+<p>The <code>findCompanyCommand</code> is facilitated by the <code>CompanyContainsKeywordsPredicate</code> which implements <code>Predicate&lt;Company&gt;</code>
+and overrides the <code>test</code> and <code>equal</code> methods so that more fields can be searched at the same time.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="job-offers-2"><a class="link" href="#job-offers-2">Job Offers</a></h5>
+<div class="paragraph">
+<p>The <code>findJobOfferCommand</code> is facilitated by the <code>JobOfferContainsKeywordsPredicate</code> which implements <code>Predicate&lt;JobOffer&gt;</code>
+and overrides the <code>test</code> and <code>equal</code> methods so that more fields can be searched at the same time.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The finding of all three entities (Candidate, Company, JobOffer) follow the same mechanism.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>An example usage scenario and how the find mechanism behaves at each step is shown below.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launched the application for the first time.</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>UniqueCandidateList</code> will be initialised with the list of candidates in RecruitBook</p>
+</li>
+<li>
+<p><code>UniqueCompanyList</code> will be initialised with the list of saved companies in <code>CompanyBook</code>.</p>
+</li>
+<li>
+<p><code>UniqueCompanyJobList</code> will be initialised with the list of saved job offers in <code>CompanyBook</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>findc n/Alex p/91234567 e/michelleyeoh@gmail.com</code> command to find the candidates who either have the name <code>Alex</code>,
+with phone number <code>91234567</code>,  or with email address <code>michelleyeoh@gmail.com</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the find operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindSequenceDiagram.png" alt="FindSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-feature"><a class="link" href="#edit-feature">3.3. Edit Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="candidates-3"><a class="link" href="#candidates-3">Candidates</a></h5>
 <div class="paragraph">
 <p>The edit mechanism for candidates is facilitated by <code>EditPersonDescriptor</code> in <code>EditCandidateCommand</code> which creates a new Candidate object with edited attributes
 and <code>UniqueCandidateList</code> which stores candidates internally as an <code>internalList</code> which is a list of Candidate objects.
@@ -721,7 +802,7 @@ Additionally, it implements the following operations to support the editing of c
 </div>
 </div>
 <div class="sect4">
-<h5 id="companies-2"><a class="link" href="#companies-2">Companies</a></h5>
+<h5 id="companies-3"><a class="link" href="#companies-3">Companies</a></h5>
 <div class="paragraph">
 <p>The edit mechanism for companies is facilitated by <code>EditCompanyDescriptor</code> in <code>EditCompanyCommand</code> which creates a new Company object with edited attributes
 and <code>UniqueCompanyList</code> which stores companies internally as an <code>internalList</code> which is a list of Company objects.
@@ -742,7 +823,7 @@ Additionally, it implements the following operations to support the editing of c
 </div>
 </div>
 <div class="sect4">
-<h5 id="job-offers-2"><a class="link" href="#job-offers-2">Job Offers</a></h5>
+<h5 id="job-offers-3"><a class="link" href="#job-offers-3">Job Offers</a></h5>
 <div class="paragraph">
 <p>The edit mechanism for job offers is facilitated by <code>EditJobOfferDescriptor</code> in <code>EditJobDetailsCommand</code> which creates a new Job Offer object with edited attributes
 and <code>UniqueJobList</code> which stores job offers internally as an <code>internalList</code> which is a list of Job Offer objects.
@@ -768,7 +849,7 @@ Additionally, it implements the following operations to support the editing of j
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The editing of all three entities(Candidate, Company, JobOffer) follow the same mechanism.
+The editing of all three entities (Candidate, Company, JobOffer) follow the same mechanism.
 </td>
 </tr>
 </table>
@@ -865,7 +946,7 @@ Any duplicates formed after editing will not replace the original object. It wil
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="how-edit-executes"><a class="link" href="#how-edit-executes">How edit executes</a></h5>
 <div class="ulist">
@@ -935,11 +1016,11 @@ Any duplicates formed after editing will not replace the original object. It wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-feature"><a class="link" href="#sort-feature">3.3. Sort Feature</a></h3>
+<h3 id="sort-feature"><a class="link" href="#sort-feature">3.4. Sort Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
 <div class="sect4">
-<h5 id="candidates-3"><a class="link" href="#candidates-3">Candidates</a></h5>
+<h5 id="candidates-4"><a class="link" href="#candidates-4">Candidates</a></h5>
 <div class="paragraph">
 <p>The sort mechanism of candidates is facilitated in <code>UniqueCandidateList</code> which stores candidates in an <code>internalList</code>. It implements the sorting of candidates using the following operations:</p>
 </div>
@@ -985,7 +1066,7 @@ These prefixes <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</code
 </div>
 </div>
 <div class="sect4">
-<h5 id="companies-3"><a class="link" href="#companies-3">Companies</a></h5>
+<h5 id="companies-4"><a class="link" href="#companies-4">Companies</a></h5>
 <div class="paragraph">
 <p>The sort mechanism of companies is facilitated in <code>UniqueCompanyList</code> which stores companies in an <code>internalList</code>. It implements the sorting of companies using the following operations:</p>
 </div>
@@ -1019,7 +1100,7 @@ These prefixes <code>c/</code>, <code>e/</code>, <code>r/</code> are used respec
 </div>
 </div>
 <div class="sect4">
-<h5 id="job-offers-3"><a class="link" href="#job-offers-3">Job Offers</a></h5>
+<h5 id="job-offers-4"><a class="link" href="#job-offers-4">Job Offers</a></h5>
 <div class="paragraph">
 <p>The sort mechanism of job offers is facilitated in <code>UniqueCompanyJobList</code> which stores job offers in an <code>internalList</code>. It implements the sorting of job offers using the following operations:</p>
 </div>
@@ -1150,7 +1231,7 @@ Assume that upon initialisation, there are candidate, company and job entries in
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-sort-executes"><a class="link" href="#aspect-how-sort-executes">Aspect: How sort executes</a></h5>
 <div class="ulist">
@@ -1187,9 +1268,9 @@ Assume that upon initialisation, there are candidate, company and job entries in
 </div>
 </div>
 <div class="sect2">
-<h3 id="blacklist-feature"><a class="link" href="#blacklist-feature">3.4. Blacklist Feature</a></h3>
+<h3 id="blacklist-feature"><a class="link" href="#blacklist-feature">3.5. Blacklist Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The blacklist mechanism is facilitated by <code>UniqueCandidateList</code> that is stored in the CandidateBook (as <code>internalList</code>). This feature is also supported by <code>Model#getFilteredCandidateList</code> where the input index is used to obtain the Candidate object from the observable list.
 Additionally, it implements the following operations:</p>
@@ -1282,7 +1363,7 @@ Unblacklisting a candidate who is not blacklisted will do likewise.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-blacklist-executes"><a class="link" href="#aspect-how-blacklist-executes">Aspect: How blacklist executes</a></h5>
 <div class="ulist">
@@ -1352,16 +1433,9 @@ Unblacklisting a candidate who is not blacklisted will do likewise.
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-feature"><a class="link" href="#find-feature">3.5. Find Feature</a></h3>
-<div class="paragraph">
-<p>The <code>find</code> command is used to find candidates or companies stored in the address book through either the <code>findc</code> (find Candidate) or <code>findC</code> (find company).
-It extends <code>Command</code> and overrides two of its methods namely <code>CommandResult</code> and <code>equals</code>.</p>
-</div>
-</div>
-<div class="sect2">
 <h3 id="shortlist-feature"><a class="link" href="#shortlist-feature">3.6. Shortlist Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
 <div class="sect4">
 <h5 id="shortlisting-a-candidate"><a class="link" href="#shortlisting-a-candidate">Shortlisting a Candidate</a></h5>
 <div class="paragraph">
@@ -1717,7 +1791,7 @@ to store multiple job offers under the same candidate <code>key</code>.</p>
 <div class="sect2">
 <h3 id="switch-book-feature"><a class="link" href="#switch-book-feature">3.7. Switch Book Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The switching mechanism is facilitated by <code>MainWindow</code>, with the latter&#8217;s <code>switchToCandidateBook</code> and <code>switchToCompanyBook</code> methods.</p>
 </div>
@@ -1875,7 +1949,7 @@ cases of the view of <code>panelViewPlaceholder</code>, which is not the case as
 <div class="sect2">
 <h3 id="email-command"><a class="link" href="#email-command">3.8. Email command</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The email command is facilitated by <code>EmailInitialiseCommand</code>, <code>EmailRecipientsCommand</code>, <code>EmailContentsCommand</code> and <code>EmailSendCommand</code>
 classes which extends the <code>Command</code> class, and <code>EmailUtil</code> attribute in <code>Model</code> which stores variables and methods pertaining to the email command
@@ -2072,7 +2146,7 @@ and maintains order in which objects were added in.</p>
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.9. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedCandidateBook</code>.
 It extends <code>CandidateBook</code> with an undo/redo history, stored internally as an <code>candidateBookStateList</code> and <code>currentStatePointer</code>.
@@ -3131,4 +3205,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 16:27:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 18:33:24 UTC</div></div></div></body></html>
