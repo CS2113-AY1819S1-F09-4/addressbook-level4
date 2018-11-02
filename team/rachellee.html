@@ -204,49 +204,1228 @@ Navigate under Commits, and click <em>leerachel</em> filter to see commits by me
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="switching-books-code-switch-code"><a class="link" href="#switching-books-code-switch-code">Switching Books : <code>switch</code></a></h3>
+<div class="paragraph">
+<p>Toggles between Candidate Book and Company Book according to your viewing needs.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You do not need to specify which book to switch to because RecruitBook automatically detects which book you are looking at,
+and does the switch to the other book for you when you enter the <code>switch</code> command.
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>include::../UserGuide.adoc[tag=switch]</p>
+<p>Format in CLI: <code>switch</code></p>
 </li>
 <li>
-<p>include::../UserGuide.adoc[tag=select]</p>
-</li>
-<li>
-<p>include::../UserGuide.adoc[tag=deleteShortlist]</p>
-</li>
-<li>
-<p>include::../UserGuide.adoc[tag=shortlist]</p>
-</li>
-<li>
-<p>include::../UserGuide.adoc[tag=list]</p>
+<p>GUI (refer to Figure 3) : At the top of the application, locate the menu bar and click <code>Switch Book</code> &gt; <code>Candidate Book</code> or <code>Company Book</code>.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/switchBook.png" alt="switchBook" width="390">
+</div>
+<div class="title">Figure 1. GUI of Switch Book on Menu Bar</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code"><a class="link" href="#adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code">Adding a candidate / company / job  : <code>addc</code> <code>addC</code> <code>addj</code></a></h3>
+<div class="sect3">
+<h4 id="adds-a-candidate-to-the-recruitbook"><a class="link" href="#adds-a-candidate-to-the-recruitbook">Adds a candidate to the RecruitBook</a></h4>
+<div class="paragraph">
+<p>Format: <code>addc</code><br>
+Supported tags: <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>a/</code>, <code>g/</code>, <code>x/</code>, <code>j/</code>, <code>h/</code>, <code>s/</code>, <code>y/</code>, <code>c/</code></p>
+</div>
+<div class="paragraph">
+<p>Entering this command will prompt you the following:<br>
+<strong><code>Enter the following details of the candidate in the format:</code></strong><br>
+<code>n/NAME g/GENDER x/AGE p/PHONE_NUMBER e/EMAIL a/ADDRESS j/SEEKING_JOB h/HIGHEST_EDUCATION s/EXPECTED_SALARY_PER_MONTH</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/John Doe g/M x/18 p/91238123 e/johndoe@gmail.com a/123, Central Boulevard, #01-111, 600123 j/WAITER h/ALEVELS s/1200</code></p>
+</li>
+<li>
+<p><code>n/Mary Loe g/M x/18 p/82238123 e/maryloe@gmail.com a/113, South Boulevard, #01-111, 600123 j/WAITER h/OLEVELS s/1000</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adds-a-company-to-the-recruitbook"><a class="link" href="#adds-a-company-to-the-recruitbook">Adds a company to the RecruitBook</a></h4>
+<div class="paragraph">
+<p>Format: <code>addC c/UNIQUE_COMPANY_NAME a/ADDRESS e/EMAIL p/PHONE</code><br></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addC c/KFC a/101, Clementi Ave 2, #01-01 e/kfc@gmail.com p/61231232</code></p>
+</li>
+<li>
+<p><code>addC c/McDonalds a/101, Bukit Merah Lane 2, #01-01 e/macs@gmail.com p/61117111</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adds-a-job-offer-to-the-recruitbook"><a class="link" href="#adds-a-job-offer-to-the-recruitbook">Adds a job offer to the RecruitBook</a></h4>
+<div class="paragraph">
+<p>Format: <code>addj</code></p>
+</div>
+<div class="paragraph">
+<p>Entering this command will prompt you the following:<br>
+<strong><code>Enter the following details of the job in the format:</code></strong><br>
+<code>c/COMPANY j/JOB_TITLE g/GENDER xr/AGE_RANGE h/EDUCATION s/SALARY</code><br>
+<code>(Enter 'cancel' to stop adding jobs)</code><br>
+<code>Example: c/McDonalds j/cashier g/M xr/20-30 h/OLEVELS s/1200</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+COMPANY specified has to be added to RecruitBook first!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>c/Subway j/Cashier g/M xr/20-30 h/OLEVELS s/1200</code></p>
+</li>
+<li>
+<p><code>c/KFC j/Cook g/F xr/20-30 h/OLEVELS s/1400</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br"><a class="link" href="#finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br">Finding candidates/companies/job offers : <code>findc</code> <code>findC</code> <code>findj</code><br></a></h3>
+<div class="paragraph">
+<p>Each <code>find</code> command is differentiated by the letter that comes right after the <code>find</code> word.</p>
+</div>
+<div class="paragraph">
+<p>Our app’s GUI provides two different views where the Candidate Book view and the Company Book view shows the details of all the candidates and companies respectively.<br></p>
+</div>
+<div class="paragraph">
+<p>Entering commands in the other book will automatically switch your view to the correct book and still display the details of the results that you are searching for.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Each search field has to come with a preceding prefix e.g. <code>n/NAME</code>, <code>p/PHONE</code></p>
+</li>
+<li>
+<p>The search is case insensitive e.g <code>n/hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>n/Hans n/Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Candidates matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Hans n/Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finds-names-of-candidates-from-recruitbook-based-on-search-fields-that-you-have-entered"><a class="link" href="#finds-names-of-candidates-from-recruitbook-based-on-search-fields-that-you-have-entered">Finds names of candidates from RecruitBook based on search fields that you have entered.</a></h4>
+<div class="paragraph">
+<p>Format: <code>findc &lt;tag&gt;/KEYWORD</code><br>
+Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>, <code>a/ADDRESS</code>, <code>x/AGE</code>, <code>h/HIGHEST EDUCATION</code>, <code>g/GENDER</code>, <code>j/JOB INTERESTED</code>, <code>s/EXPECTED SALARY)</code>, <code>t/TAGS</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findc n/john</code><br>
+(Returns any candidate having the name John)</p>
+</li>
+<li>
+<p><code>findc n/alice p/91234567</code><br>
+(Returns any candidate with the name alice or any candidate that has phone number 91234567)</p>
+</li>
+<li>
+<p><code>findc e/helloworld@example.com</code><br>
+(Returns any candidates having email <a href="mailto:helloworld@example.com">helloworld@example.com</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finds-names-of-companies-from-recruitbook-based-on-searched-fields-that-you-have-entered"><a class="link" href="#finds-names-of-companies-from-recruitbook-based-on-searched-fields-that-you-have-entered">Finds names of companies from RecruitBook based on searched fields that you have entered.</a></h4>
+<div class="paragraph">
+<p>Format: <code>findC &lt;tag&gt;/KEYWORD</code><br>
+Supported tags: <code>c/COMPANY NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>, <code>a/ADDRESS</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findC c/KFC c/McDonalds</code><br>
+(Returns any company having either the name <code>KFC</code> or <code>McDonalds</code>)</p>
+</li>
+<li>
+<p><code>findC n/HanBaoBao Pte Ltd a/Yishun MRT</code><br>
+(Returns any company having the name <code>HanBaoBao Pte Ltd</code> or with address saved as <code>Yishun MRT</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finds-job-offers-from-a-selected-company-based-on-searched-fields-that-you-have-entered"><a class="link" href="#finds-job-offers-from-a-selected-company-based-on-searched-fields-that-you-have-entered">Finds job offers from a selected company based on searched fields that you have entered.</a></h4>
+<div class="paragraph">
+<p>Format: <code>findj &lt;tag&gt;/KEYWORD</code><br>
+Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/GENDER</code>, <code>s/SALARY</code>, <code>xr/AGE RANGE</code>, <code>h/HIGHEST EDUCATION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you wish to search for job offers from only one company, you should include the name of that particular company in the searched field together with the other search fields.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>To look for job offers listed by KFC only, include the name of company in the searched field.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findj c/KFC j/cashier</code><br>
+(Returns any cashier job offer listed by KFC)</p>
+</li>
+<li>
+<p><code>findj c/KFC s/1500 h/SECONDARY</code><br>
+(Returns any job offer listed by KFC that has a pay of $1500 and requires highest education level attained to be <code>SECONDARY</code> level)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-candidate-company-job-code-editc-code-code-editc-code-code-editj-code"><a class="link" href="#editing-a-candidate-company-job-code-editc-code-code-editc-code-code-editj-code">Editing a candidate / company / job : <code>editc</code> <code>editC</code> <code>editj</code></a></h3>
+<div class="sect3">
+<h4 id="edits-attributes-of-the-candidate-at-the-specified-index-code-index-code"><a class="link" href="#edits-attributes-of-the-candidate-at-the-specified-index-code-index-code">Edits attributes of the candidate at the specified index <code>INDEX</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editc &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the candidate with the specified <code>INDEX</code>.
+The index must be an index number shown in the displayed candidates list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editc 1 n/John Doe p/91234567</code><br>
+(Edits the name, phone number and email address of the candidate with index 1 to be John Doe and 91234567 respectively)</p>
+</li>
+<li>
+<p><code>editc 3 t/</code><br>
+(Edits and clears all existing tags belonging to the candidate at index 3)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edits-details-of-a-company-at-the-specified-index-code-index-code"><a class="link" href="#edits-details-of-a-company-at-the-specified-index-code-index-code">Edits details of a company at the specified index <code>INDEX</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editC &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the company with the specified <code>INDEX</code>.
+The index must be an index number shown in the displayed company list.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editC 1 c/KFC p/62226111</code><br>
+(Edits the name and phone number of the company with index 1 to be KFC and 62226111</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edits-details-of-a-job-offer"><a class="link" href="#edits-details-of-a-job-offer">Edits details of a job offer</a></h4>
+<div class="paragraph">
+<p>Format: <code>editj &lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits the job with the specified <code>INDEX</code>.
+This index must be an index number shown in the displayed job list.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editj 1 xr/20-30</code><br>
+(Edits the <code>MIN_AGE-MAX_AGE</code> attribute of the 1st job offer to be of 20 to 30 years of age)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-candidates-companies-job-offers-code-delete-code"><a class="link" href="#deleting-candidates-companies-job-offers-code-delete-code">Deleting candidates / companies / job offers : <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-candidate-s"><a class="link" href="#deleting-candidate-s">Deleting candidate(s)</a></h4>
+<div class="paragraph">
+<p>Format: <code>deletec &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the candidate(s) with the specified <code>INDEX</code>(s)</p>
+</li>
+<li>
+<p>This index must be an index number shown in the displayed candidate list.</p>
+</li>
+<li>
+<p>The full name can be found using the find function when a partial keyword is entered</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example to delete candidate(s):</p>
+</div>
+<div class="paragraph">
+<p>Step 1. <code>find Betsy</code><br>
+(Shows all saved candidates named Betsy)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>deletec 1,2-3</code><br>
+(Deletes the 1st, 2nd and 3rd candidate on most recent list)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-company-s"><a class="link" href="#deleting-company-s">Deleting company(s)</a></h4>
+<div class="paragraph">
+<p>Format: <code>deleteC &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the company(s) with the specified <code>INDEX</code>(s)</p>
+</li>
+<li>
+<p>The index must be an index number shown in the displayed company list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example to delete company(s):</p>
+</div>
+<div class="paragraph">
+<p>Step 1. <code>listC</code><br>
+(Shows all available companies)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>deleteC 1,6,2-3</code><br>
+(Deletes the 1st, 2nd, 3rd and 6th job in the job list)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-job-offer-s"><a class="link" href="#deleting-job-offer-s">Deleting job offer(s)</a></h4>
+<div class="paragraph">
+<p>Format: <code>deletej &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt; &#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the job(s) with the specified <code>INDEX</code>(s)</p>
+</li>
+<li>
+<p>The index must be an index number shown in the displayed job list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example to delete job(s):</p>
+</div>
+<div class="paragraph">
+<p>Step 1. <code>listj</code><br>
+(Shows all available jobs)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>deletej 5-4,6</code><br>
+(Deletes the 4th, 5th and 6th job in the job list)</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-shortlisted-candidate-code-deleteshortlist-code"><a class="link" href="#deleting-a-shortlisted-candidate-code-deleteshortlist-code">Deleting a shortlisted candidate: <code>deleteShortlist</code></a></h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Deleting a shortlisted candidate is a 4-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteShortlist</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Initialization</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>deleteShortlist</code> and press <kbd>Enter</kbd> to initialize the delete process.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the company</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>selectCompany</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the company.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the job offer</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>selectJob</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the job offer.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the candidate to delete</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>delete</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the shortlisted candidate to delete.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Index must be an index number shown in the displayed list.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code"><a class="link" href="#listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code">Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code></a></h3>
+<div class="sect3">
+<h4 id="shows-a-list-of-all-candidates"><a class="link" href="#shows-a-list-of-all-candidates">Shows a list of all candidates</a></h4>
+<div class="paragraph">
+<p>Format: <code>listc</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are viewing the Company Book, this command will automatically bring you to the Candidate Book.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/candidatePanel.png" alt="candidatePanel" width="790">
+</div>
+<div class="title">Figure 2. Listing of all Candidates</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="shows-a-list-of-all-companies-and-all-job-offers"><a class="link" href="#shows-a-list-of-all-companies-and-all-job-offers">Shows a list of all companies and all job offers</a></h4>
+<div class="paragraph">
+<p>Format: <code>listC</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are viewing the Candidate Book, this command will automatically bring you to the Company Book.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/candidatePanel.png" alt="candidatePanel" width="790">
+</div>
+<div class="title">Figure 3. Listing of all Companies and all job offers</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="shows-a-list-of-job-offers-based-on-a-selected-company"><a class="link" href="#shows-a-list-of-job-offers-based-on-a-selected-company">Shows a list of job offers based on a selected company</a></h4>
+<div class="paragraph">
+<p>Company Book allows you to easily see the list of job offers based on the company you selected.</p>
+</div>
+<div class="paragraph">
+<p>GUI (refer to examples shown on Figure 6, 7 and 8): Select a company on the left of the screen.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/companyPanel1.png" alt="companyPanel1" width="790">
+</div>
+<div class="title">Figure 4. Selecting KFC to show the available job offers</div>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/companyPanel2.png" alt="companyPanel2" width="790">
+</div>
+<div class="title">Figure 5. Selecting SingTel to show the available job offers</div>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/companyPanel3.png" alt="companyPanel3" width="790">
+</div>
+<div class="title">Figure 6. Selecting MOE to show the available job offers</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="selecting-a-candidate-company-job-offer-code-select-code-code-selectcompany-code-code-selectjob-code"><a class="link" href="#selecting-a-candidate-company-job-offer-code-select-code-code-selectcompany-code-code-selectjob-code">Selecting a candidate / company / job offer: <code>select</code> <code>selectCompany</code> <code>selectJob</code></a></h3>
+<div class="sect3">
+<h4 id="selecting-a-candidate"><a class="link" href="#selecting-a-candidate">Selecting a candidate :</a></h4>
+<div class="paragraph">
+<p>Format: <code>select</code> <code>&lt;INDEX&gt;</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selects the candidate with the specified INDEX</p>
+</li>
+<li>
+<p>This index must be an index number shown in the displayed candidate list.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="selecting-a-company"><a class="link" href="#selecting-a-company">Selecting a company :</a></h4>
+<div class="paragraph">
+<p>Format: <code>selectCompany</code> <code>&lt;INDEX&gt;</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selects the company with the specified INDEX</p>
+</li>
+<li>
+<p>This index must be an index number shown in the displayed company list.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="selecting-a-job-offer"><a class="link" href="#selecting-a-job-offer">Selecting a job offer :</a></h4>
+<div class="paragraph">
+<p>Format: <code>selectJob</code> <code>&lt;INDEX&gt;</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Selects the job offer with the specified INDEX</p>
+</li>
+<li>
+<p>This index must be an index number shown in the displayed job offer list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-candidates-company-job-code-sortc-code-code-sortc-code-code-sortj-code"><a class="link" href="#sorting-candidates-company-job-code-sortc-code-code-sortc-code-code-sortj-code">Sorting candidates / company / job : <code>sortc</code> <code>sortC</code> <code>sortj</code></a></h3>
+<div class="sect3">
+<h4 id="sorting-candidates-based-on-different-fields"><a class="link" href="#sorting-candidates-based-on-different-fields">Sorting candidates based on different fields</a></h4>
+<div class="paragraph">
+<p>Format: <code>sortc &lt;tag&gt;</code><br>
+Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</code>, <code>h/</code>, <code>s/</code>, <code>r/</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only one tag/field is included when using the sort command</p>
+</li>
+<li>
+<p>There must be one tag/field included</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sortc n/</code><br>
+(Sorts all candidates lexicographically by their name)</p>
+</li>
+<li>
+<p><code>sortc r/</code><br>
+(Sorts all candidates in reverse)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-companies-based-on-different-fields"><a class="link" href="#sorting-companies-based-on-different-fields">Sorting companies based on different fields</a></h4>
+<div class="paragraph">
+<p>Format: <code>sortC &lt;tag&gt;</code><br>
+Supported tags: <code>c/</code>, <code>e/</code>, <code>r/</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only one tag/field is included when using the sort command</p>
+</li>
+<li>
+<p>There must be one tag/field included</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sortC c/</code><br>
+(Sorts all companies lexicographically by their company&#8217;s name)</p>
+</li>
+<li>
+<p><code>sortC r/</code><br>
+(Sort all companies in reverse)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-job-offers-based-on-different-fields"><a class="link" href="#sorting-job-offers-based-on-different-fields">Sorting job offers based on different fields</a></h4>
+<div class="paragraph">
+<p>Format: <code>sortj &lt;tag&gt;</code><br>
+Supported tags: <code>c/</code>, <code>j/</code>, <code>xr/</code>, <code>h/</code>, <code>s/</code>, <code>r/</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only one tag/field is included when using the sort command</p>
+</li>
+<li>
+<p>There must be one tag/field included</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sortj j/</code><br>
+(Sorts all job offers lexicographically by their titles)</p>
+</li>
+<li>
+<p><code>sortj r/</code><br>
+(Sorts all job offers in reverse)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="blacklisting-candidates-code-blacklist-code-code-blacklist-rm-code"><a class="link" href="#blacklisting-candidates-code-blacklist-code-code-blacklist-rm-code">Blacklisting candidates : <code>blacklist</code> <code>blacklist rm</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>blacklist</code> <code>&lt;INDEX&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Blacklists the candidate with the specified <code>INDEX</code>.
+The index must be an index number shown in the displayed candidates list</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Blacklisting candidates will prevent them from being edited or shortlisted.
+Candidates can be unblacklisted by using <code>blacklist rm</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>blacklist 1</code><br>
+(Blacklists first candidate in the list)</p>
+</li>
+<li>
+<p><code>blacklist rm 1</code><br>
+(Unblacklists first candidate in the list)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="shortlisting-candidates-for-a-job-offer-code-shortlist-code"><a class="link" href="#shortlisting-candidates-for-a-job-offer-code-shortlist-code">Shortlisting candidates for a job offer : <code>shortlist</code></a></h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Shortlisting process is a 5-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>shortlist</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Initialization</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>shortlist</code> and press <kbd>Enter</kbd> to initialize the shortlist process.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the company</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>selectCompany</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the company.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the job offer</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>selectJob</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the job offer.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the candidate</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>select</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the candidate to shortlist.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Confirm the details</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>confirm</code> and press <kbd>Enter</kbd> to confirm.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Index must be an index number shown in the displayed list.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sending-emails-code-email-code"><a class="link" href="#sending-emails-code-email-code">Sending emails : <code>email</code></a></h3>
+<div class="paragraph">
+<p>Sends an email to specified candidates about specified job offers OR
+to specified companies about specified candidates that are suitable for specified job offers.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only Gmail is supported at this point in time.<br>
+If it is your first time running RecruitBook, a Gmail log in authorisation page will open on your browser.<br>
+<strong>While the authorisation page is open, RecruitBook will be unresponsive while waiting for an authentication response.<br>
+This is part of google&#8217;s API and is intended.</strong><br>
+The Gmail account that you log in with will be the email account used to send emails.<br>
+To use another Gmail account, delete <code>tokens</code> folder which is in the same directory of the
+program.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>email</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Email process is a 4-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Initialisation.</strong> Type <code>email</code> and press <kbd>Enter</kbd> to initialise the email command.</p>
+</li>
+<li>
+<p><strong>Choose your recipients.</strong> On the RecruitBook application, what&#8217;s shown on the main window
+will be taken in as the recipients.<br></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>You can use commands such as <code>listc</code> and <code>findc</code> to change the candidate shown.</p>
+</li>
+<li>
+<p>You can also use commands such as <code>listj</code> and <code>findj</code> to change the job offer shown.</p>
+</li>
+<li>
+<p>Type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p><strong>Choose your contents.</strong> On the RecruitBook application, what&#8217;s shown on the main window
+will be taken in as contents.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Depending on what what were the recipients, contents can only be the contrasting<br>
+eg. If recipients were candidates, only job offers can be the contents and vice versa.</p>
+</li>
+<li>
+<p>This is enforced by the program by limiting commands available in contents selection.</p>
+</li>
+<li>
+<p>Type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p><strong>Sending your email.</strong>  This step is a confirmation step before you actually send the email.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>preview</code> and press <kbd>Enter</kbd> to preview your email.</p>
+</li>
+<li>
+<p>Type <code>send</code> and press <kbd>Enter</kbd> to send the email.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Other notes</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>back</code> can be used to go back to the previous step.</p>
+</li>
+<li>
+<p><code>cancel</code> can be used to cancel the email command entirely.</p>
+</li>
+<li>
+<p>Adding duplicate candidate/job offers will be caught and will not be double counted.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can also change the email subject and email body text in <code>preference.json</code>.<br>
+Restart RecruitBook for changes to take effect.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>subjectCandidateAsRecipient</code> &#8594; Email subject if recipients of the email are candidates and contents of the email are job offers</p>
+</li>
+<li>
+<p><code>subjectCompanyAsRecipient</code> &#8594; Email subject if recipients of the email are companies and contents of the email are candidates.</p>
+</li>
+<li>
+<p><code>bodyTextCandidateAsRecipient</code> &#8594; Body text of email if recipients of the email are candidates and contents of the email are job offers</p>
+</li>
+<li>
+<p><code>bodyTextCompanyAsRecipient</code> &#8594; Body text of email if recipients of the email are companies and contents of the email are candidates.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="olist arabic">
+<div class="title"><em>You wish to send an email to candidates whose asking salary is $1,000 about being a cashier</em></div>
+<ol class="arabic">
+<li>
+<p><code>email</code><br>
+(Initialise email command)</p>
+</li>
+<li>
+<p><code>findc s/$1000</code><br>
+(On CandidateBook)</p>
+</li>
+<li>
+<p><code>next</code><br>
+(To select recipients)</p>
+</li>
+<li>
+<p><code>findj j/Cashier</code><br>
+(On CompanyBook)</p>
+</li>
+<li>
+<p><code>next</code><br>
+(To select contents)</p>
+</li>
+<li>
+<p><code>preview</code><br>
+(To preview email)</p>
+</li>
+<li>
+<p><code>send</code><br>
+(To send the email)</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-from-any-intermediate-command-code-cancel-code"><a class="link" href="#exiting-from-any-intermediate-command-code-cancel-code">Exiting from any intermediate command: <code>cancel</code></a></h3>
+<div class="paragraph">
+<p>Format : <code>cancel</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the Candidate Book.<br>
+Format: <code>clearc</code></p>
+</div>
+<div class="paragraph">
+<p>Clears all entries from the Company Book.<br>
+Format: <code>clearC</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Format in CLI : <code>exit</code></p>
+</li>
+<li>
+<p>GUI (refer to Figure 9) : At the top of the application, locate the menu bar and click <code>File</code> &gt; <code>exit</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/exit.png" alt="exit" width="390">
+</div>
+<div class="title">Figure 7. GUI of Exit on Menu Bar</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
+<div class="paragraph">
+<p>RecruitBook data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><em>{explain how the user can enable/disable data encryption}</em></p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous RecruitBook folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 100%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Switch</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switch</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addc n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS …</code></p>
+<p class="tableblock">            e.g. <code>addc n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 …</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editc &lt;INDEX&gt; [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]</code> or <code>editC &lt;INDEX&gt;</code><br></p>
+<p class="tableblock">            e.g. <code>editc 2 e/jameslee@example.com</code>, <code>editC 5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletec &lt;INDEX&gt;</code> or <code>deletej &lt;INDEX&gt;</code><br></p>
+<p class="tableblock">            e.g. <code>deletec 1 `, `deletej 5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Shortlisted Candidate</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteShortlist</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List all Candidates</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listc</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List all Companies and all Job Offers</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listC</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select Candidate</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code> <code>&lt;INDEX&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select Company</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>selectCompany</code> <code>&lt;INDEX&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select Job Offer</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>selectJob</code> <code>&lt;INDEX&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find &lt;tag&gt;/KEYWORD [MORE_KEYWORDS]</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Filter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter &lt;tag&gt; [h/highest education level] [j/job] [s/expected salary] [x/age]</code><br></p>
+<p class="tableblock">            e.g. <code>filter h/O LEVEL</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortc</code> or <code>sortC</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Blacklist</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>blacklist</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Shortlist Candidate</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>shortlist</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Email</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>email</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cancel</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cancel</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code>
+=== Selecting a candidate / company / job offer: <code>select</code> <code>selectCompany</code> <code>selectJob</code></p>
+<p class="tableblock">==== Selecting a candidate :
+Format: <code>select</code> <code>&lt;INDEX&gt;</code></p>
+<p class="tableblock">. Selects the candidate with the specified INDEX
+. This index must be an index number shown in the displayed candidate list.</p>
+<p class="tableblock">==== Selecting a company :
+Format: <code>selectCompany</code> <code>&lt;INDEX&gt;</code></p>
+<p class="tableblock">. Selects the company with the specified INDEX
+. This index must be an index number shown in the displayed company list.</p>
+<p class="tableblock">==== Selecting a job offer :
+Format: <code>selectJob</code> <code>&lt;INDEX&gt;</code></p>
+<p class="tableblock">. Selects the job offer with the specified INDEX
+. This index must be an index number shown in the displayed job offer list.
+=== Deleting a shortlisted candidate: <code>deleteShortlist</code></p>
+<p class="tableblock">[IMPORTANT]
+Deleting a shortlisted candidate is a 4-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.</p>
+<p class="tableblock">Format: <code>deleteShortlist</code></p>
+<p class="tableblock">. <strong>Initialization</strong>
+.. Type <code>deleteShortlist</code> and press <kbd>Enter</kbd> to initialize the delete process.
+. <strong>Choose the company</strong>
+.. Type <code>selectCompany</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the company.
+. <strong>Choose the job offer</strong>
+.. Type <code>selectJob</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the job offer.
+. <strong>Choose the candidate to delete</strong>
+.. Type <code>delete</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the shortlisted candidate to delete.</p>
+<p class="tableblock">[NOTE]
+Index must be an index number shown in the displayed list.
+=== Shortlisting candidates for a job offer : <code>shortlist</code></p>
+<p class="tableblock">[IMPORTANT]
+Shortlisting process is a 5-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.</p>
+<p class="tableblock">Format: <code>shortlist</code></p>
+<p class="tableblock">. <strong>Initialization</strong>
+.. Type <code>shortlist</code> and press <kbd>Enter</kbd> to initialize the shortlist process.
+. <strong>Choose the company</strong>
+.. Type <code>selectCompany</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the company.
+. <strong>Choose the job offer</strong>
+.. Type <code>selectJob</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the job offer.
+. <strong>Choose the candidate</strong>
+.. Type <code>select</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the candidate to shortlist.
+. <strong>Confirm the details</strong>
+.. Type <code>confirm</code> and press <kbd>Enter</kbd> to confirm.</p>
+<p class="tableblock">[NOTE]
+Index must be an index number shown in the displayed list.
+=== Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code></p>
+<p class="tableblock">==== Shows a list of all candidates</p>
+<p class="tableblock">Format: <code>listc</code></p>
+<p class="tableblock">[NOTE]
+If you are viewing the Company Book, this command will automatically bring you to the Candidate Book.</p>
+<p class="tableblock">.Listing of all Candidates
+image::candidatePanel.png[width="790", align="left"]</p>
+<p class="tableblock">==== Shows a list of all companies and all job offers</p>
+<p class="tableblock">Format: <code>listC</code></p>
+<p class="tableblock">[NOTE]
+If you are viewing the Candidate Book, this command will automatically bring you to the Company Book.</p>
+<p class="tableblock">.Listing of all Companies and all job offers
+image::candidatePanel.png[width="790", align="left"]</p>
+<p class="tableblock">==== Shows a list of job offers based on a selected company</p>
+<p class="tableblock">Company Book allows you to easily see the list of job offers based on the company you selected.</p>
+<p class="tableblock">GUI (refer to examples shown on Figure 6, 7 and 8): Select a company on the left of the screen.</p>
+<p class="tableblock">.Selecting KFC to show the available job offers
+image::companyPanel1.png[width="790", align="left"]
+.Selecting SingTel to show the available job offers
+image::companyPanel2.png[width="790", align="left"]
+.Selecting MOE to show the available job offers
+image::companyPanel3.png[width="790", align="left"]</p>
+<p class="tableblock">== Contributions to the Developer Guide</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">===</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
-<div class="ulist">
-<ul>
-<li>
-<p>include::../DeveloperGuide.adoc[tag=switch]</p>
-</li>
-<li>
-<p>include::../DeveloperGuide.adoc[tag=shortlist]</p>
-</li>
-</ul>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 07:35:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 07:55:47 UTC</div></div></div></body></html>
