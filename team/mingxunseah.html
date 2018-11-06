@@ -170,11 +170,26 @@ The index must be an index number shown in the displayed company list.</p>
 <p>Edits the job with the specified <code>INDEX</code>.
 This index must be an index number shown in the displayed job list.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You need to enter <code>listC</code> first to see the full list of job offers! The <code>&lt;INDEX&gt;</code> is based on <code>listC</code>!
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p><code>listC</code></p>
+</li>
 <li>
 <p><code>editj 1 xr/20-30</code><br>
 (Edits the <code>MIN_AGE-MAX_AGE</code> attribute of the 1st job offer to be of 20 to 30 years of age)</p>
@@ -400,6 +415,18 @@ Additionally, it implements the following operations to support the editing of j
 </div>
 <div class="paragraph">
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#hasJobOffer(JobOffer jobOffer)</code> and <code>Model#updateJobOffer(JobOffer target, JobOffer editedJobOffer)</code> respectively.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you try to edit the job offer to have a company name that does not exist in the book, it will trigger a command exception!
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -992,4 +1019,4 @@ Unblacklisting a candidate who is not blacklisted will do likewise.
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 11:52:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 12:41:56 UTC</div></div></div></body></html>
