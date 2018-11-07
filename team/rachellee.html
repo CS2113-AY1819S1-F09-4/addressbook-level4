@@ -22,7 +22,26 @@ work on building the application while documenting on our progress and milestone
 <p>The project requirement was to morph an AddressBook application into something that responds to social needs and
 offers sustainable solutions. My team morphed it into a RecruitBook application to address the limited tools of
 the HumanResource(HR) departments and various free-lance job agents. Our application provides a sustainable solution
-as it eliminates the need for paperwork and application forms.</p>
+as it eliminates the need for paperwork and application forms. Furthermore, we ensured our developer guide explained the
+implementation well enough for a beginner to change up the data fields to easily adapt our application to organise data
+of their choice. This made our application flexible to change, which provides a long-term sustainable solution for data management.</p>
+</div>
+<div class="paragraph">
+<p>My role in this project is a developer and my responsibilities are ensuring code quality and updating documentation.
+I believe that documentation is as important as coding, because chunks of code do not make sense without proper explanation and justification.
+It is essential in a group project to update our teammates with the changes, to keep everyone on the same page.</p>
+</div>
+<div class="paragraph">
+<p>Other than gaining more knowledge on developing an application, I have learnt the importance of integrating the team&#8217;s code,
+setting the same coding standards, as well as communicating with my teammates about the various
+features and ideas on integrating them together. As a result, my problem-solving skills have improved.
+Moreover, I worked on my conflict resolution skills when inevitable conflicts arose throughout this project.
+I took extra caution in my words and actions to ensure conflicts are resolved professionally, without hurting the other
+party.</p>
+</div>
+<div class="paragraph">
+<p>By setting weekly tasks to complete, I followed my schedule strictly so as to not delay the team&#8217;s progress.
+This is essential as my teammates required my features to be functional before they were able to work on theirs.</p>
 </div>
 <div class="paragraph">
 <p>RecruitBook is an offline desktop application that allows you to manage candidates and job offers
@@ -107,7 +126,7 @@ as well as their last updated time and locations of the files saved.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>:
-Navigate under Commits, and click <em>leerachel</em> filter to see commits by me.</p>
+Under the username of <a href="https://github.com/CS2113-AY1819S1-F09-4/main/commits?author=leerachel">leerachel</a>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -284,83 +303,14 @@ and does the switch to the other book for you when you enter the <code>switch</c
 <p>Selects the job offer with the specified INDEX</p>
 </li>
 <li>
-<p>This index must be an index number shown in the displayed job offer list.
-=== Deleting a shortlisted candidate: <code>deleteShortlist</code></p>
+<p>This index must be an index number shown in the displayed job offer list.</p>
 </li>
 </ol>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Deleting a shortlisted candidate is a 4-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.
-</td>
-</tr>
-</table>
 </div>
-<div class="paragraph">
-<p>Format: <code>deleteShortlist</code></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Initialization</strong></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Type <code>deleteShortlist</code> and press <kbd>Enter</kbd> to initialize the delete process.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>Choose the company</strong></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Type <code>selectCompany</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the company.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>Choose the job offer</strong></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Type <code>selectJob</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the job offer.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>Choose the candidate to delete</strong></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Type <code>delete</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the shortlisted candidate to delete.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Index must be an index number shown in the displayed list.
-=== Shortlisting candidates for a job offer : <code>shortlist</code>
-</td>
-</tr>
-</table>
-</div>
+<div class="sect2">
+<h3 id="shortlisting-candidates-for-a-job-offer-code-shortlist-code"><a class="link" href="#shortlisting-candidates-for-a-job-offer-code-shortlist-code">Shortlisting candidates for a job offer : <code>shortlist</code></a></h3>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -393,7 +343,19 @@ Shortlisting process is a 5-stage process. To exit from this process, enter <cod
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Type <code>selectCompany</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the company.</p>
+<p>Type <code>selectC</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the company.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can use <code>sortC</code>, <code>findC</code> or <code>filterC</code> command to easily locate the company before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ol>
 </div>
@@ -403,7 +365,19 @@ Shortlisting process is a 5-stage process. To exit from this process, enter <cod
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Type <code>selectJob</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the job offer.</p>
+<p>Type <code>selectj</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can use <code>sortj</code> command to easily locate the job offer before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ol>
 </div>
@@ -413,7 +387,19 @@ Shortlisting process is a 5-stage process. To exit from this process, enter <cod
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Type <code>select</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the candidate to shortlist.</p>
+<p>Type <code>selectc</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the candidate to shortlist.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can use <code>sortc</code>, <code>findc</code> or <code>filterc</code> command to easily locate the candidate before selecting.
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ol>
 </div>
@@ -438,12 +424,113 @@ Shortlisting process is a 5-stage process. To exit from this process, enter <cod
 </td>
 <td class="content">
 Index must be an index number shown in the displayed list.
-=== Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code>
 </td>
 </tr>
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="deleting-a-shortlisted-candidate-code-deleteshortlist-code"><a class="link" href="#deleting-a-shortlisted-candidate-code-deleteshortlist-code">Deleting a shortlisted candidate: <code>deleteShortlist</code></a></h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Deleting a shortlisted candidate is a 4-stage process. To exit from this process, enter <code>cancel</code> command as explained in <a href="#Exits from any intermediate command: <code>cancel</code>">[Exits from any intermediate command: <code>cancel</code>]</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteShortlist</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Initialization</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>deleteShortlist</code> and press <kbd>Enter</kbd> to initialize the delete process.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the company</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>selectC</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the company.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can use <code>sortC</code>, <code>findC</code> or <code>filterC</code> command to easily locate the company before selecting it.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the job offer</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>selectj</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can use <code>sortj</code> command to easily locate the job offer before selecting it.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Choose the candidate to delete from the list of shortlisted candidates</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>delete</code> <code>&lt;INDEX&gt;</code> and press <kbd>Enter</kbd> to select the shortlisted candidate to delete.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Index must be an index number shown in the displayed list.
+Deleting a shortlisted candidate does not delete the candidate completely. It removes the candidate from
+the list of shortlisted candidates for that particular job offer.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code"><a class="link" href="#listing-details-of-candidates-companies-jobs-code-listc-code-code-listc-code">Listing details of candidates / companies / jobs: <code>listc</code> <code>listC</code></a></h3>
 <div class="sect3">
 <h4 id="shows-a-list-of-all-candidates"><a class="link" href="#shows-a-list-of-all-candidates">Shows a list of all candidates</a></h4>
 <div class="paragraph">
@@ -531,7 +618,7 @@ If you are viewing the Candidate Book, this command will automatically bring you
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project. I have also edited the other parts to make sure they are coherent.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -561,7 +648,8 @@ For example, <code>SwitchBookRequestEvent</code> will match with the <code>handl
 </table>
 </div>
 <div class="paragraph">
-<p>As mentioned <a href="#UI component">above</a>, inside MainWindow, there are 4 placeholders and the panelViewPlaceholder holds the panels <code>CandidateDetailsPanel</code> and <code>CompanyJobDetailsPanel</code>.</p>
+<p>As mentioned <a href="#UI component">above</a>, inside MainWindow, there are 5 placeholders and
+the panelViewPlaceholder can hold either <code>CandidateDetailsPanel</code>, <code>CompanyJobDetailsPanel</code> or <code>ShortlistPanel</code>.</p>
 </div>
 <div class="paragraph">
 <p>The methods <code>switchToCandidateBook</code> and <code>switchToCompanyBook</code> work by placing the desired panel in panelViewPlaceholder, to be shown on the MainWindow.</p>
@@ -683,19 +771,28 @@ and returning false if the current book is Company Book.</p>
 </li>
 <li>
 <p>Cons: Can be confusing for multiple contributors. There is also an assumption that there are only 2 distinct
-cases of the view of <code>panelViewPlaceholder</code>, which is not the case as we introduced another view <code>shortlistPanel</code>.
-=== Shortlist Feature
-==== Current Implementation
-===== Shortlisting a Candidate</p>
+cases of the view of <code>panelViewPlaceholder</code>, which is not the case as we introduced another view <code>ShortlistPanel</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="shortlist-feature"><a class="link" href="#shortlist-feature">Shortlist Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="shortlisting-a-candidate"><a class="link" href="#shortlisting-a-candidate">Shortlisting a Candidate</a></h5>
+<div class="paragraph">
+<p>The shortlist mechanism is facilitated by <code>selectc</code>, <code>selectC</code> and <code>selectj</code> command. The parsing of these commands
+is facilitated by <code>ShortlistParser</code>.</p>
 </div>
 <div class="paragraph">
-<p>The shortlist mechanism is facilitated by <code>select</code>, <code>selectCompany</code> and <code>selectJob</code> command.
-It extends <code>CompanyBook</code> with a list of shortlisted candidate(s) for each job offer, stored internally as a
+<p>It extends <code>CompanyBook</code> with a list of shortlisted candidate(s) for each job offer, stored internally as a
 Unique Candidate List called <code>candidateList</code>. The reason for storing as a unique list is to prevent duplicated
 candidates from being added into the same <code>candidateList</code>.</p>
 </div>
@@ -784,7 +881,11 @@ Since RecruitBook opens up Candidate Book by default, adding a job offer will au
 </div>
 </li>
 <li>
-<p>User executes <code>shortlist</code> command. RecruitBook enters Stage 2 of the shortlisting process to shortlist a candidate for a job offer.
+<p>User executes <code>shortlist</code> command. The view changes from <code>Company Book</code> to <code>ShortlistPanel</code>.
+<code>ShortlistPanel</code> lists out all the candidates, companies and job offers.</p>
+</li>
+<li>
+<p>RecruitBook enters Stage 2 of the shortlisting process to shortlist a candidate for a job offer.
 This is implemented by <code>LogicManager</code> where <code>setLogicState</code> is called in each stage to connect one after another. User will need to execute
 <code>cancel</code> command to exit from the shortlist process. The 5-stage process is described in order below.</p>
 <div class="olist loweralpha">
@@ -793,13 +894,49 @@ This is implemented by <code>LogicManager</code> where <code>setLogicState</code
 <p><code>shortlist</code> &#8594; User initializes the shortlisting process.</p>
 </li>
 <li>
-<p><code>selectCompany x</code> &#8594; User selects the company of the job offer.</p>
+<p><code>selectC x</code> &#8594; User selects the company of the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortC</code>, <code>findC</code> and <code>filterC</code> commands can be used to easily locate the company before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p><code>selectJob x</code> &#8594; User selects the job offer.</p>
+<p><code>selectj x</code> &#8594; User selects the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortj</code> command can be used to easily locate the job offer before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p><code>select x</code> &#8594; User selects the candidate to shortlist.</p>
+<p><code>selectc x</code> &#8594; User selects the candidate to shortlist.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortc</code>, <code>findc</code> and <code>filterc</code> commands can be used to easily locate the candidate before selecting.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><code>confirm</code> &#8594; User confirms the above inputs.</p>
@@ -838,15 +975,47 @@ You can access this list by calling <code>selectedJob.getUniqueCandidateList()</
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the shortlist operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/shortlistSequenceDiagram.png" alt="shortlistSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes <code>shortlist</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/shortlistActivityDiagram.png" alt="shortlistActivityDiagram" width="650">
+</div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="deleting-a-shortlisted-candidate"><a class="link" href="#deleting-a-shortlisted-candidate">Deleting a Shortlisted Candidate</a></h5>
 <div class="paragraph">
-<p>Deletion of a shortlisted candidate uses similar implementation as <a href="#Shortlisting a Candidate">[Shortlisting a Candidate]</a>.</p>
+<p>Deletion of a shortlisted candidate uses similar implementation as <a href="#shortlisting-a-candidate">Shortlisting a Candidate</a>.</p>
 </div>
 <div class="paragraph">
-<p>The shortlist mechanism is facilitated by <code>selectCompany</code> and <code>selectJob</code> command.
-It deletes a shortlisted candidate from the <code>candidateList</code> through <code>Model</code>.</p>
+<p>The shortlist mechanism is facilitated by <code>selectC</code> and <code>selectj</code> command. The parsing of these commands
+is facilitated by <code>ShortlistParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>It deletes a shortlisted candidate from the <code>candidateList</code> through <code>Model</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Deleting a shortlisted candidate does not delete the candidate from <code>Candidate Book</code>. It simply
+removes the candidate from the list of shortlisted candidates for that particular job offer.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>It is a 4-stage process supported by <code>LogicManager</code> by keeping track of the <code>LogicState</code>.</p>
@@ -925,10 +1094,34 @@ This is implemented by <code>LogicManager</code> where <code>setLogicState</code
 <p><code>deleteShortlist</code> &#8594; User initializes the deleting process.</p>
 </li>
 <li>
-<p><code>selectCompany x</code> &#8594; User selects the company of the job offer.</p>
+<p><code>selectC x</code> &#8594; User selects the company of the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortC</code>, <code>findC</code> and <code>filterC</code> commands can be used to easily locate the company before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p><code>selectJob x</code> &#8594; User selects the job offer.</p>
+<p><code>selectj x</code> &#8594; User selects the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortj</code> command can be used to easily locate the job offer before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><code>delete x</code> &#8594; User selects the candidate to delete.</p>
@@ -966,6 +1159,14 @@ this command returns a message to be displayed to inform the user.
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes <code>deleteShortlist</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deleteShortlistActivityDiagram.png" alt="deleteShortlistActivityDiagram" width="650">
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -975,7 +1176,7 @@ this command returns a message to be displayed to inform the user.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use existing <code>select</code>, <code>selectCompany</code> and <code>selectJob</code> commands.</p>
+<p><strong>Alternative 1 (current choice):</strong> Use existing <code>selectc</code>, <code>selectC</code> and <code>selectj</code> commands.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1044,4 +1245,4 @@ to store multiple job offers under the same candidate <code>key</code>.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 17:37:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 21:44:21 UTC</div></div></div></body></html>

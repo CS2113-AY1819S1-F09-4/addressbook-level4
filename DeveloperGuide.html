@@ -359,10 +359,12 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p><strong>API</strong> : <a href="https://github.com/CS2113-AY1819S1-F09-4/main/tree/master/src/main/java/seedu/recruit/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>As illustrated in Figure 5, the UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>CandidateDetailsPanel</code>, <code>CompanyJobDetailsPanel</code>, <code>ShortlistPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>As illustrated in Figure 5, the UI consists of a <code>MainWindow</code> that is made up of parts
+e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>CandidateDetailsPanel</code>, <code>CompanyJobDetailsPanel</code>,
+<code>ShortlistPanel</code>, <code>MasterCandidateListPanel</code>, <code>MasterJobListPanel</code>, <code>StatusBarFooter</code>. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>There are 4 placeholders inside <code>MainWindow</code> that fills the screen along with the menu bar.</p>
+<p>There are 5 placeholders inside <code>MainWindow</code> that fills the screen along with the menu bar.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -387,11 +389,20 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>CandidateDetailsPanel</code> <code>CompanyJobDetailsPanel</code> <code>ShortlistPanel</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">masterListPlaceholder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MasterCandidateListPanel</code> <code>MasterJobListPanel</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusbarPlaceholder</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>StatusBarFooter</code></p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>In <code>Company Book</code>, panelViewPlaceholder holds <code>CompanyJobDetailsPanel</code> and <code>masterListPlaceholder</code>
+holds <code>MasterJobListPanel</code>, while in <code>Candidate Book</code>, panelViewPlaceholder holds <code>CandidateDetailsPanel</code>
+and masterListPlaceholder holds <code>MasterCandidateListPanel</code>.</p>
+</div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2113-AY1819S1-F09-4/main/tree/master/src/main/java/seedu/recruit/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2113-AY1819S1-F09-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
@@ -1481,8 +1492,11 @@ Unblacklisting a candidate who is not blacklisted will do likewise.
 <div class="sect4">
 <h5 id="shortlisting-a-candidate"><a class="link" href="#shortlisting-a-candidate">Shortlisting a Candidate</a></h5>
 <div class="paragraph">
-<p>The shortlist mechanism is facilitated by <code>select</code>, <code>selectCompany</code> and <code>selectJob</code> command.
-It extends <code>CompanyBook</code> with a list of shortlisted candidate(s) for each job offer, stored internally as a
+<p>The shortlist mechanism is facilitated by <code>selectc</code>, <code>selectC</code> and <code>selectj</code> command. The parsing of these commands
+is facilitated by <code>ShortlistParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>It extends <code>CompanyBook</code> with a list of shortlisted candidate(s) for each job offer, stored internally as a
 Unique Candidate List called <code>candidateList</code>. The reason for storing as a unique list is to prevent duplicated
 candidates from being added into the same <code>candidateList</code>.</p>
 </div>
@@ -1571,7 +1585,11 @@ Since RecruitBook opens up Candidate Book by default, adding a job offer will au
 </div>
 </li>
 <li>
-<p>User executes <code>shortlist</code> command. RecruitBook enters Stage 2 of the shortlisting process to shortlist a candidate for a job offer.
+<p>User executes <code>shortlist</code> command. The view changes from <code>Company Book</code> to <code>ShortlistPanel</code>.
+<code>ShortlistPanel</code> lists out all the candidates, companies and job offers.</p>
+</li>
+<li>
+<p>RecruitBook enters Stage 2 of the shortlisting process to shortlist a candidate for a job offer.
 This is implemented by <code>LogicManager</code> where <code>setLogicState</code> is called in each stage to connect one after another. User will need to execute
 <code>cancel</code> command to exit from the shortlist process. The 5-stage process is described in order below.</p>
 <div class="olist loweralpha">
@@ -1580,13 +1598,49 @@ This is implemented by <code>LogicManager</code> where <code>setLogicState</code
 <p><code>shortlist</code> &#8594; User initializes the shortlisting process.</p>
 </li>
 <li>
-<p><code>selectCompany x</code> &#8594; User selects the company of the job offer.</p>
+<p><code>selectC x</code> &#8594; User selects the company of the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortC</code>, <code>findC</code> and <code>filterC</code> commands can be used to easily locate the company before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p><code>selectJob x</code> &#8594; User selects the job offer.</p>
+<p><code>selectj x</code> &#8594; User selects the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortj</code> command can be used to easily locate the job offer before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p><code>select x</code> &#8594; User selects the candidate to shortlist.</p>
+<p><code>selectc x</code> &#8594; User selects the candidate to shortlist.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortc</code>, <code>findc</code> and <code>filterc</code> commands can be used to easily locate the candidate before selecting.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><code>confirm</code> &#8594; User confirms the above inputs.</p>
@@ -1625,6 +1679,22 @@ You can access this list by calling <code>selectedJob.getUniqueCandidateList()</
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the shortlist operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/shortlistSequenceDiagram.png" alt="shortlistSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes <code>shortlist</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/shortlistActivityDiagram.png" alt="shortlistActivityDiagram" width="650">
+</div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="deleting-a-shortlisted-candidate"><a class="link" href="#deleting-a-shortlisted-candidate">Deleting a Shortlisted Candidate</a></h5>
@@ -1632,8 +1702,24 @@ You can access this list by calling <code>selectedJob.getUniqueCandidateList()</
 <p>Deletion of a shortlisted candidate uses similar implementation as <a href="#shortlisting-a-candidate">Section 3.6.1.1, &#8220;Shortlisting a Candidate&#8221;</a>.</p>
 </div>
 <div class="paragraph">
-<p>The shortlist mechanism is facilitated by <code>selectCompany</code> and <code>selectJob</code> command.
-It deletes a shortlisted candidate from the <code>candidateList</code> through <code>Model</code>.</p>
+<p>The shortlist mechanism is facilitated by <code>selectC</code> and <code>selectj</code> command. The parsing of these commands
+is facilitated by <code>ShortlistParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>It deletes a shortlisted candidate from the <code>candidateList</code> through <code>Model</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Deleting a shortlisted candidate does not delete the candidate from <code>Candidate Book</code>. It simply
+removes the candidate from the list of shortlisted candidates for that particular job offer.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>It is a 4-stage process supported by <code>LogicManager</code> by keeping track of the <code>LogicState</code>.</p>
@@ -1712,10 +1798,34 @@ This is implemented by <code>LogicManager</code> where <code>setLogicState</code
 <p><code>deleteShortlist</code> &#8594; User initializes the deleting process.</p>
 </li>
 <li>
-<p><code>selectCompany x</code> &#8594; User selects the company of the job offer.</p>
+<p><code>selectC x</code> &#8594; User selects the company of the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortC</code>, <code>findC</code> and <code>filterC</code> commands can be used to easily locate the company before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p><code>selectJob x</code> &#8594; User selects the job offer.</p>
+<p><code>selectj x</code> &#8594; User selects the job offer.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sortj</code> command can be used to easily locate the job offer before selecting it.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><code>delete x</code> &#8594; User selects the candidate to delete.</p>
@@ -1753,6 +1863,14 @@ this command returns a message to be displayed to inform the user.
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes <code>deleteShortlist</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deleteShortlistActivityDiagram.png" alt="deleteShortlistActivityDiagram" width="650">
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1762,7 +1880,7 @@ this command returns a message to be displayed to inform the user.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use existing <code>select</code>, <code>selectCompany</code> and <code>selectJob</code> commands.</p>
+<p><strong>Alternative 1 (current choice):</strong> Use existing <code>selectc</code>, <code>selectC</code> and <code>selectj</code> commands.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1856,7 +1974,8 @@ For example, <code>SwitchBookRequestEvent</code> will match with the <code>handl
 </table>
 </div>
 <div class="paragraph">
-<p>As mentioned <a href="#Design-Ui">above</a>, inside MainWindow, there are 4 placeholders and the panelViewPlaceholder holds the panels <code>CandidateDetailsPanel</code> and <code>CompanyJobDetailsPanel</code>.</p>
+<p>As mentioned <a href="#Design-Ui">above</a>, inside MainWindow, there are 5 placeholders and
+the panelViewPlaceholder can hold either <code>CandidateDetailsPanel</code>, <code>CompanyJobDetailsPanel</code> or <code>ShortlistPanel</code>.</p>
 </div>
 <div class="paragraph">
 <p>The methods <code>switchToCandidateBook</code> and <code>switchToCompanyBook</code> work by placing the desired panel in panelViewPlaceholder, to be shown on the MainWindow.</p>
@@ -1978,7 +2097,7 @@ and returning false if the current book is Company Book.</p>
 </li>
 <li>
 <p>Cons: Can be confusing for multiple contributors. There is also an assumption that there are only 2 distinct
-cases of the view of <code>panelViewPlaceholder</code>, which is not the case as we introduced another view <code>shortlistPanel</code>.</p>
+cases of the view of <code>panelViewPlaceholder</code>, which is not the case as we introduced another view <code>ShortlistPanel</code>.</p>
 </li>
 </ul>
 </div>
@@ -3274,4 +3393,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 17:37:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 21:44:21 UTC</div></div></div></body></html>
