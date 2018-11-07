@@ -691,7 +691,37 @@ All addition/deletion of the 3 entities (Candidates, Companies, Job Offers) foll
 </div>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-add-delete-feature"><a class="link" href="#aspect-data-structure-to-support-the-add-delete-feature">Aspect: Data structure to support the add/delete feature</a></h5>
-
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a new list object to store objects e.g. <code>UniqueCompanyList</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, allows for manipulation of data within the data structure (e.g) sorting.
+Also allows us to define a stricter form duplicity between objects.</p>
+</li>
+<li>
+<p>Cons: Storing objects in a list makes certain operations O(n) e.g. delete operation searches the whole list to find the exact object to remove from list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a HashTable to store objects</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Delete operation is O(1). Checking for duplicates before adding is also O(1) since HashTable does not allow duplicates</p>
+</li>
+<li>
+<p>Cons: Can&#8217;t really manipulate data in the HashTable.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -2159,8 +2189,10 @@ and maintains order in which objects were added in.</p>
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.9. Undo/Redo feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.9.1. Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="candidatebook"><a class="link" href="#candidatebook">CandidateBook</a></h5>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedCandidateBook</code>.
+<p>The undo/redo mechanism for changes made to CandidateBook is facilitated by <code>VersionedCandidateBook</code>.
 It extends <code>CandidateBook</code> with an undo/redo history, stored internally as an <code>candidateBookStateList</code> and <code>currentStatePointer</code>.
 Additionally, it implements the following operations:</p>
 </div>
@@ -2180,6 +2212,30 @@ Additionally, it implements the following operations:</p>
 <div class="paragraph">
 <p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCandidateBook()</code>, <code>Model#undoCandidateBook()</code> and <code>Model#redoCandidateBook()</code> respectively.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="companybook"><a class="link" href="#companybook">CompanyBook</a></h5>
+<div class="paragraph">
+<p>The undo/redo mechanism for changes made to CompanyBook is facilitated by <code>VersionedCompanyBook</code>.
+It extends <code>CompanyBook</code> with an undo/redo history, stored internally as an <code>companyBookStateList</code> and <code>currentStatePointer</code>.
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VersionedCompanyBook#commit()</code>&#8201;&#8212;&#8201;Saves the current company book state in its history.</p>
+</li>
+<li>
+<p><code>VersionedCompanyBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous company book state from its history.</p>
+</li>
+<li>
+<p><code>VersionedCompanyBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone company book state from its history.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCompanyBook()</code>, <code>Model#undoCompanyBook()</code></p>
+</div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
@@ -2192,7 +2248,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th candidate in the candidate book. The <code>delete</code> command calls <code>Model#commitCandidateBook()</code>, causing the modified state of the candidate book after the <code>delete 5</code> command executes to be saved in the <code>candidateBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted candidate book state.</p>
+<p>Step 2. The user executes <code>deletec 5</code> command to delete the 5th candidate in the candidate book. The <code>deletec</code> command calls <code>Model#commitCandidateBook()</code>, causing the modified state of the candidate book after the <code>deletec 5</code> command executes to be saved in the <code>candidateBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted candidate book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2200,7 +2256,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>addc n/David &#8230;&#8203;</code> to add a new candidate. The <code>add</code> command also calls <code>Model#commitCandidateBook()</code>, causing another modified candidate book state to be saved into the <code>candidateBookStateList</code>.</p>
+<p>Step 3. The user executes <code>addc</code>, <code>n/David &#8230;&#8203;</code> to add a new candidate. The <code>addc</code> command also calls <code>Model#commitCandidateBook()</code>, causing another modified candidate book state to be saved into the <code>candidateBookStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2220,7 +2276,7 @@ If a command fails its execution, it will not call <code>Model#commitCandidateBo
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the candidate was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoCandidateBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous candidate book state, and restores the candidate book to that state.</p>
+<p>Step 4. The user now decides that adding the candidate was a mistake, and decides to undo that action by executing the <code>undoc</code> command. The <code>undoc</code> command will call <code>Model#undoCandidateBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous candidate book state, and restores the candidate book to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2248,7 +2304,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCandidateBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the candidate book to that state.</p>
+<p>The <code>redoc</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCandidateBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the candidate book to that state.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2257,13 +2313,13 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index <code>candidateBookStateList.size() - 1</code>, pointing to the latest candidate book state, then there are no undone candidate book states to restore. The <code>redo</code> command uses <code>Model#canRedoCandidateBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>currentStatePointer</code> is at index <code>candidateBookStateList.size() - 1</code>, pointing to the latest candidate book state, then there are no undone candidate book states to restore. The <code>redoc</code> command uses <code>Model#canRedoCandidateBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the candidate book, such as <code>list</code>, will usually not call <code>Model#commitCandidateBook()</code>, <code>Model#undoCandidateBook()</code> or <code>Model#redoCandidateBook()</code>. Thus, the <code>candidateBookStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>listc</code>. Commands that do not modify the candidate book, such as <code>listc</code>, will usually not call <code>Model#commitCandidateBook()</code>, <code>Model#undoCandidateBook()</code> or <code>Model#redoCandidateBook()</code>. Thus, the <code>candidateBookStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2271,7 +2327,7 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCandidateBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>candidateBookStateList</code>, all candidate book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clearc</code>, which calls <code>Model#commitCandidateBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>candidateBookStateList</code>, all candidate book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2284,6 +2340,7 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+</div>
 </div>
 </div>
 </div>
@@ -3217,4 +3274,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 13:35:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 15:37:09 UTC</div></div></div></body></html>

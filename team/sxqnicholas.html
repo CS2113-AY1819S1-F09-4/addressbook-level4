@@ -178,10 +178,10 @@ Below are some examples for your reference.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addC c/KFC a/101, Clementi Ave 2, #01-01 e/kfc@gmail.com p/61231232</code></p>
+<p><code>c/KFC a/101, Clementi Ave 2, #01-01 e/kfc@gmail.com p/61231232</code></p>
 </li>
 <li>
-<p><code>addC c/McDonalds a/101, Bukit Merah Lane 2, #01-01 e/macs@gmail.com p/61117111</code></p>
+<p><code>c/McDonalds a/101, Bukit Merah Lane 2, #01-01 e/macs@gmail.com p/61117111</code></p>
 </li>
 </ul>
 </div>
@@ -208,7 +208,7 @@ Below are some examples for your reference.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-COMPANY specified has to be added to RecruitBook first!
+Company with specified <code>c/COMPANY_NAME</code> has to be added to RecruitBook first!
 </td>
 </tr>
 </table>
@@ -503,9 +503,268 @@ All addition/deletion of the 3 entities (Candidates, Companies, Job Offers) foll
 </div>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-add-delete-feature"><a class="link" href="#aspect-data-structure-to-support-the-add-delete-feature">Aspect: Data structure to support the add/delete feature</a></h5>
-
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a new list object to store objects e.g. <code>UniqueCompanyList</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, allows for manipulation of data within the data structure (e.g) sorting.
+Also allows us to define a stricter form duplicity between objects.</p>
+</li>
+<li>
+<p>Cons: Storing objects in a list makes certain operations O(n) e.g. delete operation searches the whole list to find the exact object to remove from list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a HashTable to store objects</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Delete operation is O(1). Checking for duplicates before adding is also O(1) since HashTable does not allow duplicates</p>
+</li>
+<li>
+<p>Cons: Can&#8217;t really manipulate data in the HashTable.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 13:35:26 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="sect4">
+<h5 id="candidatebook"><a class="link" href="#candidatebook">CandidateBook</a></h5>
+<div class="paragraph">
+<p>The undo/redo mechanism for changes made to CandidateBook is facilitated by <code>VersionedCandidateBook</code>.
+It extends <code>CandidateBook</code> with an undo/redo history, stored internally as an <code>candidateBookStateList</code> and <code>currentStatePointer</code>.
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VersionedCandidateBook#commit()</code>&#8201;&#8212;&#8201;Saves the current candidate book state in its history.</p>
+</li>
+<li>
+<p><code>VersionedCandidateBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous candidate book state from its history.</p>
+</li>
+<li>
+<p><code>VersionedCandidateBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone candidate book state from its history.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCandidateBook()</code>, <code>Model#undoCandidateBook()</code> and <code>Model#redoCandidateBook()</code> respectively.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="companybook"><a class="link" href="#companybook">CompanyBook</a></h5>
+<div class="paragraph">
+<p>The undo/redo mechanism for changes made to CompanyBook is facilitated by <code>VersionedCompanyBook</code>.
+It extends <code>CompanyBook</code> with an undo/redo history, stored internally as an <code>companyBookStateList</code> and <code>currentStatePointer</code>.
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VersionedCompanyBook#commit()</code>&#8201;&#8212;&#8201;Saves the current company book state in its history.</p>
+</li>
+<li>
+<p><code>VersionedCompanyBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous company book state from its history.</p>
+</li>
+<li>
+<p><code>VersionedCompanyBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone company book state from its history.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCompanyBook()</code>, <code>Model#undoCompanyBook()</code></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedCandidateBook</code> will be initialized with the initial candidate book state, and the <code>currentStatePointer</code> pointing to that single candidate book state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>deletec 5</code> command to delete the 5th candidate in the candidate book. The <code>deletec</code> command calls <code>Model#commitCandidateBook()</code>, causing the modified state of the candidate book after the <code>deletec 5</code> command executes to be saved in the <code>candidateBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted candidate book state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>addc</code>, <code>n/David &#8230;&#8203;</code> to add a new candidate. The <code>addc</code> command also calls <code>Model#commitCandidateBook()</code>, causing another modified candidate book state to be saved into the <code>candidateBookStateList</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call <code>Model#commitCandidateBook()</code>, so the candidate book state will not be saved into the <code>candidateBookStateList</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. The user now decides that adding the candidate was a mistake, and decides to undo that action by executing the <code>undoc</code> command. The <code>undoc</code> command will call <code>Model#undoCandidateBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous candidate book state, and restores the candidate book to that state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial candidate book state, then there are no previous candidate book states to restore. The <code>undo</code> command uses <code>Model#canUndoCandidateBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the undo operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>redoc</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCandidateBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the candidate book to that state.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currentStatePointer</code> is at index <code>candidateBookStateList.size() - 1</code>, pointing to the latest candidate book state, then there are no undone candidate book states to restore. The <code>redoc</code> command uses <code>Model#canRedoCandidateBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The user then decides to execute the command <code>listc</code>. Commands that do not modify the candidate book, such as <code>listc</code>, will usually not call <code>Model#commitCandidateBook()</code>, <code>Model#undoCandidateBook()</code> or <code>Model#redoCandidateBook()</code>. Thus, the <code>candidateBookStateList</code> remains unchanged.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes <code>clearc</code>, which calls <code>Model#commitCandidateBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>candidateBookStateList</code>, all candidate book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire candidate book.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the candidate being deleted).</p>
+</li>
+<li>
+<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of candidate book states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+</li>
+<li>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedCandidateBook</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
+</li>
+<li>
+<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 15:37:09 UTC</div></div></div></body></html>

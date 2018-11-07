@@ -342,10 +342,10 @@ Below are some examples for your reference.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addC c/KFC a/101, Clementi Ave 2, #01-01 e/kfc@gmail.com p/61231232</code></p>
+<p><code>c/KFC a/101, Clementi Ave 2, #01-01 e/kfc@gmail.com p/61231232</code></p>
 </li>
 <li>
-<p><code>addC c/McDonalds a/101, Bukit Merah Lane 2, #01-01 e/macs@gmail.com p/61117111</code></p>
+<p><code>c/McDonalds a/101, Bukit Merah Lane 2, #01-01 e/macs@gmail.com p/61117111</code></p>
 </li>
 </ul>
 </div>
@@ -372,7 +372,7 @@ Below are some examples for your reference.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-COMPANY specified has to be added to RecruitBook first!
+Company with specified <code>c/COMPANY_NAME</code> has to be added to RecruitBook first!
 </td>
 </tr>
 </table>
@@ -1475,9 +1475,28 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>switch</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addc n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS …</code></p>
-<p class="tableblock">            e.g. <code>addc n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 …</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adding Candidates</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addc</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Candidate Parameters</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/NAME g/GENDER x/AGE p/PHONE_NUMBER e/EMAIL a/ADDRESS j/SEEKING_JOB h/HIGHEST_EDUCATION s/EXPECTED_SALARY_PER_MONTH [t/TAG]&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adding Companies</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addC</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Company Parameters</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c/UNIQUE_COMPANY_NAME a/ADDRESS e/EMAIL p/PHONE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adding Job Offers</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addj</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Job Offer Parameters</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c/COMPANY_NAME j/JOB_TITLE g/GENDER xr/AGE_RANGE h/EDUCATION s/SALARY</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
@@ -1485,9 +1504,19 @@ There is no need to save manually.</p>
 <p class="tableblock">            e.g. <code>editc 2 e/jameslee@example.com</code>, <code>editC 5</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletec &lt;INDEX&gt;</code> or <code>deletej &lt;INDEX&gt;</code><br></p>
-<p class="tableblock">            e.g. <code>deletec 1 `, `deletej 5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Candidates</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletec &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt;</code><br>
+            e.g. <code>deletec 1 `, `deletec 1,3-5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Companies</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deleteC &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt;</code><br>
+            e.g. <code>deleteC 1 `, `deleteC 1,3-5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Job Offers</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletej &lt;INDEX&gt;,&lt;INDEX&gt;-&lt;INDEX&gt;</code><br>
+            e.g. <code>deletej 1 `, `deletej 1,3-5</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete Shortlisted Candidate</strong></p></td>
@@ -1543,8 +1572,28 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cancel</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear CandidateBook</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearc</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear CompanyBook</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clearC</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo CandidateBook</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undoc</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo CompanyBook</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undoC</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Redo CandidateBook</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redoc</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Redo CompanyBook</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redoC</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
@@ -1553,4 +1602,4 @@ There is no need to save manually.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 13:35:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 15:37:09 UTC</div></div></div></body></html>
