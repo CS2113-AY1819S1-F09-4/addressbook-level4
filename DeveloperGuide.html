@@ -1672,7 +1672,7 @@ You can access this list by calling <code>selectedJob.getUniqueCandidateList()</
 </div>
 </li>
 <li>
-<p><code>model.commitCompanyBook()</code> is then called to indicate that Company Book has been changed.</p>
+<p><code>model.commitRecruitBook()</code> is then called to indicate that Company Book has been changed.</p>
 </li>
 <li>
 <p>RecruitBook exits the shortlisting process and returns your view to your last viewed book.</p>
@@ -1856,7 +1856,7 @@ this command returns a message to be displayed to inform the user.
 </div>
 </li>
 <li>
-<p><code>model.commitCompanyBook()</code> is then called to indicate that Company Book has been changed.</p>
+<p><code>model.commitRecruitBook()</code> is then called to indicate that Company Book has been changed.</p>
 </li>
 <li>
 <p>RecruitBook exits the deleting process.</p>
@@ -2329,7 +2329,7 @@ Additionally, it implements the following operations:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCandidateBook()</code>, <code>Model#undoCandidateBook()</code> and <code>Model#redoCandidateBook()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCandidateBook()</code>, <code>Model#UndoRecruitBook()</code> and <code>Model#redoCandidateBook()</code> respectively.</p>
 </div>
 </div>
 <div class="sect4">
@@ -2353,7 +2353,7 @@ Additionally, it implements the following operations:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCompanyBook()</code>, <code>Model#undoCompanyBook()</code></p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitRecruitBook()</code>, <code>Model#undoCompanyBook()</code></p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
@@ -2395,7 +2395,7 @@ If a command fails its execution, it will not call <code>Model#commitCandidateBo
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the candidate was a mistake, and decides to undo that action by executing the <code>undoc</code> command. The <code>undoc</code> command will call <code>Model#undoCandidateBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous candidate book state, and restores the candidate book to that state.</p>
+<p>Step 4. The user now decides that adding the candidate was a mistake, and decides to undo that action by executing the <code>undoc</code> command. The <code>undoc</code> command will call <code>Model#UndoRecruitBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous candidate book state, and restores the candidate book to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2409,7 +2409,7 @@ If a command fails its execution, it will not call <code>Model#commitCandidateBo
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial candidate book state, then there are no previous candidate book states to restore. The <code>undo</code> command uses <code>Model#canUndoCandidateBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial candidate book state, then there are no previous candidate book states to restore. The <code>undo</code> command uses <code>Model#canUndoRecruitBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -2438,7 +2438,7 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>listc</code>. Commands that do not modify the candidate book, such as <code>listc</code>, will usually not call <code>Model#commitCandidateBook()</code>, <code>Model#undoCandidateBook()</code> or <code>Model#redoCandidateBook()</code>. Thus, the <code>candidateBookStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>listc</code>. Commands that do not modify the candidate book, such as <code>listc</code>, will usually not call <code>Model#commitCandidateBook()</code>, <code>Model#UndoRecruitBook()</code> or <code>Model#redoCandidateBook()</code>. Thus, the <code>candidateBookStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -3393,4 +3393,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-08 14:21:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 02:39:09 UTC</div></div></div></body></html>
