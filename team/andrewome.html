@@ -10,7 +10,27 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>RecruitBook is a desktop application created for job agent. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>RecruitBook is a project created for CS2113T, Object Oriented Programming and Software Engineering, in the first semester of the second year of my undergraduate studies in the National University of Singapore.</p>
+</div>
+<div class="paragraph">
+<p>It was created with reference from <a href="https://se-edu.github.io/addressbook-level4/">SE-EDU&#8217;s AddressBook 4</a> in a group of 5 using GitHub as our collaboration medium.</p>
+</div>
+<div class="paragraph">
+<p>The project involved turning the AddressBook application into RecruitBook, an application which aids Job Agents find suitable candidates for companies and vice versa.
+My role in this project was to develop the email feature.</p>
+</div>
+<div class="paragraph">
+<p>Apart from simply developing the software, I have picked up many hard skills from working on this project such as using proper coding standards, using continuous integrations, writing tests, using JavaFX, and many software engineering principles
+such as the Law of Demeter and Brooks' Law.</p>
+</div>
+<div class="paragraph">
+<p>I have also picked up soft skills while working with my team such as using the "I message" to get my points across without sounding rude,
+meeting skills to include everybody in the discussion so as to get everybody&#8217;s input to prevent future misunderstandings,
+and when conflicts arise, which is unavoidable, conflict resolution skills where I have to be careful in my choice of words
+so as to solve the conflict professionally, while mitigating damage where possible.</p>
+</div>
+<div class="paragraph">
+<p>RecruitBook is a desktop application created for job agents. The user interacts with it using a command line interface, and it has a GUI created with JavaFX. It is written in Java, and has about 10,000 lines of code.<br></p>
 </div>
 </div>
 </div>
@@ -36,7 +56,7 @@
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2113-AY1819S1-F09-4/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+author%3Aandrewome+is%3Amerged">Functional code</a>]</p>
+<p><strong>Code contributed</strong>: [<a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=andrewome">Functional code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -47,7 +67,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.1</code> - <code>v1.3</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (4 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -298,10 +318,10 @@ and the <code>EmailSettings</code> class which stores email subject and email bo
 <div class="title"><em>Some of these classes also contain children classes which act as sub-commands:</em></div>
 <ol class="arabic">
 <li>
-<p><code>EmailRecipientsAddCommand</code>, <code>EmailRecipientsNextCommand</code> extends <code>EmailRecipientsSelectCommand</code>.</p>
+<p><code>EmailRecipientsAddCommand</code>, <code>EmailRecipientsNextCommand</code> extends <code>EmailRecipientsCommand</code>.</p>
 </li>
 <li>
-<p><code>EmailContentsAddCommand</code>, <code>EmailContentsBackCommand</code> and <code>EmailContentsNextCommand</code> extends <code>EmailContentsSelectCommand</code>.</p>
+<p><code>EmailContentsAddCommand</code>, <code>EmailContentsBackCommand</code> and <code>EmailContentsNextCommand</code> extends <code>EmailContentsCommand</code>.</p>
 </li>
 <li>
 <p><code>EmailSendBackCommand</code>, <code>EmailSendPreviewCommand</code> and <code>EmailSendSendCommand</code> extends <code>EmailSendCommand</code>.</p>
@@ -336,8 +356,8 @@ and the <code>EmailSettings</code> class which stores email subject and email bo
 <p>The user launches the application. The application loads email settings from <code>preferences.json</code> which is stored in <code>Model#EmailUtil</code>.</p>
 </li>
 <li>
-<p>The user executes the <code>email</code> command. A new <code>EmailUtil</code> object is constructed and replaces the <code>EmailUtil</code> object in <code>Model</code>.
-<code>LogicState</code> is changed to reflect initialisation of the email command and to move it into recipients selection stage</p>
+<p>The user executes the <code>email</code> command. A new <code>EmailUtil</code> object is constructed and replaces the <code>EmailUtil</code> object in <code>Model</code>
+using model#resetEmailUtil. <code>LogicState</code> is changed to reflect initialisation of the email command and to move it into recipients selection stage</p>
 </li>
 <li>
 <p>The user executes the <code>add</code> command for the first time. This calls <code>EmailRecipientsAddCommand</code>.</p>
@@ -394,8 +414,9 @@ This is to prevent adding different objects into the recipients linked hash set.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In <code>EmailContentSelectionCommand</code> phase, depending on <code>EmailUtil#areRecipientsCandidates</code>, the current book will be locked and only
-  commands pertaining to the current book can be used. This is to enforce that recipients and contents must be contrasting.
+In <code>EmailContentSelectionCommand</code> phase, depending on <code>EmailUtil#areRecipientsCandidates</code>, the book displayed will be locked and only
+commands pertaining to the current book can be used. This is to enforce that recipients and contents are either candidates and job offers or
+job offers and candidates.
 </td>
 </tr>
 </table>
@@ -403,12 +424,6 @@ In <code>EmailContentSelectionCommand</code> phase, depending on <code>EmailUtil
 </li>
 <li>
 <p>The user executes <code>add</code> command. This calls <code>EmailContentsAddCommand</code> which adds contents similarly to <code>EmailRecipientsAddCommand</code> as seen above.</p>
-</li>
-<li>
-<p>The user executes <code>back</code> command. This calls <code>EmailContentsBackCommand</code> which switches the current book and changes <code>LogicState</code> back to select recipients phase.</p>
-</li>
-<li>
-<p>The user executes <code>next</code> command. This calls <code>EmailRecipientsNextCommand</code> which switches the current book and changes <code>LogicState</code> to select contents phase.</p>
 </li>
 <li>
 <p>The user executes <code>next</code> command. This calls <code>EmailContentsNextCommand</code> which changes <code>LogicState</code> to the send phase.</p>
@@ -429,6 +444,15 @@ with the email String and shows the string in a new window, <code>EmailPreview</
 which is the Java format used for emails and is sent via <code>EmailUtil#sendMessage</code>. <code>LogicState</code> is reset back to orignal and this marks the end of the email command.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>This is the simplified action diagram when the user executes the email command, assuming the user is only executing the <code>add</code>
+command once per <code>selectRecipients</code> and <code>selectContents</code> step.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/EmailActivityDiagram.png" alt="EmailActivityDiagram" width="1000">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -472,7 +496,7 @@ which is the Java format used for emails and is sent via <code>EmailUtil#sendMes
 and maintains order in which objects were added in.</p>
 </li>
 <li>
-<p>Cons: -</p>
+<p>Cons: Not as fast as a hash set, but speed can be sacrificed for the pros.</p>
 </li>
 </ul>
 </div>
@@ -494,7 +518,9 @@ and maintains order in which objects were added in.</p>
 <h2 id="overview-2"><a class="link" href="#overview-2">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>PartyCards is a web-application that allows up to 4 users play card games. Card games include: Cheat, Taiti, Bridge and Hearts. PartyCards was written with ReactJS frontend and Node.js backend.</p>
+<p>PartyCards was a project created for CP2106, Independent Software Development Project (Orbital), during the summer after my first year in the National University of Singapore.
+The project was created from scratch in a group of 2, using GitHub as our collaboration medium.
+PartyCards is a web-application that allows up to 4 users play card games. Card games include: Cheat, Taiti, Bridge and Hearts. PartyCards was written with ReactJS frontend and Node.js backend.</p>
 </div>
 </div>
 </div>
@@ -598,4 +624,4 @@ and maintains order in which objects were added in.</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 07:40:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 07:55:22 UTC</div></div></div></body></html>

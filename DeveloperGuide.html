@@ -2128,10 +2128,10 @@ and the <code>EmailSettings</code> class which stores email subject and email bo
 <div class="title"><em>Some of these classes also contain children classes which act as sub-commands:</em></div>
 <ol class="arabic">
 <li>
-<p><code>EmailRecipientsAddCommand</code>, <code>EmailRecipientsNextCommand</code> extends <code>EmailRecipientsSelectCommand</code>.</p>
+<p><code>EmailRecipientsAddCommand</code>, <code>EmailRecipientsNextCommand</code> extends <code>EmailRecipientsCommand</code>.</p>
 </li>
 <li>
-<p><code>EmailContentsAddCommand</code>, <code>EmailContentsBackCommand</code> and <code>EmailContentsNextCommand</code> extends <code>EmailContentsSelectCommand</code>.</p>
+<p><code>EmailContentsAddCommand</code>, <code>EmailContentsBackCommand</code> and <code>EmailContentsNextCommand</code> extends <code>EmailContentsCommand</code>.</p>
 </li>
 <li>
 <p><code>EmailSendBackCommand</code>, <code>EmailSendPreviewCommand</code> and <code>EmailSendSendCommand</code> extends <code>EmailSendCommand</code>.</p>
@@ -2166,8 +2166,8 @@ and the <code>EmailSettings</code> class which stores email subject and email bo
 <p>The user launches the application. The application loads email settings from <code>preferences.json</code> which is stored in <code>Model#EmailUtil</code>.</p>
 </li>
 <li>
-<p>The user executes the <code>email</code> command. A new <code>EmailUtil</code> object is constructed and replaces the <code>EmailUtil</code> object in <code>Model</code>.
-<code>LogicState</code> is changed to reflect initialisation of the email command and to move it into recipients selection stage</p>
+<p>The user executes the <code>email</code> command. A new <code>EmailUtil</code> object is constructed and replaces the <code>EmailUtil</code> object in <code>Model</code>
+using model#resetEmailUtil. <code>LogicState</code> is changed to reflect initialisation of the email command and to move it into recipients selection stage</p>
 </li>
 <li>
 <p>The user executes the <code>add</code> command for the first time. This calls <code>EmailRecipientsAddCommand</code>.</p>
@@ -2224,8 +2224,9 @@ This is to prevent adding different objects into the recipients linked hash set.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In <code>EmailContentSelectionCommand</code> phase, depending on <code>EmailUtil#areRecipientsCandidates</code>, the current book will be locked and only
-  commands pertaining to the current book can be used. This is to enforce that recipients and contents must be contrasting.
+In <code>EmailContentSelectionCommand</code> phase, depending on <code>EmailUtil#areRecipientsCandidates</code>, the book displayed will be locked and only
+commands pertaining to the current book can be used. This is to enforce that recipients and contents are either candidates and job offers or
+job offers and candidates.
 </td>
 </tr>
 </table>
@@ -2233,12 +2234,6 @@ In <code>EmailContentSelectionCommand</code> phase, depending on <code>EmailUtil
 </li>
 <li>
 <p>The user executes <code>add</code> command. This calls <code>EmailContentsAddCommand</code> which adds contents similarly to <code>EmailRecipientsAddCommand</code> as seen above.</p>
-</li>
-<li>
-<p>The user executes <code>back</code> command. This calls <code>EmailContentsBackCommand</code> which switches the current book and changes <code>LogicState</code> back to select recipients phase.</p>
-</li>
-<li>
-<p>The user executes <code>next</code> command. This calls <code>EmailRecipientsNextCommand</code> which switches the current book and changes <code>LogicState</code> to select contents phase.</p>
 </li>
 <li>
 <p>The user executes <code>next</code> command. This calls <code>EmailContentsNextCommand</code> which changes <code>LogicState</code> to the send phase.</p>
@@ -2259,6 +2254,15 @@ with the email String and shows the string in a new window, <code>EmailPreview</
 which is the Java format used for emails and is sent via <code>EmailUtil#sendMessage</code>. <code>LogicState</code> is reset back to orignal and this marks the end of the email command.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>This is the simplified action diagram when the user executes the email command, assuming the user is only executing the <code>add</code>
+command once per <code>selectRecipients</code> and <code>selectContents</code> step.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/EmailActivityDiagram.png" alt="EmailActivityDiagram" width="1000">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -2302,7 +2306,7 @@ which is the Java format used for emails and is sent via <code>EmailUtil#sendMes
 and maintains order in which objects were added in.</p>
 </li>
 <li>
-<p>Cons: -</p>
+<p>Cons: Not as fast as a hash set, but speed can be sacrificed for the pros.</p>
 </li>
 </ul>
 </div>
@@ -3401,4 +3405,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 07:40:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 07:55:22 UTC</div></div></div></body></html>
