@@ -17,8 +17,8 @@
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
 <li><a href="#switching-books-code-switch-code">4.2. Switching Books : <code>switch</code></a></li>
 <li><a href="#adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code">4.3. Adding a candidate / company / job  : <code>addc</code> <code>addC</code> <code>addj</code></a></li>
-<li><a href="#finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br">4.4. Finding candidates/companies/job offers : <code>findc</code> <code>findC</code> <code>findj</code><br></a></li>
-<li><a href="#filter-candidates-companies-job-offers-code-filterc-code-code-filterc-code-code-filterj-code-br">4.5. Filter candidates/companies/job offers : <code>filterc</code> <code>filterC</code> <code>filterj</code><br></a></li>
+<li><a href="#finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br">4.4. Finding candidates / companies / job offers : <code>findc</code> <code>findC</code> <code>findj</code><br></a></li>
+<li><a href="#filter-candidates-companies-job-offers-code-filterc-code-code-filterc-code-code-filterj-code-br">4.5. Filter candidates / companies / job offers : <code>filterc</code> <code>filterC</code> <code>filterj</code><br></a></li>
 <li><a href="#editing-a-candidate-company-job-code-editc-code-code-editc-code-code-editj-code">4.6. Editing a candidate / company / job : <code>editc</code> <code>editC</code> <code>editj</code></a></li>
 <li><a href="#deleting-candidates-companies-job-offers-code-delete-code">4.7. Deleting candidates / companies / job offers : <code>delete</code></a></li>
 <li><a href="#deleting-a-shortlisted-candidate-code-deleteshortlist-code">4.8. Deleting a shortlisted candidate: <code>deleteShortlist</code></a></li>
@@ -401,7 +401,7 @@ Below are some examples for your reference.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br"><a class="link" href="#finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br">4.4. Finding candidates/companies/job offers : <code>findc</code> <code>findC</code> <code>findj</code><br></a></h3>
+<h3 id="finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br"><a class="link" href="#finding-candidates-companies-job-offers-code-findc-code-code-findc-code-code-findj-code-br">4.4. Finding candidates / companies / job offers : <code>findc</code> <code>findC</code> <code>findj</code><br></a></h3>
 <div class="paragraph">
 <p>Each <code>find</code> command is differentiated by the letter that comes right after the <code>find</code> word.
 By using the <code>find</code> command, you can search for candidates/companies/job offers that contains <strong>any</strong> of the searched parameters.</p>
@@ -484,7 +484,7 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL
 <h4 id="finds-job-offers-from-recruitbook-based-on-searched-fields-that-you-have-entered"><a class="link" href="#finds-job-offers-from-recruitbook-based-on-searched-fields-that-you-have-entered">4.4.3. Finds job offers from RecruitBook based on searched fields that you have entered.</a></h4>
 <div class="paragraph">
 <p>Format: <code>findj &lt;tag&gt;/KEYWORD</code><br>
-Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/GENDER</code>, <code>s/SALARY</code>, <code>xr/AGE RANGE</code>, <code>h/HIGHEST EDUCATION</code></p>
+Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/GENDER</code>, <code>s/SALARY</code>, <code>x/AGE</code>, <code>h/HIGHEST EDUCATION</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -496,15 +496,15 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/G
 (Returns all <code>cashier</code> job offers)</p>
 </li>
 <li>
-<p><code>findj c/KFC s/1500<br>
-(Returns all job offers either listed by `KFC</code> or job offers that has a pay of $<code>1500</code></p>
+<p><code>findj c/KFC x/18</code><br>
+(Returns all job offers either listed by <code>KFC</code> or job offers with age range that is suitable for the entered age)</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-candidates-companies-job-offers-code-filterc-code-code-filterc-code-code-filterj-code-br"><a class="link" href="#filter-candidates-companies-job-offers-code-filterc-code-code-filterc-code-code-filterj-code-br">4.5. Filter candidates/companies/job offers : <code>filterc</code> <code>filterC</code> <code>filterj</code><br></a></h3>
+<h3 id="filter-candidates-companies-job-offers-code-filterc-code-code-filterc-code-code-filterj-code-br"><a class="link" href="#filter-candidates-companies-job-offers-code-filterc-code-code-filterc-code-code-filterj-code-br">4.5. Filter candidates / companies / job offers : <code>filterc</code> <code>filterC</code> <code>filterj</code><br></a></h3>
 <div class="paragraph">
 <p>Each <code>filter</code> command is differentiated by the letter that comes right after the <code>filter</code> word.
 By using the <code>filter</code> command, you can search for candidates/companies/job offers that contains <strong>all</strong> of the searched parameters.</p>
@@ -587,7 +587,7 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL
 <h4 id="filters-job-offers-from-a-selected-company-based-on-searched-fields-that-you-have-entered"><a class="link" href="#filters-job-offers-from-a-selected-company-based-on-searched-fields-that-you-have-entered">4.5.3. Filters job offers from a selected company based on searched fields that you have entered.</a></h4>
 <div class="paragraph">
 <p>Format: <code>filterj &lt;tag&gt;/KEYWORD</code><br>
-Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/GENDER</code>, <code>s/SALARY</code>, <code>xr/AGE RANGE</code>, <code>h/HIGHEST EDUCATION</code></p>
+Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/GENDER</code>, <code>s/SALARY</code>, <code>x/AGE</code>, <code>h/HIGHEST EDUCATION</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -613,8 +613,8 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/G
 (Returns all <code>cashier</code> job offers listed by <code>KFC</code>)</p>
 </li>
 <li>
-<p><code>filterj c/KFC s/1500 h/SECONDARY</code><br>
-(Returns all job offers listed by <code>KFC</code> that has a pay of $<code>1500</code> <strong>and</strong> requires highest education level attained to be <code>SECONDARY</code> level)</p>
+<p><code>filterj c/KFC s/1500</code><br>
+(Returns all job offers listed by <code>KFC</code> that has pay higher than $<code>1500</code>(inclusive))</p>
 </li>
 </ul>
 </div>
@@ -1656,4 +1656,4 @@ There is no need to save manually.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 07:55:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 11:24:58 UTC</div></div></div></body></html>
