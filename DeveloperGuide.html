@@ -2256,13 +2256,20 @@ which is the Java format used for emails and is sent via <code>EmailUtil#sendMes
 </ol>
 </div>
 <div class="paragraph">
-<p>This is the simplified action diagram when the user executes the email command, assuming the user is only executing the <code>add</code>
+<p>This is the simplified action diagram and sequence diagram when the user executes the email command, assuming the user is only executing the <code>add</code>
 command once per <code>selectRecipients</code> and <code>selectContents</code> step.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/EmailActivityDiagram.png" alt="EmailActivityDiagram" width="1000">
 </div>
+<div class="title">Figure 10. Action Diagram</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/EmailSequenceDiagram.png" alt="EmailSequenceDiagram" width="1000">
+</div>
+<div class="title">Figure 11. Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -2307,6 +2314,39 @@ and maintains order in which objects were added in.</p>
 </li>
 <li>
 <p>Cons: Not as fast as a hash set, but speed can be sacrificed for the pros.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-the-design-choice-of-the-email-command"><a class="link" href="#aspect-the-design-choice-of-the-email-command">Aspect: The design choice of the Email command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Having a pop up Email window with editable fields</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More customisable, more intuitive and looks better</p>
+</li>
+<li>
+<p>Cons: Very labour intensive to email many people. Adding candidates manually will take a very long time, even if the GUI can be used to assist.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Using command line to mass add recipients and contents</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Very suitable for mass sending applications, which was the main design consideration when designing the email command.</p>
+</li>
+<li>
+<p>Cons: Not very customisable, but we will try to add more customisability down the road.</p>
 </li>
 </ul>
 </div>
@@ -3405,4 +3445,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 10:20:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 11:16:23 UTC</div></div></div></body></html>
