@@ -121,7 +121,7 @@ Apart from the attributes, users can also do a reverse sort to list out the curr
 <p>Format: <code>editc &lt;INDEX&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Edits the candidate with the specified <code>INDEX</code>.
+<p>You can edit candidates with their specified <code>INDEX</code>.
 The index must be an index number shown in the displayed candidates list.</p>
 </div>
 <div class="paragraph">
@@ -146,7 +146,7 @@ The index must be an index number shown in the displayed candidates list.</p>
 <p>Format: <code>editC &lt;INDEX&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Edits the company with the specified <code>INDEX</code>.
+<p>You can edit companies with their specified <code>INDEX</code>.
 The index must be an index number shown in the displayed company list.</p>
 </div>
 <div class="paragraph">
@@ -167,7 +167,7 @@ The index must be an index number shown in the displayed company list.</p>
 <p>Format: <code>editj &lt;INDEX&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Edits the job with the specified <code>INDEX</code>.
+<p>You can edit job offers with their specified <code>INDEX</code>.
 This index must be an index number shown in the displayed job list.</p>
 </div>
 <div class="admonitionblock note">
@@ -212,7 +212,7 @@ Supported tags: <code>n/</code>, <code>x/</code>, <code>e/</code>, <code>j/</cod
 <p>Only one tag/field is included when using the sort command</p>
 </li>
 <li>
-<p>There must be one tag/field included</p>
+<p>You must have one tag/field included</p>
 </li>
 </ul>
 </div>
@@ -244,7 +244,7 @@ Supported tags: <code>c/</code>, <code>e/</code>, <code>r/</code></p>
 <p>Only one tag/field is included when using the sort command</p>
 </li>
 <li>
-<p>There must be one tag/field included</p>
+<p>You must have one tag/field included</p>
 </li>
 </ul>
 </div>
@@ -276,15 +276,30 @@ Supported tags: <code>c/</code>, <code>j/</code>, <code>xr/</code>, <code>h/</co
 <p>Only one tag/field is included when using the sort command</p>
 </li>
 <li>
-<p>There must be one tag/field included</p>
+<p>You must have one tag/field included</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should enter <code>listC</code> first to see the full list of job offers for sorting!
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p><code>listC</code></p>
+</li>
 <li>
 <p><code>sortj j/</code><br>
 (Sorts all job offers lexicographically by their titles)</p>
@@ -303,7 +318,7 @@ Supported tags: <code>c/</code>, <code>j/</code>, <code>xr/</code>, <code>h/</co
 <p>Format: <code>blacklist</code> <code>&lt;INDEX&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Blacklists the candidate with the specified <code>INDEX</code>.
+<p>You can use this command to blacklist candidates with their specified <code>INDEX</code>.
 The index must be an index number shown in the displayed candidates list</p>
 </div>
 <div class="admonitionblock note">
@@ -313,11 +328,19 @@ The index must be an index number shown in the displayed candidates list</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Blacklisting candidates will prevent them from being edited or shortlisted.
+The candidates you blacklisted can no longer be edited or shortlisted.
 Candidates can be unblacklisted by using <code>blacklist rm</code>.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Blacklisted Candidates have this tag:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BlacklistTag.png" alt="BlacklistTag" width="390">
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -528,6 +551,26 @@ Any duplicates formed after editing will not replace the original object. It wil
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the edit operation works for editc:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All three variations of <code>edit</code> follows the same sequence during operation
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditSequenceDiagram.png" alt="EditSequenceDiagram" width="800">
+</div>
 </div>
 </div>
 </div>
@@ -781,7 +824,7 @@ Assume that upon initialisation, there are candidate, company and job entries in
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
-<p><code>c/</code> prefix is used which calls the <code>UniqueCompanyList</code>#sortByCompanyName()` from <code>CompanyBook</code>.</p>
+<p><code>c/</code> prefix is used which calls the <code>UniqueCompanyList#sortByCompanyName()</code> from <code>CompanyBook</code>.</p>
 </li>
 <li>
 <p>The <code>internalList</code> within <code>CompanyBook</code> is then sorted lexicographically based on their names and the newly sorted list will be reflected in the <code>MainWindow</code> of RecruitBook.</p>
@@ -794,7 +837,7 @@ Assume that upon initialisation, there are candidate, company and job entries in
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
-<p><code>j/</code> prefix is used which calls the <code>UniqueCompanyJobList</code>#sortByJob()` from <code>CompanyBook</code>.</p>
+<p><code>j/</code> prefix is used which calls the <code>UniqueCompanyJobList#sortByJob()</code> from <code>CompanyBook</code>.</p>
 </li>
 <li>
 <p>The <code>internalList</code> within <code>UniqueCompanyJobList</code> is then sorted lexicographically based on their titles and the newly sorted list will be reflected in the <code>MainWindow</code> of RecruitBook.</p>
@@ -813,6 +856,34 @@ Assume that upon initialisation, there are candidate, company and job entries in
 <p><code>sortc r/</code> to sort the list of candidates in the reverse order of the current order.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sort operation works:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All three variations of the <code>sort</code> command follows the same sequence during operation.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortSequenceDiagram.png" alt="SortSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes <code>sort</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortActivityDiagram.png" alt="SortActivityDiagram" width="800">
+</div>
 </div>
 </div>
 </div>
@@ -878,7 +949,7 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There is <strong>no</strong> duplicate check as no two candidate objects share the same name and changing the tags (blacklist) does not violate the uniqueness of their names.
+There is <strong>no</strong> duplicate check unlike edit as blacklist only involve tags and they are not attributes that determine the uniqueness of candidates.
 </td>
 </tr>
 </table>
@@ -946,6 +1017,14 @@ Unblacklisting a candidate who is not blacklisted will do likewise.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the blacklist operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/blacklistSequenceDiagram.png" alt="blacklistSequenceDiagram" width="800">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1019,4 +1098,4 @@ Unblacklisting a candidate who is not blacklisted will do likewise.
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 20:29:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 23:11:37 UTC</div></div></div></body></html>

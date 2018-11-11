@@ -996,6 +996,26 @@ Any duplicates formed after editing will not replace the original object. It wil
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the edit operation works for editc:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All three variations of <code>edit</code> follows the same sequence during operation
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram" width="800">
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1248,7 +1268,7 @@ Assume that upon initialisation, there are candidate, company and job entries in
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
-<p><code>c/</code> prefix is used which calls the <code>UniqueCompanyList</code>#sortByCompanyName()` from <code>CompanyBook</code>.</p>
+<p><code>c/</code> prefix is used which calls the <code>UniqueCompanyList#sortByCompanyName()</code> from <code>CompanyBook</code>.</p>
 </li>
 <li>
 <p>The <code>internalList</code> within <code>CompanyBook</code> is then sorted lexicographically based on their names and the newly sorted list will be reflected in the <code>MainWindow</code> of RecruitBook.</p>
@@ -1261,7 +1281,7 @@ Assume that upon initialisation, there are candidate, company and job entries in
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
-<p><code>j/</code> prefix is used which calls the <code>UniqueCompanyJobList</code>#sortByJob()` from <code>CompanyBook</code>.</p>
+<p><code>j/</code> prefix is used which calls the <code>UniqueCompanyJobList#sortByJob()</code> from <code>CompanyBook</code>.</p>
 </li>
 <li>
 <p>The <code>internalList</code> within <code>UniqueCompanyJobList</code> is then sorted lexicographically based on their titles and the newly sorted list will be reflected in the <code>MainWindow</code> of RecruitBook.</p>
@@ -1280,6 +1300,34 @@ Assume that upon initialisation, there are candidate, company and job entries in
 <p><code>sortc r/</code> to sort the list of candidates in the reverse order of the current order.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sort operation works:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All three variations of the <code>sort</code> command follows the same sequence during operation.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortSequenceDiagram.png" alt="SortSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes <code>sort</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortActivityDiagram.png" alt="SortActivityDiagram" width="800">
+</div>
 </div>
 </div>
 </div>
@@ -1345,7 +1393,7 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There is <strong>no</strong> duplicate check as no two candidate objects share the same name and changing the tags (blacklist) does not violate the uniqueness of their names.
+There is <strong>no</strong> duplicate check unlike edit as blacklist only involve tags and they are not attributes that determine the uniqueness of candidates.
 </td>
 </tr>
 </table>
@@ -1413,6 +1461,14 @@ Unblacklisting a candidate who is not blacklisted will do likewise.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the blacklist operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/blacklistSequenceDiagram.png" alt="blacklistSequenceDiagram" width="800">
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -3442,4 +3498,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 20:29:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 23:11:37 UTC</div></div></div></body></html>
