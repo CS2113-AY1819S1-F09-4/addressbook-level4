@@ -111,22 +111,36 @@ Added a functionality that allows job agents to delete multiple entries in a sin
 </table>
 <div class="sect2">
 <h3 id="adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code"><a class="link" href="#adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code">Adding a candidate / company / job  : <code>addc</code> <code>addC</code> <code>addj</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addingRB.gif" alt="addingRB" width="500">
+</div>
+</div>
 <div class="sect3">
 <h4 id="adds-a-candidate-to-the-recruitbook"><a class="link" href="#adds-a-candidate-to-the-recruitbook">Adds a candidate to the RecruitBook</a></h4>
 <div class="paragraph">
 <p>Format: <code>addc</code><br>
-Supported tags: <code>n/</code>, <code>p/</code>, <code>e/</code>, <code>a/</code>, <code>g/</code>, <code>x/</code>, <code>j/</code>, <code>h/</code>, <code>s/</code>, <code>y/</code>, <code>c/</code></p>
+Supported tags: <code>n/</code>, <code>g/</code>, <code>x/</code> <code>p/</code>, <code>e/</code>, <code>j/</code>, <code>h/</code>, <code>s/</code>, <code>t/</code></p>
 </div>
 <div class="paragraph">
 <p>To start adding candidates in RecruitBook, enter <code>addc</code> in the command line to the start the Add Candidate Interface.<br></p>
 </div>
 <div class="paragraph">
-<p>After entering <code>addc</code> you will be prompted the following<br>
-<strong><code>Enter the following details of the candidate in the format:</code></strong><br>
+<p>After entering <code>addc</code> you will be prompted the following:<br></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>Enter the following details of the candidate in the format:</code></strong><br>
 <code>Parameters: n/NAME g/GENDER x/AGE p/PHONE_NUMBER e/EMAIL a/ADDRESS j/SEEKING_JOB h/HIGHEST_EDUCATION s/EXPECTED_SALARY_PER_MONTH [t/TAG]&#8230;&#8203;</code>
 <code>(Enter 'cancel' to stop adding candidates)</code><br>
-<code>Example: n/John Doe g/M x/21 p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Waiter h/OLEVELS s/1000 t/diabetic t/excuseHeavyLoad</code></p>
-</div>
+<code>Example: n/John Doe g/M x/21 p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Waiter h/OLEVELS s/1000 t/diabetic t/excuseHeavyLoad</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>You are now inside the Add Candidate Interface!
 You can now keep adding candidates by specifying the required fields <code>n/NAME g/GENDER x/AGE p/PHONE_NUMBER e/EMAIL a/ADDRESS j/SEEKING_JOB h/HIGHEST_EDUCATION s/EXPECTED_SALARY_PER_MONTH</code>.
@@ -141,10 +155,10 @@ Below are some examples for your reference.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>n/Susy Roe g/M x/18 p/91238123 e/susyroe@gmail.com a/123, Central Boulevard, #01-111, 600123 j/WAITER h/ALEVELS s/1200 t/dyslexic</code><br></p>
+<p><code>n/Susy Roe g/M x/18 p/91238123 e/susyroe@example.com a/123, Central Boulevard, #01-111, 600123 j/WAITER h/ALEVELS s/1200 t/dyslexic</code><br></p>
 </li>
 <li>
-<p><code>n/Mary Loe g/M x/18 p/82238123 e/maryloe@gmail.com a/113, South Boulevard, #01-111, 600123 j/WAITER h/OLEVELS s/1000</code><br></p>
+<p><code>n/Mary Loe g/M x/18 p/82238123 e/maryloe@example.com a/113, South Boulevard, #01-111, 600123 j/WAITER h/OLEVELS s/1000 t/student</code><br></p>
 </li>
 </ul>
 </div>
@@ -152,18 +166,28 @@ Below are some examples for your reference.</p>
 <div class="sect3">
 <h4 id="adds-a-company-to-the-recruitbook"><a class="link" href="#adds-a-company-to-the-recruitbook">Adds a company to the RecruitBook</a></h4>
 <div class="paragraph">
-<p>Format: <code>addC c/UNIQUE_COMPANY_NAME a/ADDRESS e/EMAIL p/PHONE</code><br></p>
+<p>Format: <code>addC</code><br>
+Supported tags: <code>c/</code>, <code>a/</code>, <code>e/</code>, <code>p/</code></p>
 </div>
 <div class="paragraph">
 <p>To start adding companies in RecruitBook, enter <code>addC</code> in the command line to the start the Add Company Interface.<br></p>
 </div>
 <div class="paragraph">
-<p>After entering <code>addC</code> you will be prompted the following<br>
-<code>Enter the following details of the company in the format:</code><br>
+<p>After entering <code>addC</code> you will be prompted the following:<br></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enter the following details of the company in the format:</code><br>
 <code>Parameters: c/UNIQUE_COMPANY_NAME a/ADDRESS e/EMAIL p/PHONE</code><br>
 <code>(Enter 'cancel' to stop adding companies)</code><br>
-<code>Example: c/KFC a/101, Clementi Ave 2, #01-01 e/kfc@gmail.com p/61231232</code><br></p>
-</div>
+<code>Example: c/KFC a/101, Clementi Ave 2, #01-01 e/kfc@gmail.com p/61231232</code><br></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>You are now inside the Add Company Interface!
 You can now keep adding companies by specifying the required fields <code>c/UNIQUE_COMPANY_NAME a/ADDRESS e/EMAIL p/PHONE</code>.
@@ -178,10 +202,10 @@ Below are some examples for your reference.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>c/KFC a/101, Clementi Ave 2, #01-01 e/kfc@gmail.com p/61231232</code></p>
+<p><code>c/Aviva a/101, Clementi Ave 2, #01-01 e/aviva@example.com p/61231232</code></p>
 </li>
 <li>
-<p><code>c/McDonalds a/101, Bukit Merah Lane 2, #01-01 e/macs@gmail.com p/61117111</code></p>
+<p><code>c/Subway a/1 Create Way #01-02, NUS University Town e/subway@example.com p/61117111</code></p>
 </li>
 </ul>
 </div>
@@ -189,18 +213,28 @@ Below are some examples for your reference.</p>
 <div class="sect3">
 <h4 id="adds-a-job-offer-to-the-recruitbook"><a class="link" href="#adds-a-job-offer-to-the-recruitbook">Adds a job offer to the RecruitBook</a></h4>
 <div class="paragraph">
-<p>Format: <code>addj</code></p>
+<p>Format: <code>addj</code>
+Supported tags: <code>c/</code>, <code>j/</code>, <code>g/</code>, <code>xr/</code>, <code>h/</code>, <code>s/</code></p>
 </div>
 <div class="paragraph">
 <p>To start adding job offers in RecruitBook, enter <code>addj</code> in the command line to the start the Add Job Interface.<br></p>
 </div>
 <div class="paragraph">
-<p>After entering <code>addj</code> you will be prompted the following<br>
-<strong><code>Enter the following details of the job in the format:</code></strong><br>
+<p>After entering <code>addj</code> you will be prompted the following:<br></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>Enter the following details of the job in the format:</code></strong><br>
 <code>Parameters: c/COMPANY_NAME j/JOB_TITLE g/GENDER xr/AGE_RANGE h/EDUCATION s/SALARY</code><br>
 <code>(Enter 'cancel' to stop adding jobs)</code><br>
-<code>Example: c/McDonalds j/cashier g/M xr/20-30 h/OLEVELS s/1200</code></p>
-</div>
+<code>Example: c/McDonalds j/Cashier g/M xr/20-30 h/OLEVELS s/1200</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -249,23 +283,35 @@ Below are some examples for your reference.</p>
 <p>Deletes the candidate(s) with the specified <code>INDEX</code>(s)</p>
 </li>
 <li>
-<p>This index must be an index number shown in the displayed candidate list.</p>
+<p>You can use <code>&lt;INDEX&gt;-&lt;INDEX&gt;</code> to specify a range of indexes. For example, <code>1-3</code> specifies the indexes 1, 2 and 3.</p>
 </li>
 <li>
-<p>The full name can be found using the find function when a partial keyword is entered</p>
+<p>This index must be an index number shown in the displayed candidate list.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use the <code>findc</code> and <code>filterc</code> command to quickly search the candidates you want to delete!
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example to delete candidate(s):</p>
 </div>
 <div class="paragraph">
-<p>Step 1. <code>find Betsy</code><br>
-(Shows all saved candidates named Betsy)</p>
+<p>Step 1. <code>findc n/John</code><br>
+(Shows all saved candidates named John)</p>
 </div>
 <div class="paragraph">
-<p>Step 2. <code>deletec 1,2-3</code><br>
-(Deletes the 1st, 2nd and 3rd candidate on most recent list)</p>
+<p>Step 2. <code>deletec 1,2-3,8</code><br>
+(Deletes the 1st, 2nd, 3rd and 8th candidate on most recent candidate list)</p>
 </div>
 </div>
 <div class="sect3">
@@ -279,9 +325,36 @@ Below are some examples for your reference.</p>
 <p>Deletes the company(s) with the specified <code>INDEX</code>(s)</p>
 </li>
 <li>
+<p>You can use <code>&lt;INDEX&gt;-&lt;INDEX&gt;</code> to specify a range of indexes. For example, <code>1-3</code> specifies the indexes 1, 2 and 3.</p>
+</li>
+<li>
 <p>The index must be an index number shown in the displayed company list.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use the <code>findC</code> and <code>filterC</code> command to quickly search the candidates you want to delete!
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Deleting a company will delete its respective job offers in the CompanyBook!
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example to delete company(s):</p>
@@ -292,7 +365,7 @@ Below are some examples for your reference.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. <code>deleteC 1,6,2-3</code><br>
-(Deletes the 1st, 2nd, 3rd and 6th job in the job list)</p>
+(Deletes the 1st, 2nd, 3rd and 6th company in the most recent company list)</p>
 </div>
 </div>
 <div class="sect3">
@@ -306,9 +379,24 @@ Below are some examples for your reference.</p>
 <p>Deletes the job(s) with the specified <code>INDEX</code>(s)</p>
 </li>
 <li>
+<p>You can use <code>&lt;INDEX&gt;-&lt;INDEX&gt;</code> to specify a range of indexes. For example, <code>1-3</code> specifies the indexes 1, 2 and 3.</p>
+</li>
+<li>
 <p>The index must be an index number shown in the displayed job list.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use the <code>findj</code> and <code>filterJ</code> command to quickly search the candidates you want to delete!
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example to delete job(s):</p>
@@ -319,8 +407,48 @@ Below are some examples for your reference.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. <code>deletej 5-4,6</code><br>
-(Deletes the 4th, 5th and 6th job in the job list)</p>
+(Deletes the 4th, 5th and 6th job in the most recent job list)</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-changes-to-entries-code-undo-code-code-redo-code"><a class="link" href="#undo-redo-changes-to-entries-code-undo-code-code-redo-code">Undo/Redo changes to entries : <code>undo</code> <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Undo the last change to RecruitBook<br>
+Format: <code>undo</code><br></p>
+</div>
+<div class="paragraph">
+<p>You can use <code>undo</code> the previous change to entries RecruitBook such as adding/deletion of candidates,</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. <code>deletec 1-9</code><br>
+(Delete candidates at specified indexes 1 to 9)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>undo</code><br>
+(Undo the previous change to RecruitBook, the deletion of candidates from Step 1. )</p>
+</div>
+<div class="paragraph">
+<p>Redo the last undone change to RecruitBook<br>
+Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>You can use <code>redo</code> to quickly redo the last undone step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. <code>deleteC 1-2</code><br>
+(Delete companies at specified indexes 1 and 2)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>undo</code><br>
+(Undo the previous change to RecruitBook, the deletion of companies from Step 1.)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>redo</code><br>
+(Redo the previous undone change to RecruitBook, the deletion of companies from Step 1.)</p>
 </div>
 </div>
 <div class="sect2">
@@ -767,4 +895,4 @@ If the <code>currentStatePointer</code> is at index <code>candidateBookStateList
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 03:17:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 10:20:37 UTC</div></div></div></body></html>
