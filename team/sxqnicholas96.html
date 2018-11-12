@@ -128,7 +128,7 @@ Enables job agents to conveniently delete multiple entries with ease</p>
 <h3 id="adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code"><a class="link" href="#adding-a-candidate-company-job-code-addc-code-code-addc-code-code-addj-code">Adding a candidate / company / job  : <code>addc</code> <code>addC</code> <code>addj</code></a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="../images/addingRB.gif" alt="addingRB" width="500">
+<img src="../images/addingRB.gif" alt="addingRB" width="800">
 </div>
 <div class="title">Figure 1. GUI of Adding entries in RecruitBook</div>
 </div>
@@ -599,8 +599,7 @@ Format: <code>clearC</code></p>
 <p>exposes an unmodifiable lists <code>ObservableList&lt;Candidate&gt;</code>, <code>ObservableList&lt;JobOffer&gt;</code>, <code>ObservableList&lt;Company&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
-<p>does not depend on any of the other three components.
-+</p>
+<p>does not depend on any of the other three components.</p>
 </li>
 </ul>
 </div>
@@ -625,7 +624,7 @@ Format: <code>clearC</code></p>
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Recruit Book data in xml format and read it back.</p>
+<p>can save all of RecruitBook data in xml format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -791,12 +790,13 @@ All addition/deletion of the 3 entities (Candidates, Companies, Job Offers) foll
 </ol>
 </div>
 <div class="paragraph">
-<p>Here is a sequence Diagram to help illustrate the flow of adding an entries.</p>
+<p>Below in Figure 9. is a sequence diagram of how adding a candidate works in RecruitBook and also serves to depict the adding mechanism for job offers and companies due to their similarity.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/AddSequenceDiagram.png" alt="AddSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 7. Sequence Diagram of adding a candidate</div>
 </div>
 </div>
 </div>
@@ -896,7 +896,7 @@ Additionally, it implements the following operations:</p>
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedRecruitBook</code> will be initialized with the initial candidate book state, and the <code>currentStatePointer</code> pointing to that single candidate book state.</p>
+<p>Step 1. The user launches the application for the first time. The <code>VersionedRecruitBook</code> will be initialized with the initial RecruitBook state, and the <code>currentStatePointer</code> pointing to that single RecruitBook state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -904,7 +904,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>deletec 5</code> command to delete the 5th candidate in the candidate book. The <code>deletec</code> command calls <code>Model#commitRecruitBook()</code>, causing the modified state of the candidate book after the <code>deletec 5</code> command executes to be saved in the <code>candidateBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted candidate book state.</p>
+<p>Step 2. The user executes <code>deletec 5</code> command to delete the 5th candidate in RecruitBook. The <code>deletec</code> command calls <code>Model#commitRecruitBook()</code>, causing the modified state of the RecruitBook after the <code>deletec 5</code> command executes to be saved in the <code>recruitBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted RecruitBook state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -912,7 +912,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>addc</code> then <code>n/David &#8230;&#8203;</code> to add a new candidate. The <code>addc</code> command also calls <code>Model#commitRecruitBook()</code>, causing another modified candidate book state to be saved into the <code>candidateBookStateList</code>.</p>
+<p>Step 3. The user executes <code>addc</code> then <code>n/David &#8230;&#8203;</code> to add a new candidate. The <code>addc</code> command also calls <code>Model#commitRecruitBook()</code>, causing another modified RecruitBook state to be saved into the <code>recruitBookStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -926,13 +926,13 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitRecruitBook()</code>, so the candidate book state will not be saved into the <code>candidateBookStateList</code>.
+If a command fails its execution, it will not call <code>Model#commitRecruitBook()</code>, so the RecruitBook state will not be saved into the <code>recruitBookStateList</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the candidate was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoRecruitBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous candidate book state, and restores the candidate book to that state.</p>
+<p>Step 4. The user now decides that adding the candidate was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoRecruitBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous RecruitBook state, and restores the RecruitBook to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -946,7 +946,7 @@ If a command fails its execution, it will not call <code>Model#commitRecruitBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial candidate book state, then there are no previous candidate book states to restore. The <code>undo</code> command uses <code>Model#canUndoRecruitBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial RecruitBook state, then there are no previous RecruitBook states to restore. The <code>undo</code> command uses <code>Model#canUndoRecruitBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -960,7 +960,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoRecruitBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the candidate book to that state.</p>
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoRecruitBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the RecruitBook to that state.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -969,7 +969,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index <code>recruitBookStateList.size() - 1</code>, pointing to the latest RecruitBook state, then there are no undone candidate book states to restore. The <code>redo</code> command uses <code>Model#canRedoRecruitBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>currentStatePointer</code> is at index <code>recruitBookStateList.size() - 1</code>, pointing to the latest RecruitBook state, then there are no undone RecruitBook states to restore. The <code>redo</code> command uses <code>Model#canRedoRecruitBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
@@ -1071,4 +1071,4 @@ If the <code>currentStatePointer</code> is at index <code>recruitBookStateList.s
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:44:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:54:52 UTC</div></div></div></body></html>
