@@ -17,34 +17,6 @@ To prevent any loss or leakage of data, our group has come up with a password-pr
 All in all, it has a codebase of about 10,000 lines of code and we definitely welcome future collaborations with any developer.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="recruitbook-features"><a class="link" href="#recruitbook-features">RecruitBook features:</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Add Feature</p>
-</li>
-<li>
-<p>Locating Feature</p>
-</li>
-<li>
-<p>Edit Feature</p>
-</li>
-<li>
-<p>Sort Feature</p>
-</li>
-<li>
-<p>Blacklist Feature</p>
-</li>
-<li>
-<p>Shortlist Feature</p>
-</li>
-<li>
-<p>Email Feature</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -627,45 +599,24 @@ However, the overridden <code>test</code> method for <code>filter</code> is only
 <p>Similar to the <code>find</code> mechanism, <code>filter</code> is implemented by creating a <code>keywordsMap</code> which stores the searched keywords in a <code>HashMap</code>.
 Based on the preceding prefixes of the user input, the tokenized argument is being stored as the <code>value</code> of the respective prefix <code>key</code>.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="candidates-2"><a class="link" href="#candidates-2">Candidates</a></h5>
-<div class="paragraph">
-<p>The <code>filterCandidateCommand</code> is facilitated by the <code>CandidateContainsFilterKeywordsPredicate</code> which implements <code>Predicate&lt;Candidate&gt;</code>
-and overrides the <code>test</code> and <code>equal</code> methods such that more fields can be searched at the same time.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="companies-2"><a class="link" href="#companies-2">Companies</a></h5>
-<div class="paragraph">
-<p>The <code>filterCompanyCommand</code> is facilitated by the <code>CompanyContainsFilterKeywordsPredicate</code> which implements <code>Predicate&lt;Company&gt;</code>
-and overrides the <code>test</code> and <code>equal</code> methods such that more fields can be searched at the same time.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="job-offers-2"><a class="link" href="#job-offers-2">Job Offers</a></h5>
-<div class="paragraph">
-<p>The <code>filterJobOfferCommand</code> is facilitated by the <code>JobOfferContainsFilterKeywordsPredicate</code> which implements <code>Predicate&lt;JobOffer&gt;</code>
-and overrides the <code>test</code> and <code>equal</code> methods such that more fields can be searched at the same time.</p>
-</div>
 <div class="paragraph">
 <p>Through the <code>test</code> method, it compares every value in the <code>keywordsMap</code> with the respective field of each entry and returns <code>true</code> if the object contains all the searched fields.</p>
 </div>
 <div class="paragraph">
-<p>The <code>test</code> method is facilitated by the following operations:</p>
+<p>The <code>test</code> method is facilitated by the following operations (similar to <code>find</code> feature):</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>StringUtil#isWithinRange - checks whether the the job offer has an <code>ageRange</code> that satisfies the <code>age</code> of the <code>candidate</code>.</p>
+<p>StringUtil#isWithinRange</p>
 </li>
 <li>
-<p>StringUtil#isMoreThanOrEqualTo - checks whether the job offer has a <code>salary</code> offer that is higher than the <code>candidate</code> 's expected <code>salary</code>.</p>
+<p>StringUtil#isMoreThanOrEqualTo</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>After which, the respective list which is exposed in the <code>Model</code> interface as either <code>Model#updateFilteredCandidateList</code>, <code>Model#updateFilteredCompanyList</code> or <code>Model#updateCompanyJobList</code> is being updated.</p>
+<p>After which, the respective list which is exposed in the <code>Model</code> interface is being updated.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -855,4 +806,4 @@ This way, a pruning search can be done and this allows the user to take note of 
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:29:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:53:42 UTC</div></div></div></body></html>
