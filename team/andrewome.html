@@ -226,7 +226,7 @@ eg. If you have picked candidates as the recipients, you are restricted to <code
 <p>Adding duplicate candidate/job offers will be caught and will not be double counted.</p>
 </li>
 <li>
-<p>If recipients are candidates, emails are sent via BCC to protect the privacy of your candidates.</p>
+<p>If recipients are candidates, candidate email addresses are sent under the BCC field to protect the privacy of your candidates.</p>
 </li>
 <li>
 <p>If recipients are companies, emails are sent individually to each company.</p>
@@ -324,7 +324,7 @@ and the <code>EmailSettings</code> class which stores email subject and email bo
 <p><strong>Initialisation</strong>, facilitated by <code>EmailInitialiseCommand</code>.</p>
 </li>
 <li>
-<p><strong>Choosing your recipients</strong>, facilitated by`EmailRecipientsCommand`. Within which exists the following sub-stages:</p>
+<p><strong>Choosing your recipients</strong>, facilitated by <code>EmailRecipientsCommand</code>. Within which exists the following sub-stages:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -380,7 +380,7 @@ and the <code>EmailSettings</code> class which stores email subject and email bo
 </li>
 <li>
 <p>You execute the <code>email</code> command. A new <code>EmailUtil</code> object is constructed and replaces the <code>EmailUtil</code> object in <code>Model</code>
-using <code>model#resetEmailUtil</code>. <code>LogicState</code> is changed to reflect initialisation of the email command and to move it into recipients selection stage</p>
+using <code>model#resetEmailUtil</code>. <code>LogicState</code> is changed to reflect initialisation of the email command, moving the <code>LogicState</code> to recipients selection state.</p>
 </li>
 <li>
 <p>You use <code>listc</code>, <code>findc</code>, <code>filterc</code>, <code>listC</code>, <code>findC</code>, <code>findj</code>, <code>filterC</code> and <code>filterj</code> to filter out who you wish to send the email to.</p>
@@ -396,7 +396,7 @@ using <code>model#resetEmailUtil</code>. <code>LogicState</code> is changed to r
 <p><code>EmailUtil#hasRecipientsAdded</code> boolean value is changed to true to indicate that there are recipients added.</p>
 </li>
 <li>
-<p><code>MainWindow#getCurrentBook()</code> is called to return which book you are on and <code>EmailUtil#areRecipientsCandidates</code> boolean value is changed accordingly</p>
+<p><code>MainWindow#getCurrentBook()</code> is called to return which book you are on and <code>EmailUtil#areRecipientsCandidates</code> boolean value is changed accordingly:</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
@@ -498,7 +498,7 @@ For example, if I am sending an email to <code>Apple</code> regarding a job offe
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>If recipients are candidates, one email will be sent to all candidates with their emails sent as <code>BCC</code> to preserve privacy of the candidates.</p>
+<p>If recipients are candidates, one email will be sent to all candidates with their emails sent under the <code>BCC</code> field to prevent recipients from seeing each other&#8217;s emails, which preserves privacy of the candidates.</p>
 </li>
 <li>
 <p>If recipients are companies, one email will be sent per company detailing the specific job offer(s) that you have added during the selection of recipients.</p>
@@ -734,4 +734,4 @@ The project was created from scratch in a group of 2, using GitHub as our collab
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:36:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:44:10 UTC</div></div></div></body></html>
