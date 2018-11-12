@@ -53,8 +53,7 @@ This fundamental feature proved to be extremely important for other features imp
 As such, having a <code>filter</code> command to locate the specific entries makes it more convenient and user-friendly for the user.</p>
 </li>
 <li>
-<p>Highlights: This enhancement allows the user to look locate the entry easily if he/she already knows what to look for
-e.g. <code>filterj c/Google j/Software Engineer s/4000</code> will return only <code>Software Engineer</code> jobs from <code>Google</code> that has a starting pay of at least $<code>4000</code>.</p>
+<p>Highlights: This enhancement allows the user to look locate the entry easily if he/she already knows what to look for</p>
 </li>
 </ul>
 </div>
@@ -63,10 +62,6 @@ e.g. <code>filterj c/Google j/Software Engineer s/4000</code> will return only <
 <p><strong>Minor enhancement</strong>: automatically switches the user interface to the correct book when a command belonging to the other book is entered.</p>
 <div class="ulist">
 <ul>
-<li>
-<p>What it does: RecruitBook contains two books namely the CandidateBook and CompanyBook which allows user to find and filter entries based on the books that they are on.
-Entering a <code>findC [prefix][keyword]</code> command to find companies in the CandidateBook automatically switches the user&#8217;s view to the CompanyBook and displays the correct intended results. Doing so otherwise yields the opposite result.</p>
-</li>
 <li>
 <p>Credits: used methods <code>ShowCandidateBookRequestEvent()</code> and <code>ShowCompanyBookRequestEvent()</code> that were implemented by my colleague <a href="https://github.com/orgs/CS2113-AY1819S1-F09-4/people/leerachel">leerachel</a> to switch the current view to the respective views.</p>
 </li>
@@ -166,6 +161,9 @@ By using the <code>find</code> command, you can search for candidates/companies/
 <div class="paragraph">
 <p>Entering commands in the other book will automatically switch your view to the correct book and still display the details of the results that you are searching for.<br></p>
 </div>
+<div class="paragraph">
+<p>This note works for the below <code>filter</code> command as well:</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -205,10 +203,6 @@ Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>,
 <p><code>findc n/alice p/91234567</code><br>
 (Returns all candidates with the name <code>alice</code> or candidates with phone number <code>91234567</code>)</p>
 </li>
-<li>
-<p><code>findc e/helloworld@example.com</code><br>
-(Returns all candidates with the email <code>helloworld@example.com</code>)</p>
-</li>
 </ul>
 </div>
 </div>
@@ -223,10 +217,6 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p><code>findC c/KFC c/McDonalds</code><br>
-(Returns all companies with the name either <code>KFC</code> or <code>McDonalds</code>)</p>
-</li>
 <li>
 <p><code>findC n/HanBaoBao Pte Ltd a/Yishun MRT</code><br>
 (Returns all companies with the name <code>HanBaoBao Pte Ltd</code> or with address saved as <code>Yishun MRT</code>)</p>
@@ -246,10 +236,6 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/G
 <div class="ulist">
 <ul>
 <li>
-<p><code>findj j/cashier</code><br>
-(Returns all <code>cashier</code> job offers)</p>
-</li>
-<li>
 <p><code>findj c/KFC x/18</code><br>
 (Returns all job offers either listed by <code>KFC</code> or job offers with age range that is suitable for the entered age)</p>
 </li>
@@ -267,27 +253,7 @@ By using the <code>filter</code> command, you can search for candidates/companie
 <p>Our app’s GUI provides two different views where the Candidate Book view and the Company Book view shows the details of all the candidates and companies respectively.<br></p>
 </div>
 <div class="paragraph">
-<p>Entering commands in the other book will automatically switch your view to the correct book and still display the details of the results that you are searching for.<br></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Each search field has to come with a preceding prefix e.g. <code>n/NAME</code>, <code>p/PHONE</code></p>
-</li>
-<li>
-<p>The search is case insensitive e.g <code>n/hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Candidates matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Hans n/Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
+<p>Entering commands in the other book will automatically switch your view to the correct book and still display the details of the results that you are searching for.</p>
 </div>
 <div class="sect3">
 <h4 id="filters-names-of-candidates-from-recruitbook-based-on-search-fields-that-you-have-entered"><a class="link" href="#filters-names-of-candidates-from-recruitbook-based-on-search-fields-that-you-have-entered">Filters names of candidates from RecruitBook based on search fields that you have entered.</a></h4>
@@ -301,16 +267,8 @@ Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>,
 <div class="ulist">
 <ul>
 <li>
-<p><code>filterc n/john</code><br>
-(Returns all candidates with the name <code>John</code>)</p>
-</li>
-<li>
 <p><code>filterc n/alice p/91234567</code><br>
 (Returns all candidates with the name <code>alice</code> <strong>and</strong> phone number <code>91234567</code>)</p>
-</li>
-<li>
-<p><code>filterc e/helloworld@example.com</code><br>
-(Returns all candidates with the email <code>helloworld@example.com</code>)</p>
 </li>
 </ul>
 </div>
@@ -326,10 +284,6 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p><code>filterC c/KFC c/McDonalds</code><br>
-(Returns all companies with the name <code>KFC</code> or <code>McDonalds</code>)</p>
-</li>
 <li>
 <p><code>filterC n/HanBaoBao Pte Ltd a/Yishun MRT</code><br>
 (Returns all companies with the name <code>HanBaoBao Pte Ltd</code> <strong>and</strong> address saved as <code>Yishun MRT</code>)</p>
@@ -678,98 +632,12 @@ The filtering of all three entities (Candidate, Company, JobOffer) follow the sa
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-filter-feature-executes"><a class="link" href="#aspect-how-filter-feature-executes">Aspect: How filter feature executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Having three variations of filter feature for different entities.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Greater distinction between the entities.</p>
-</li>
-<li>
-<p>More direct and intuitive for users as candidate and company objects contain same prefixes such as phone, address and email address etc.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Cons:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>More commands to deal with, same changes have to be made across all three commands.</p>
-</li>
-<li>
-<p>It might not be that user-friendly for users who prefer an all-in-one <code>filter</code> command.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Have a central <code>filterManager</code> that handles all filters.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Lesser commands to handle, makes application easier for user to use</p>
-</li>
-<li>
-<p>Cons: Some fields are found in both <code>candidate</code> and <code>company</code>, making it difficult to distinguish between the two if the same prefix is entered.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+
 </div>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-filter-feature"><a class="link" href="#aspect-data-structure-to-support-the-filter-feature">Aspect: Data structure to support the filter feature</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong> Alternative 1 (current choice):</strong> Parses the user&#8217;s input into various arguments and compares each argument with each value in the object to test if it is contained in the object.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Putting to and getting from a <code>HashMap</code> is O(1), making it quick to add value or retrieve value for each comparison.</p>
-</li>
-<li>
-<p>User can input more than one field of the same prefix as a <code>HashMap</code> is used here.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Cons: It is messy to implement, especially when different checks have to be made for different fields.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong> Alternative 2:</strong> Creates a <code>List</code> for each prefix instead.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to manage, <code>test</code> method should look neater.</p>
-</li>
-<li>
-<p>Cons: Takes O(N) to iterate through the <code>List</code>, and does not check for duplicates.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="paragraph">
+<p>Design considerations for <code>filter</code> command is largely similar to <code>find</code> command as they both use similar mechanism.</p>
 </div>
 </div>
 </div>
@@ -806,4 +674,4 @@ This way, a pruning search can be done and this allows the user to take note of 
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:53:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:14:47 UTC</div></div></div></body></html>

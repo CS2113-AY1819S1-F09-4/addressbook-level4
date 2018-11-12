@@ -449,6 +449,9 @@ By using the <code>find</code> command, you can search for candidates/companies/
 <div class="paragraph">
 <p>Entering commands in the other book will automatically switch your view to the correct book and still display the details of the results that you are searching for.<br></p>
 </div>
+<div class="paragraph">
+<p>This note works for the below <code>filter</code> command as well:</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -488,10 +491,6 @@ Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>,
 <p><code>findc n/alice p/91234567</code><br>
 (Returns all candidates with the name <code>alice</code> or candidates with phone number <code>91234567</code>)</p>
 </li>
-<li>
-<p><code>findc e/helloworld@example.com</code><br>
-(Returns all candidates with the email <code>helloworld@example.com</code>)</p>
-</li>
 </ul>
 </div>
 </div>
@@ -506,10 +505,6 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p><code>findC c/KFC c/McDonalds</code><br>
-(Returns all companies with the name either <code>KFC</code> or <code>McDonalds</code>)</p>
-</li>
 <li>
 <p><code>findC n/HanBaoBao Pte Ltd a/Yishun MRT</code><br>
 (Returns all companies with the name <code>HanBaoBao Pte Ltd</code> or with address saved as <code>Yishun MRT</code>)</p>
@@ -529,10 +524,6 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>j/JOB OFFER</code>, <code>g/G
 <div class="ulist">
 <ul>
 <li>
-<p><code>findj j/cashier</code><br>
-(Returns all <code>cashier</code> job offers)</p>
-</li>
-<li>
 <p><code>findj c/KFC x/18</code><br>
 (Returns all job offers either listed by <code>KFC</code> or job offers with age range that is suitable for the entered age)</p>
 </li>
@@ -550,27 +541,7 @@ By using the <code>filter</code> command, you can search for candidates/companie
 <p>Our app’s GUI provides two different views where the Candidate Book view and the Company Book view shows the details of all the candidates and companies respectively.<br></p>
 </div>
 <div class="paragraph">
-<p>Entering commands in the other book will automatically switch your view to the correct book and still display the details of the results that you are searching for.<br></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Each search field has to come with a preceding prefix e.g. <code>n/NAME</code>, <code>p/PHONE</code></p>
-</li>
-<li>
-<p>The search is case insensitive e.g <code>n/hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Candidates matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Hans n/Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
+<p>Entering commands in the other book will automatically switch your view to the correct book and still display the details of the results that you are searching for.</p>
 </div>
 <div class="sect3">
 <h4 id="filters-names-of-candidates-from-recruitbook-based-on-search-fields-that-you-have-entered"><a class="link" href="#filters-names-of-candidates-from-recruitbook-based-on-search-fields-that-you-have-entered">4.5.1. Filters names of candidates from RecruitBook based on search fields that you have entered.</a></h4>
@@ -584,16 +555,8 @@ Supported tags: <code>n/NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL</code>,
 <div class="ulist">
 <ul>
 <li>
-<p><code>filterc n/john</code><br>
-(Returns all candidates with the name <code>John</code>)</p>
-</li>
-<li>
 <p><code>filterc n/alice p/91234567</code><br>
 (Returns all candidates with the name <code>alice</code> <strong>and</strong> phone number <code>91234567</code>)</p>
-</li>
-<li>
-<p><code>filterc e/helloworld@example.com</code><br>
-(Returns all candidates with the email <code>helloworld@example.com</code>)</p>
 </li>
 </ul>
 </div>
@@ -609,10 +572,6 @@ Supported tags: <code>c/COMPANY NAME</code>, <code>p/PHONE</code>, <code>e/EMAIL
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p><code>filterC c/KFC c/McDonalds</code><br>
-(Returns all companies with the name <code>KFC</code> or <code>McDonalds</code>)</p>
-</li>
 <li>
 <p><code>filterC n/HanBaoBao Pte Ltd a/Yishun MRT</code><br>
 (Returns all companies with the name <code>HanBaoBao Pte Ltd</code> <strong>and</strong> address saved as <code>Yishun MRT</code>)</p>
@@ -1853,4 +1812,4 @@ There is no need to save manually.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:53:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:14:47 UTC</div></div></div></body></html>

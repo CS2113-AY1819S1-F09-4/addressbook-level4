@@ -1045,98 +1045,12 @@ The filtering of all three entities (Candidate, Company, JobOffer) follow the sa
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-filter-feature-executes"><a class="link" href="#aspect-how-filter-feature-executes">Aspect: How filter feature executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Having three variations of filter feature for different entities.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Greater distinction between the entities.</p>
-</li>
-<li>
-<p>More direct and intuitive for users as candidate and company objects contain same prefixes such as phone, address and email address etc.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Cons:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>More commands to deal with, same changes have to be made across all three commands.</p>
-</li>
-<li>
-<p>It might not be that user-friendly for users who prefer an all-in-one <code>filter</code> command.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Have a central <code>filterManager</code> that handles all filters.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Lesser commands to handle, makes application easier for user to use</p>
-</li>
-<li>
-<p>Cons: Some fields are found in both <code>candidate</code> and <code>company</code>, making it difficult to distinguish between the two if the same prefix is entered.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+
 </div>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-filter-feature"><a class="link" href="#aspect-data-structure-to-support-the-filter-feature">Aspect: Data structure to support the filter feature</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong> Alternative 1 (current choice):</strong> Parses the user&#8217;s input into various arguments and compares each argument with each value in the object to test if it is contained in the object.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Putting to and getting from a <code>HashMap</code> is O(1), making it quick to add value or retrieve value for each comparison.</p>
-</li>
-<li>
-<p>User can input more than one field of the same prefix as a <code>HashMap</code> is used here.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Cons: It is messy to implement, especially when different checks have to be made for different fields.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong> Alternative 2:</strong> Creates a <code>List</code> for each prefix instead.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to manage, <code>test</code> method should look neater.</p>
-</li>
-<li>
-<p>Cons: Takes O(N) to iterate through the <code>List</code>, and does not check for duplicates.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="paragraph">
+<p>Design considerations for <code>filter</code> command is largely similar to <code>find</code> command as they both use similar mechanism.</p>
 </div>
 </div>
 </div>
@@ -3810,4 +3724,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:53:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:14:47 UTC</div></div></div></body></html>
