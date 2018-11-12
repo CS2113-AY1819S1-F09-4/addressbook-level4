@@ -427,7 +427,7 @@ and masterListPlaceholder holds <code>MasterCandidateListPanel</code>.</p>
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
-<img src="images/LogicComponentClassDiagram.png" alt="LogicComponentClassDiagram" width="800">
+<img src="images/LogicComponentClassDiagram.png" alt="LogicComponentClassDiagram" width="1000">
 </div>
 <div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
@@ -450,18 +450,21 @@ and masterListPlaceholder holds <code>MasterCandidateListPanel</code>.</p>
 <p>The command execution can affect the <code>Model</code> (e.g. adding a candidate) and/or raise events.</p>
 </li>
 <li>
+<p>The command execution can also affect the LogicState of the LogicManager (e.g. StartAddCandidateCommand, ShortlistCandidateCommand) and raises a ChangeLogicStateEvent.</p>
+</li>
+<li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below in Figure 7 is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below in Figure 7 is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("deletec 1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
+<img src="images/DeleteCandidateSdForLogic.png" alt="DeleteCandidateSdForLogic" width="800">
 </div>
-<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>deletec 1</code> Command</div>
 </div>
 </div>
 <div class="sect2">
@@ -484,29 +487,16 @@ and masterListPlaceholder holds <code>MasterCandidateListPanel</code>.</p>
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Recruit Book data.</p>
+<p>stores the RecruitBook data in <code>VersionedRecruitBook</code>.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Candidate&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable lists <code>ObservableList&lt;Candidate&gt;</code>, <code>ObservableList&lt;JobOffer&gt;</code>, <code>ObservableList&lt;Company&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
-<p>does not depend on any of the other three components.</p>
+<p>does not depend on any of the other three components.
++</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Recruit Book</code>, which <code>Candidate</code> can reference. This would allow <code>Recruit Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Candidate</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -708,18 +698,49 @@ All addition/deletion of the 3 entities (Candidates, Companies, Job Offers) foll
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>Here is a sequence Diagram to help illustrate the flow of adding an entries.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddSequenceDiagram.png" alt="AddSequenceDiagram" width="800">
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-add-delete-feature-executes"><a class="link" href="#aspect-how-add-delete-feature-executes">Aspect: How add/delete feature executes</a></h5>
-
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-add-delete-feature"><a class="link" href="#aspect-data-structure-to-support-the-add-delete-feature">Aspect: Data structure to support the add/delete feature</a></h5>
 <div class="ulist">
 <ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Start an adding interface. Users can continually add entries for the same object until they enter 'cancel'</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can keep adding multiple entries of the same object without having to entering the <code>addc</code>, <code>addC</code> or `addj.</p>
+</li>
+<li>
+<p>Cons: Not very convenient for user if he/she just needs to add one entry.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Enter command_word and argument</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Adding entries of specific objects is straightforward. Enter the respective command word and the respective details</p>
+</li>
+<li>
+<p>Cons: Entering the command word becomes a hassle when adding a large number of entries
+===== Aspect: Data structure to support the add/delete feature</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> Create a new list object to store objects e.g. <code>UniqueCompanyList</code></p>
 <div class="ulist">
@@ -3724,4 +3745,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:14:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:23:42 UTC</div></div></div></body></html>

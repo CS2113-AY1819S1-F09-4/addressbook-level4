@@ -6,31 +6,19 @@
 <div class="sect2">
 <h3 id="what-is-recruitbook"><a class="link" href="#what-is-recruitbook">What is RecruitBook?</a></h3>
 <div class="paragraph">
+<p>RecruitBook is an open-source project born out of a programming module I took in National University of Singapore.
+It was created in conjunction with my teammates <a href="https://github.com/andrewome">Andrew</a>, <a href="https://github.com/kianmengtan">Kian Meng</a>, <a href="https://github.com/leerachel">Rachel</a> and <a href="https://github.com/MingXunSeah">Ming Xun</a>.</p>
+</div>
+<div class="paragraph">
+<p>In this project, I served the role as the team leader by steering the project direction and coordinating the implementation of features in RecruitBook.</p>
+</div>
+<div class="paragraph">
 <p>RecruitBook is a useful Java desktop application for job agents to better organise the list of available job offers and prospective job candidates.
 RecruitBook mainly uses a Command Line Interface(CLI) that allows you to interact with specific commands.
 It also has a Graphical User Interface created with JavaFX and has a codebase of about 10000 lines of code.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="recruitbook-features"><a class="link" href="#recruitbook-features">RecruitBook features:</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Add Feature</p>
-</li>
-<li>
-<p>Edit Feature</p>
-</li>
-<li>
-<p>Find Feature</p>
-</li>
-<li>
-<p>List Feature</p>
-</li>
-<li>
-<p>Email Feature</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><strong>Link to GitHub</strong>: [<a href="https://github.com/CS2113-AY1819S1-F09-4/main">RecruitBook</a>]</p>
 </div>
 </div>
 </div>
@@ -75,22 +63,49 @@ Enables job agents to record and access required information of companies in Rec
 <div class="ulist">
 <ul>
 <li>
-<p>What it does:
-+ It allows job agents to save relevant information of job offers such as the hiring company, type of job etc.</p>
+<p>What it does:<br>
+It allows job agents to save relevant information of job offers such as the hiring company, type of job etc.</p>
 </li>
 <li>
-<p>Justification:
-+ Enables job agents to record and access required information of job offers in RecruitBook efficiently.</p>
+<p>Justification:<br>
+Enables job agents to record and access required information of job offers in RecruitBook efficiently.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement #1</strong>:<br>
-Added a functionality that allows job agents to delete multiple entries in a single delete command</p>
+<p><strong>Minor enhancement #4</strong>: added a functionality that changes the logic state of LogicManager<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does<br>
+Changes the logic state of LogicManager. Depending on the logic state of LogicManager, RecruitBook executes different commands.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Justification<br>
+Some commands require specific steps to be taken by the user before being able to execute.
+Having a state helps keep track of the users' actions and execute the correct command accordingly.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement #5</strong>: Added a functionality that allows job agents to delete multiple entries in a single delete command<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:<br>
+It allows job agents to specify multiple indexes of candidates/job offers/ companies to delete.</p>
+</li>
+<li>
+<p>Justification:<br>
+Enables job agents to conveniently delete multiple entries with ease</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2113-AY1819S1-F09-4/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Aclosed+assignee%3Asxqnicholas96+">Pull Requests</a>]</p>
 </li>
 </ul>
 </div>
@@ -453,6 +468,42 @@ Format: <code>redo</code></p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="setting-a-password-code-setpw-code"><a class="link" href="#setting-a-password-code-setpw-code">Setting a password : <code>setPW</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>setPW</code></p>
+</div>
+<div class="paragraph">
+<p>You might have seen the below welcome message on your very first login.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SetPasswordWelcomeMessage.png" alt="SetPasswordWelcomeMessage" width="600">
+</div>
+<div class="title">Figure 2. GUI of Welcome Message</div>
+</div>
+<div class="paragraph">
+<p>To help protect your data confidentiality and integrity, you can enter <code>setPW</code> to set/change your password!</p>
+</div>
+<div class="paragraph">
+<p>After entering <code>setPW</code> you will be prompted the following:<br></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>Enter your new password (case-sensitive).</code></strong><br>
+<code>Enter 'cancel' to exit this interface.</code><br></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Enter your new password, reenter your new password when prompted to confirm and you will have successfully set a new password!
+Now whenever you start RecruitBook, your new password is required to verify the user&#8217;s access to your data.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="clearing-all-entries-code-clearc-code-code-clearc-code"><a class="link" href="#clearing-all-entries-code-clearc-code-code-clearc-code">Clearing all entries : <code>clearc</code> <code>clearC</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the Candidate Book.<br>
@@ -482,9 +533,9 @@ Format: <code>clearC</code></p>
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
-<img src="../images/LogicComponentClassDiagram.png" alt="LogicComponentClassDiagram" width="800">
+<img src="../images/LogicComponentClassDiagram.png" alt="LogicComponentClassDiagram" width="1000">
 </div>
-<div class="title">Figure 2. Structure of the Logic Component</div>
+<div class="title">Figure 3. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -505,18 +556,78 @@ Format: <code>clearC</code></p>
 <p>The command execution can affect the <code>Model</code> (e.g. adding a candidate) and/or raise events.</p>
 </li>
 <li>
+<p>The command execution can also affect the LogicState of the LogicManager (e.g. StartAddCandidateCommand, ShortlistCandidateCommand) and raises a ChangeLogicStateEvent.</p>
+</li>
+<li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below in Figure 7 is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below in Figure 7 is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("deletec 1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
+<img src="../images/DeleteCandidateSdForLogic.png" alt="DeleteCandidateSdForLogic" width="800">
 </div>
-<div class="title">Figure 3. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 4. Interactions Inside the Logic Component for the <code>deletec 1</code> Command</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+</div>
+<div class="title">Figure 5. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/recruit/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+</li>
+<li>
+<p>stores the RecruitBook data in <code>VersionedRecruitBook</code>.</p>
+</li>
+<li>
+<p>exposes an unmodifiable lists <code>ObservableList&lt;Candidate&gt;</code>, <code>ObservableList&lt;JobOffer&gt;</code>, <code>ObservableList&lt;Company&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>does not depend on any of the other three components.
++</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">Storage component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
+</div>
+<div class="title">Figure 6. Structure of the Storage Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/recruit/storage/Storage.java"><code>Storage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Storage</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>can save the Recruit Book data in xml format and read it back.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -679,18 +790,49 @@ All addition/deletion of the 3 entities (Candidates, Companies, Job Offers) foll
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>Here is a sequence Diagram to help illustrate the flow of adding an entries.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddSequenceDiagram.png" alt="AddSequenceDiagram" width="800">
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-add-delete-feature-executes"><a class="link" href="#aspect-how-add-delete-feature-executes">Aspect: How add/delete feature executes</a></h5>
-
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-add-delete-feature"><a class="link" href="#aspect-data-structure-to-support-the-add-delete-feature">Aspect: Data structure to support the add/delete feature</a></h5>
 <div class="ulist">
 <ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Start an adding interface. Users can continually add entries for the same object until they enter 'cancel'</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can keep adding multiple entries of the same object without having to entering the <code>addc</code>, <code>addC</code> or `addj.</p>
+</li>
+<li>
+<p>Cons: Not very convenient for user if he/she just needs to add one entry.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Enter command_word and argument</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Adding entries of specific objects is straightforward. Enter the respective command word and the respective details</p>
+</li>
+<li>
+<p>Cons: Entering the command word becomes a hassle when adding a large number of entries
+===== Aspect: Data structure to support the add/delete feature</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> Create a new list object to store objects e.g. <code>UniqueCompanyList</code></p>
 <div class="ulist">
@@ -929,4 +1071,4 @@ If the <code>currentStatePointer</code> is at index <code>recruitBookStateList.s
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:14:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:23:42 UTC</div></div></div></body></html>
