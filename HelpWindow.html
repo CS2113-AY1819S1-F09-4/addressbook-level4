@@ -1355,7 +1355,7 @@ Index must be an index number shown in the displayed list.
 <div class="sect2">
 <h3 id="sending-emails-code-email-code"><a class="link" href="#sending-emails-code-email-code">4.14. Sending emails : <code>email</code></a></h3>
 <div class="paragraph">
-<p>Sends an email to specified candidates about specified job offers OR
+<p>Allows you to send an email to specified candidates about specified job offers OR
 to specified companies about specified candidates that are suitable for specified job offers.<br></p>
 </div>
 <div class="admonitionblock note">
@@ -1372,7 +1372,7 @@ To use another Gmail account, delete <code>tokens</code> folder which is in the 
 program.<br>
 <strong>While the authorisation page is open, RecruitBook will be unresponsive while waiting for an authentication response.<br>
 <em>This also means that if RecruitBook never receives the authentication response, (by closing the authorisation page, or
-not having an internet connection), RecruitBook will stay unresponsive, and the only way out of this is by force closing
+not having an internet connection), RecruitBook will remain to be unresponsive, and the only way out of this is by force closing
 it and reopening RecruitBook.</em><br>
 This is part of Google&#8217;s API</strong>
 </td>
@@ -1400,57 +1400,57 @@ Email process is a 4-stage process. To exit from this process, enter <code>cance
 <p><strong>Initialisation.</strong> Type <code>email</code> and press <kbd>Enter</kbd> to initialise the email command.</p>
 </li>
 <li>
-<p><strong>Choose your recipients.</strong> On the RecruitBook application, what&#8217;s shown on the main window
-will be taken in as the recipients.<br></p>
+<p><strong>Choose your recipients.</strong> On the RecruitBook application, what is shown on the main window will be taken in as recipients.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>You can use commands such as <code>listc</code>, <code>filterc</code> and <code>findc</code> to change the candidate shown.</p>
+<p>You can use <code>switch</code> to switch between candidates and company view.</p>
 </li>
 <li>
-<p>You can also use commands such as <code>listC</code>, <code>findC</code>, <code>filterC</code>, <code>filterj</code> and <code>findj</code> to change the job offer or company shown.</p>
+<p>You can also use commands such as <code>listc</code>, <code>filterc</code> and <code>findc</code> to change the candidates shown.</p>
 </li>
 <li>
-<p>Type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
+<p>You can also use commands such as <code>listC</code>, <code>findC</code>, <code>findj</code>, <code>filterC</code> and <code>filterj</code> to change the job offers or companies shown.</p>
+</li>
+<li>
+<p>Type <code>add</code> to add the recipients. You will be informed of what has been added, and the <code>add</code> command can be used as many times as you want.</p>
+</li>
+<li>
+<p>Once done, you can type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
 </li>
 </ol>
 </div>
 </li>
-</ol>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="3">
 <li>
-<p><strong>Choose your contents.</strong> On the RecruitBook application, what is shown on the main window
-will be taken in as contents.</p>
+<p><strong>Choose your contents.</strong></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Depending on what what were the recipients, contents can only be the contrasting<br>
-eg. If recipients were candidates, only job offers can be the contents and vice versa.</p>
+<p>Depending on what what the recipients are, contents must be contrasting.<br>
+eg. If you picked candidates as the recipients, you can only pick contents to be job offers and vice versa.</p>
 </li>
 <li>
-<p>This is enforced by the program by limiting commands available in contents selection.</p>
+<p>This is enforced by limiting commands available in contents selection.<br>
+eg. If you have picked candidates as the recipients, you are restricted to <code>listC</code>, <code>findC</code>, <code>findj</code>, <code>filterC</code> and <code>filterj</code>. <code>switch</code> is now disabled by default as well.</p>
 </li>
 <li>
-<p>Type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
+<p>Type <code>add</code> to add the contents. You will be informed of what has been added, and the <code>add</code> command can be used as many times as you want.</p>
+</li>
+<li>
+<p>Once done, you can type <code>next</code> and press <kbd>Enter</kbd> to move on to the next step.</p>
 </li>
 </ol>
 </div>
 </li>
-</ol>
-</div>
-<div class="olist arabic">
-<ol class="arabic" start="4">
 <li>
-<p><strong>Sending your email.</strong>  This step is a confirmation step before you actually send the email.</p>
+<p><strong>Sending your email.</strong>  This step is a confirmation step before you send the email.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Type <code>preview</code> and press <kbd>Enter</kbd> to preview your email.</p>
+<p>You can type <code>preview</code> and press <kbd>Enter</kbd> to preview your email. A window will pop up showing the contents of the email.</p>
 </li>
 <li>
-<p>Type <code>send</code> and press <kbd>Enter</kbd> to send the email.</p>
+<p>Type <code>send</code> and press <kbd>Enter</kbd> to send the email. There might be a slight lag while RecruitBook is sending the email(s)! Do not be alarmed.</p>
 </li>
 </ol>
 </div>
@@ -1463,10 +1463,7 @@ eg. If recipients were candidates, only job offers can be the contents and vice 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>back</code> can be used to go back to the previous step.</p>
-</li>
-<li>
-<p><code>cancel</code> can be used to cancel the email command entirely.</p>
+<p>You can type in <code>back</code> to go back to the previous step should you forget to add a certain recipient or content.</p>
 </li>
 <li>
 <p>Adding duplicate candidate/job offers will be caught and will not be double counted.</p>
@@ -1480,8 +1477,8 @@ eg. If recipients were candidates, only job offers can be the contents and vice 
 </ol>
 </div>
 <div class="paragraph">
-<p>You can also change the email subject and email body text in <code>preference.json</code>.<br>
-Restart RecruitBook for changes to take effect.</p>
+<p>You can also change the default email subject and email body text in <code>preference.json</code>.<br>
+<strong>Restart RecruitBook for changes to take effect.</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1812,4 +1809,4 @@ There is no need to save manually.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:25:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:36:19 UTC</div></div></div></body></html>
